@@ -4,11 +4,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private SpriteRenderer spriteRenderer;
+
+    private PlayerInput playerInput;
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void OnEnable()
+    {
+        playerInput = new PlayerInput();
+        playerInput.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerInput.Disable();
     }
 
     void Update()
@@ -18,17 +31,13 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector2 movement = new Vector2(horizontal, vertical);
+        Vector2 movement = playerInput.PlayerOverworld.Movement.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed;
-
-        if (horizontal < 0)
+        if (movement.x < 0)
         {
             spriteRenderer.flipX = true;
         }
-        else if (horizontal > 0)
+        else if (movement.x > 0)
         {
             spriteRenderer.flipX = false;
         }
