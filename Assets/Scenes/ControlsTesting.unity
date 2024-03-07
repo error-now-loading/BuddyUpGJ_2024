@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 863548859}
   - component: {fileID: 863548860}
   - component: {fileID: 863548861}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NearRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 917143737}
   - component: {fileID: 917143739}
   - component: {fileID: 917143738}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CursorRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1108,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMat: {fileID: 2100000, guid: d79349eae57863c4abc30571a46ee1b6, type: 2}
+  outlineHoverMat: {fileID: 2100000, guid: fdab059a8492e8146825ce25887cc2ae, type: 2}
 --- !u!1 &1065148673
 GameObject:
   m_ObjectHideFlags: 0
