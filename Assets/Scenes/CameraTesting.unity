@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 257364931}
   - component: {fileID: 257364930}
   m_Layer: 5
-  m_Name: RawImage (1)
+  m_Name: Mush 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1365,8 +1365,9 @@ GameObject:
   - component: {fileID: 1315531043}
   - component: {fileID: 1315531045}
   - component: {fileID: 1315531044}
+  - component: {fileID: 1315531046}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Red Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,8 +1393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 77.0007, y: 28.8823}
-  m_SizeDelta: {x: 125.1917, y: 36.4985}
+  m_AnchoredPosition: {x: 85, y: 35}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315531044
 MonoBehaviour:
@@ -1430,6 +1431,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315531042}
   m_CullTransparentMesh: 1
+--- !u!114 &1315531046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315531042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba458ee23a64c44cb91f997496d2d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mushrooms:
+  - {fileID: 1944048573}
+  - {fileID: 257364928}
+  - {fileID: 2118929223}
+  mushroomSelectorIndicator: {fileID: 1397387228}
 --- !u!1 &1397387228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1460,7 @@ GameObject:
   - component: {fileID: 1397387231}
   - component: {fileID: 1397387230}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Select Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1465,7 +1483,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 36.4985, y: 36.4985}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397387230
 MonoBehaviour:
@@ -1811,7 +1829,7 @@ GameObject:
   - component: {fileID: 1944048576}
   - component: {fileID: 1944048575}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Mush 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
+  m_AnchoredPosition: {x: -50, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944048575
@@ -1884,7 +1902,7 @@ GameObject:
   - component: {fileID: 2118929226}
   - component: {fileID: 2118929225}
   m_Layer: 5
-  m_Name: RawImage (2)
+  m_Name: Mush 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1907,7 +1925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118929225
