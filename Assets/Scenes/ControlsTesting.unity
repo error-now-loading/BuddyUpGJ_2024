@@ -496,6 +496,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &829316611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8867319239503307736, guid: b091c1241ddcf484c9364f4fe7666c6b, type: 3}
+  m_PrefabInstance: {fileID: 1932717483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e110dc396f6c2e49b96e535204208da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &874423218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,6 +645,17 @@ PolygonCollider2D:
       - {x: 10, y: -10}
       - {x: 10, y: 10}
   m_UseDelaunayMesh: 0
+--- !u!114 &986169514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5507787055555442237, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+  m_PrefabInstance: {fileID: 2447056098843907134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e110dc396f6c2e49b96e535204208da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065148673
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +744,17 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 923634965}
   m_Damping: 0.5
   m_MaxWindowSize: -1
+--- !u!114 &1432265432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5536305203217522253, guid: 420f69aa702f0a84ea228400bd97b751, type: 3}
+  m_PrefabInstance: {fileID: 874423218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e110dc396f6c2e49b96e535204208da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653002002
 GameObject:
   m_ObjectHideFlags: 3
@@ -998,6 +1031,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPrototype
       objectReference: {fileID: 0}
+    - target: {fileID: 5546224528451661225, guid: dd59a344cecb6c646985d610cbc34876, type: 3}
+      propertyPath: minions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546224528451661225, guid: dd59a344cecb6c646985d610cbc34876, type: 3}
+      propertyPath: minions.Array.data[0]
+      value: 
+      objectReference: {fileID: 986169514}
+    - target: {fileID: 5546224528451661225, guid: dd59a344cecb6c646985d610cbc34876, type: 3}
+      propertyPath: minions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1432265432}
+    - target: {fileID: 5546224528451661225, guid: dd59a344cecb6c646985d610cbc34876, type: 3}
+      propertyPath: minions.Array.data[2]
+      value: 
+      objectReference: {fileID: 829316611}
     - target: {fileID: 8067105124841415229, guid: dd59a344cecb6c646985d610cbc34876, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1048,8 +1097,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 388299901}
-  - {fileID: 9175590697380003104}
   - {fileID: 599414719}
+  - {fileID: 9175590697380003104}
   - {fileID: 1172270560351142021}
   - {fileID: 2447056098843907134}
   - {fileID: 874423218}

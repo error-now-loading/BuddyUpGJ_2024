@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+
+    public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
 
     void Start()
     {
@@ -27,6 +31,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        UpdateDestinationFollow();
+    }
+
+    private void UpdateDestinationFollow()
+    {
+        for (int i = 0; i < minions.Count; i++)
+        {
+            minions[i].SetDestination(transform.position + new Vector3(i * -0.5f - 0.5f, 0,0));
+        }
     }
 
     void MovePlayer()
