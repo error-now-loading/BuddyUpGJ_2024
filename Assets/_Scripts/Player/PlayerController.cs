@@ -1,20 +1,18 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(NutrientHandler))]
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float interactDistance = 0.75f;
     [SerializeField] private SpriteRenderer spriteRenderer = null;
-    [SerializeField] private NutrientHandler nutrientHandler = null;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+    private Interactable closestInteractable;
 
-    public event Action<int> OnNutrientValueChange;
     public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
 
     private void Awake()
@@ -66,32 +64,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnInteract(InputAction.CallbackContext ctx)
     {
-        RaycastHit2D hit;
-        if (spriteRenderer.flipX == true)
-        {
-            hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.right, -interactDistance);
-        }
-        else
-        {
-            hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.right, interactDistance);
-        }
-
-        if (hit.collider != null)
-        {
-            // TODO: Replace with layer enum check?
-            if (hit.collider.gameObject.tag == "Decomposer")
-            {
-                NutrientHandler otherHandler;
-                if (hit.collider.gameObject.TryGetComponent(out otherHandler))
-                {
-                    otherHandler.TransferNutrients(nutrientHandler);
-
-                    OnNutrientValueChange?.Invoke(nutrientHandler.nutrients);
-                }
-            }
-        }
+        closestInteractable?.NearInteraction();
     }
-
+    public void SetClosestNearInteractable(Interactable interactable)
+    {
+        closestInteractable = interactable;
+    }
     private void OnSpellCast(InputAction.CallbackContext ctx)
     {
         // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST

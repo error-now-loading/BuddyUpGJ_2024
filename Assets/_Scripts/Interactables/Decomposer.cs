@@ -4,16 +4,15 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(NutrientHandler))]
-public class Decomposer : MonoBehaviour
+public class Decomposer : Interactable
 {
-    [SerializeField] private NutrientHandler handler = null;
-    [SerializeField] private List<Decomposable> decomposables = null;
+    private NutrientHandler handler = null;
+    private List<Decomposable> decomposables = null;
     private bool isDecomposing = false;
-
-
 
     private void Awake()
     {
+        handler = GetComponent<NutrientHandler>();
         decomposables = new List<Decomposable>();
     }
 
@@ -57,5 +56,11 @@ public class Decomposer : MonoBehaviour
         {
             AddDecomposable(decomposable);
         }
+    }
+    protected override void Interact()
+    {
+        NutrientHandler playerNutrients = playerReference.gameObject.GetComponent<NutrientHandler>();
+        handler.TransferNutrients(playerNutrients);
+        playerNutrients.PlayerNutrientRefillEvent();
     }
 }

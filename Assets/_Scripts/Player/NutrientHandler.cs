@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -6,8 +7,7 @@ public class NutrientHandler : MonoBehaviour
     [SerializeField] private int maxNutrients = 3500;
     [SerializeField] private int _nutrients = 100;
     public int nutrients => _nutrients;
-
-
+    public event Action<int> OnNutrientValueChange;
 
     public void AddNutrients(int argValue)
     {
@@ -49,5 +49,9 @@ public class NutrientHandler : MonoBehaviour
             other.AddNutrients(availableSpace);
             SpendNutrients(availableSpace);
         }
+    }
+    public void PlayerNutrientRefillEvent()
+    {
+        OnNutrientValueChange?.Invoke(nutrients);
     }
 }

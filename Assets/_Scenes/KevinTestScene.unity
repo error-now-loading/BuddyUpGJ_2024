@@ -356,7 +356,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -99
   m_Sprite: {fileID: 21300000, guid: ffabbcc6aae5ebf47bbf27d37549f4c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 688335113}
   - component: {fileID: 688335112}
   - component: {fileID: 688335114}
+  - component: {fileID: 688335115}
   m_Layer: 0
   m_Name: TEST DECOMPOSER
   m_TagString: Decomposer
@@ -717,7 +718,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -768,8 +769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c807b9d08189e48a584187eeb2e8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler: {fileID: 688335112}
-  decomposables: []
+  cursorRange: 0
+  outliner: {fileID: 688335115}
 --- !u!58 &688335114
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -805,6 +806,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &688335115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688335109}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece3b44b1dbaa4a47bcd5affc1cc334c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMat: {fileID: 2100000, guid: d79349eae57863c4abc30571a46ee1b6, type: 2}
+  outlineHoverMat: {fileID: 0}
 --- !u!1 &923634963
 GameObject:
   m_ObjectHideFlags: 0
