@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Interactable closestInteractable;
 
     public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
+    [SerializeField] private Transform[] minionFollowPoints;
 
     private void Awake()
     {
@@ -48,18 +49,18 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * moveSpeed;
         if (movement.x < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (movement.x > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = Vector3.one;
         }
     }
     private void UpdateDestinationFollow()
     {
         for (int i = 0; i < minions.Count; i++)
         {
-            minions[i].SetDestination(transform.position + new Vector3(i * -0.5f - 0.5f, 0, 0));
+            minions[i].SetDestination(minionFollowPoints[i].transform.position);
         }
     }
     private void OnInteract(InputAction.CallbackContext ctx)
