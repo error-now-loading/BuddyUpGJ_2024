@@ -29,4 +29,25 @@ public class NutrientHandler : MonoBehaviour
         _nutrients -= argValue;
         return true;
     }
+
+    public int GetAvailableSpace()
+    {
+        return maxNutrients - _nutrients;
+    }
+
+    public void TransferNutrients(NutrientHandler other)
+    {
+        int availableSpace = other.GetAvailableSpace();
+        if (_nutrients <= availableSpace)
+        {
+            other.AddNutrients(_nutrients);
+            SpendNutrients(_nutrients);
+        }
+
+        else if (_nutrients > availableSpace)
+        {
+            other.AddNutrients(availableSpace);
+            SpendNutrients(availableSpace);
+        }
+    }
 }
