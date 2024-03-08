@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,10 +15,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public event Action<int> OnNutrientValueChange;
+    public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
 
-
-
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        UpdateDestinationFollow();
     }
 
     private void MovePlayer()
@@ -55,7 +57,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
-
+    private void UpdateDestinationFollow()
+    {
+        for (int i = 0; i < minions.Count; i++)
+        {
+            minions[i].SetDestination(transform.position + new Vector3(i * -0.5f - 0.5f, 0, 0));
+        }
+    }
     private void OnInteract(InputAction.CallbackContext ctx)
     {
         RaycastHit2D hit;

@@ -195,8 +195,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8067105124841415229}
-  - component: {fileID: 5546224528451661225}
   - component: {fileID: 124561228974549959}
+  - component: {fileID: 3096453865774465157}
+  - component: {fileID: 7570550192328548583}
   m_Layer: 0
   m_Name: PlayerPrototype
   m_TagString: Untagged
@@ -222,20 +223,6 @@ Transform:
   - {fileID: 4820220592059726050}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5546224528451661225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767782137763750052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 040350bdb445e7a4b8907983c3571244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  spriteRenderer: {fileID: 487171454309144966}
 --- !u!50 &124561228974549959
 Rigidbody2D:
   serializedVersion: 4
@@ -263,6 +250,36 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3096453865774465157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767782137763750052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fb84c75b760a840bad11b2678d9c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNutrients: 3500
+  _nutrients: 100
+--- !u!114 &7570550192328548583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767782137763750052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76f3004ae61df54392b935c4b41f1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  interactDistance: 0.75
+  spriteRenderer: {fileID: 487171454309144966}
+  nutrientHandler: {fileID: 3096453865774465157}
 --- !u!1 &5626932399983444953
 GameObject:
   m_ObjectHideFlags: 0
