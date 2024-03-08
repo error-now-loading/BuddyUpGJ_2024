@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+
+    public event Action<int> OnNutrientValueChange;
 
 
 
@@ -24,11 +27,13 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerOverworld.Enable();
 
         playerInput.PlayerOverworld.Interact.performed += OnInteract;
+        playerInput.PlayerOverworld.CastSpell.performed += OnSpellCast;
     }
 
     private void OnDisable()
     {
         playerInput.PlayerOverworld.Interact.performed -= OnInteract;
+        playerInput.PlayerOverworld.CastSpell.performed -= OnSpellCast;
         playerInput.Disable();
     }
 
@@ -72,8 +77,15 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent(out otherHandler))
                 {
                     otherHandler.TransferNutrients(nutrientHandler);
+
+                    OnNutrientValueChange?.Invoke(nutrientHandler.nutrients);
                 }
             }
         }
+    }
+
+    private void OnSpellCast(InputAction.CallbackContext ctx)
+    {
+        // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
     }
 }
