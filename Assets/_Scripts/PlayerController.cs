@@ -35,15 +35,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-
-        if (spriteRenderer.flipX == true)
-        {
-            Debug.DrawRay(gameObject.transform.position, gameObject.transform.right * -interactDistance, Color.red);
-        }
-        else
-        {
-            Debug.DrawRay(gameObject.transform.position, gameObject.transform.right * interactDistance, Color.red);
-        }
     }
 
     private void MovePlayer()
@@ -74,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
+            // TODO: Replace with layer enum check?
             if (hit.collider.gameObject.tag == "Decomposer")
             {
                 NutrientHandler otherHandler;
