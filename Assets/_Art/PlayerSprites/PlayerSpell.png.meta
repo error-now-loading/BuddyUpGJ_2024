@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PlayerSpell_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98801efe117c68e4e89320e359120b01
+      internalID: 1479005255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_1
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1000
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f979407206baf488985d273de8aa07
+      internalID: -157731425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_2
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1000
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55abd0d1f972bf14c839f80d1c799b61
+      internalID: 341814771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_3
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 1000
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbddf7ecb0d20634492aaac0432ee433
+      internalID: 1122700548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_4
+      rect:
+        serializedVersion: 2
+        x: 2900
+        y: 1000
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27abca575b640ab458c71c1e31eb88b8
+      internalID: -1640450835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d1f50ba4286ff4396186eb9016f85e
+      internalID: -1269113224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_6
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ffe7919b5730949834dade8d61c353
+      internalID: -1670333991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpell_7
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 0
+        width: 725
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a6f446ab138db459f4c96284ca2b9c
+      internalID: 1632107460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -105,8 +273,18 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
-    nameFileIdTable: {}
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: fcbc9b47b93931547bd0fe47df557e35, type: 3}
+      name: _Emission
+    nameFileIdTable:
+      PlayerSpell_0: 1479005255
+      PlayerSpell_1: -157731425
+      PlayerSpell_2: 341814771
+      PlayerSpell_3: 1122700548
+      PlayerSpell_4: -1640450835
+      PlayerSpell_5: -1269113224
+      PlayerSpell_6: -1670333991
+      PlayerSpell_7: 1632107460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
