@@ -423,10 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   spriteRenderer: {fileID: 487171454309144966}
-  minions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  minions: []
   minionFollowPoints:
   - {fileID: 7189245585692024491}
   - {fileID: 7384256402820746747}
