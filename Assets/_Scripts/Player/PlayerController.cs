@@ -1,19 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
+using System;
 
 [RequireComponent(typeof(NutrientHandler))]
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private Transform[] minionFollowPoints;
+    [SerializeField] private float castingDuration = 1f;
+    [SerializeField] private float commandDuration = 1f;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
     private Interactable closestInteractable;
 
     public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
+
+    private bool isBusy;
+    private Coroutine waitingTimerCoroutine;
+
+    public bool isCommanding { private set; get; }  //For Anims
+    public bool isCasting { private set; get; }     //For Anims
+    public event Action onRepeatCommand;     //For Anim Repeat
 
     private void Awake()
     {
@@ -38,7 +49,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (!isBusy)
+        {
+            MovePlayer();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
         UpdateDestinationFollow();
     }
 
@@ -48,18 +66,18 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * moveSpeed;
         if (movement.x < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (movement.x > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = Vector3.one;
         }
     }
     private void UpdateDestinationFollow()
     {
         for (int i = 0; i < minions.Count; i++)
         {
-            minions[i].SetDestination(transform.position + new Vector3(i * -0.5f - 0.5f, 0, 0));
+            minions[i].SetDestination(minionFollowPoints[i].transform.position);
         }
     }
     private void OnInteract(InputAction.CallbackContext ctx)
@@ -72,6 +90,63 @@ public class PlayerController : MonoBehaviour
     }
     private void OnSpellCast(InputAction.CallbackContext ctx)
     {
-        // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
+        if (!isBusy)
+        {
+            // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
+            isCasting = true;
+
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = cursorPosition - transform.position;
+            if (direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (direction.x > 0)
+            {
+                transform.localScale = Vector3.one;
+            }
+
+            BusyForSeconds(castingDuration);
+        }
+    }
+    public void Command(Interactable interactable)
+    {
+        // TODO: ADD LOGIC FOR COMMAND MUSHROOM
+        if (isCommanding)
+        {
+            onRepeatCommand?.Invoke();
+        }
+        isCommanding = true;
+
+        Vector3 direction = interactable.transform.position - transform.position;
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
+
+        BusyForSeconds(commandDuration);
+    }
+    private void BusyForSeconds(float seconds)
+    {
+        isBusy = true;
+        StopCoroutine("WaitingTimer");
+        if (waitingTimerCoroutine != null)
+        {
+            StopCoroutine(waitingTimerCoroutine);
+        }
+        waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
+
+    }
+    IEnumerator WaitingTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isBusy = false;
+        isCasting = false;
+        isCommanding = false;
+        waitingTimerCoroutine = null;
     }
 }

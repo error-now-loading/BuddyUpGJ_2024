@@ -61,6 +61,7 @@ public class Interactable : MonoBehaviour
         if (cursorRange && interactable)
         {
             Interact();
+            playerReference.Command(this);
         }
     }
     public void NearInteraction()
