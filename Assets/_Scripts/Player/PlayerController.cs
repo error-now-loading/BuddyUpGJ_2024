@@ -1,20 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 [RequireComponent(typeof(NutrientHandler))]
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private Transform[] minionFollowPoints;
+    [SerializeField] private float castingDuration = 1f;
+    [SerializeField] private float commandDuration = 1f;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
     private Interactable closestInteractable;
 
     public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
-    [SerializeField] private Transform[] minionFollowPoints;
+
+    private bool isBusy;
+
+    public bool isCommanding { private set; get; }  //For Anims
+    public bool isCasting { private set; get; }     //For Anims
 
     private void Awake()
     {
@@ -39,7 +46,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (!isBusy)
+        {
+            MovePlayer();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
         UpdateDestinationFollow();
     }
 
@@ -73,6 +87,30 @@ public class PlayerController : MonoBehaviour
     }
     private void OnSpellCast(InputAction.CallbackContext ctx)
     {
-        // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
+        if (!isBusy)
+        {
+            // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
+            isCasting = true;
+            BusyForSeconds(castingDuration);
+        }
+    }
+    public void Command(Interactable interactable)
+    {
+        // TODO: ADD LOGIC FOR COMMAND MUSHROOM
+        isCommanding = true;
+        BusyForSeconds(commandDuration);
+    }
+    private void BusyForSeconds(float seconds)
+    {
+        isBusy = true;
+        StopCoroutine("WaitingTimer");
+        StartCoroutine(WaitingTimer(seconds));
+    }
+    IEnumerator WaitingTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isBusy = false;
+        isCasting = false;
+        isCommanding = false;
     }
 }

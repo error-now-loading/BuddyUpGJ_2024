@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 5821326158093436609}
   - component: {fileID: 487171454309144966}
   - component: {fileID: 5352112159980894785}
+  - component: {fileID: 344709101732461010}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -268,6 +269,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &344709101732461010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156029937880705687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d6d56931bf3eb47bc9ec072696f44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7570550192328548583}
+  rb: {fileID: 124561228974549959}
 --- !u!1 &1602155275431667055
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,8 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  spriteRenderer: {fileID: 487171454309144966}
-  minions: []
   minionFollowPoints:
   - {fileID: 7189245585692024491}
   - {fileID: 7384256402820746747}
@@ -445,6 +458,9 @@ MonoBehaviour:
   - {fileID: 149378669222762213}
   - {fileID: 2568268422460053316}
   - {fileID: 5115166767107290131}
+  castingDuration: 1
+  commandDuration: 1
+  minions: []
 --- !u!1 &2905342490963250886
 GameObject:
   m_ObjectHideFlags: 0

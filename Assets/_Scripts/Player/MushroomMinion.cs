@@ -3,7 +3,7 @@ using UnityEngine;
 public class MushroomMinion : MonoBehaviour
 {
     [SerializeField] private MushroomTypeSO mushroomType;
-    [SerializeField] private float maxHP = 100f;
+    //[SerializeField] private float maxHP = 100f;
     [SerializeField] private float moveSpeed = 10f;
 
     private bool standing = false; //Should be true, testing
