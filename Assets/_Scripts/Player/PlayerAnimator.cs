@@ -11,7 +11,14 @@ public class PlayerAnimator : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        player.onRepeatCommand += Player_onRepeatCommand;
     }
+
+    private void Player_onRepeatCommand()
+    {
+        animator.SetTrigger("commandRepeat");
+    }
+
     void Update()
     {
         animator.SetFloat("playerSpeed",rb.velocity.magnitude);

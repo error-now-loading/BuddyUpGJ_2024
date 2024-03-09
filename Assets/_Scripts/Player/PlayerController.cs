@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(NutrientHandler))]
 
@@ -19,9 +20,11 @@ public class PlayerController : MonoBehaviour
     public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
 
     private bool isBusy;
+    private Coroutine waitingTimerCoroutine;
 
     public bool isCommanding { private set; get; }  //For Anims
     public bool isCasting { private set; get; }     //For Anims
+    public event Action onRepeatCommand;     //For Anim Repeat
 
     private void Awake()
     {
@@ -97,20 +100,42 @@ public class PlayerController : MonoBehaviour
     public void Command(Interactable interactable)
     {
         // TODO: ADD LOGIC FOR COMMAND MUSHROOM
+        if (isCommanding)
+        {
+            onRepeatCommand?.Invoke();
+        }
         isCommanding = true;
+
+        Vector3 direction = interactable.transform.position - transform.position;
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
+
         BusyForSeconds(commandDuration);
     }
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
         StopCoroutine("WaitingTimer");
-        StartCoroutine(WaitingTimer(seconds));
+        if (waitingTimerCoroutine != null)
+        {
+            StopCoroutine(waitingTimerCoroutine);
+        }
+        waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
+
     }
     IEnumerator WaitingTimer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        Debug.Log("Stop");
         isBusy = false;
         isCasting = false;
         isCommanding = false;
+        waitingTimerCoroutine = null;
     }
 }
