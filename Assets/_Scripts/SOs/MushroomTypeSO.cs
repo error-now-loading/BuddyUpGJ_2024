@@ -4,6 +4,7 @@ using UnityEngine;
 public class MushroomTypeSO : ScriptableObject
 {
     public MushroomTypes type;
+    public MushroomMinion minionPrefab;
     public float attackEfficiency = 1;
     public float transportEfficiency = 1;
     public float decomposeEfficiency = 1;

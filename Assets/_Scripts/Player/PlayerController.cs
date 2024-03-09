@@ -17,14 +17,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Interactable closestInteractable;
 
-    public List<MushroomMinion> minions = new List<MushroomMinion>(); //Temp public for testing
-
+    private List<MushroomMinion> minions = new List<MushroomMinion>();
+    [SerializeField] private MushroomTypeSO selectedMushroomType;   //Serialize for now testing
+    [SerializeField] private SpellTypeSO selectedSpellType;         //Serialize for now testing
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
     public bool isCommanding { private set; get; }  //For Anims
     public bool isCasting { private set; get; }     //For Anims
-    public event Action onRepeatCommand;     //For Anim Repeat
+    public event Action onRepeatCommand;            //For Anim Repeat
 
     private void Awake()
     {
