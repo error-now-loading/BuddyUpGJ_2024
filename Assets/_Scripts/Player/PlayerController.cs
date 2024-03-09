@@ -94,6 +94,18 @@ public class PlayerController : MonoBehaviour
         {
             // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
             isCasting = true;
+
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = cursorPosition - transform.position;
+            if (direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (direction.x > 0)
+            {
+                transform.localScale = Vector3.one;
+            }
+
             BusyForSeconds(castingDuration);
         }
     }
