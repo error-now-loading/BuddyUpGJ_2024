@@ -460,7 +460,8 @@ MonoBehaviour:
   - {fileID: 5115166767107290131}
   castingDuration: 1
   commandDuration: 1
-  minions: []
+  selectedMushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
+  selectedSpellType: {fileID: 11400000, guid: 39a3086ef49eb6f4aada0057f426eb92, type: 2}
 --- !u!1 &2905342490963250886
 GameObject:
   m_ObjectHideFlags: 0

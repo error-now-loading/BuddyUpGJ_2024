@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.localScale = Vector3.one;
             }
-
+            Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x,cursorPosition.y, 0), Quaternion.identity);
             BusyForSeconds(castingDuration);
         }
     }
