@@ -132,7 +132,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator WaitingTimer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        Debug.Log("Stop");
         isBusy = false;
         isCasting = false;
         isCommanding = false;
