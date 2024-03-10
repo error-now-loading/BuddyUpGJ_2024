@@ -1,14 +1,18 @@
+using System;
 using UnityEngine;
 
 public class MushroomMinion : MonoBehaviour
 {
     [SerializeField] private MushroomTypeSO mushroomType;
-    //[SerializeField] private float maxHP = 100f;
+    [SerializeField] private float maxHP = 100f;
     [SerializeField] private float moveSpeed = 10f;
 
     private bool standing = false; //Should be true, testing
     private Vector2 destination;
     private Rigidbody2D rb;
+    public bool isDed { private set; get; }         //For Anims
+    public bool isCarrying { private set; get; }    //For Anims
+    public event Action onAttack;                   //For Anims
 
     void Start()
     {

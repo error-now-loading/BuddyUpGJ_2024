@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5725384196120539354}
   - component: {fileID: 2898130227480003142}
   - component: {fileID: 482166420889084541}
+  - component: {fileID: 3210301204007954166}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3210301204007954166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256429504286081263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2372e741825cb0747a232388d45dd163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minion: {fileID: 5507787055555442237}
+  rb: {fileID: 2429787945478081942}
 --- !u!1 &3561714687845895022
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
+  maxHP: 100
   moveSpeed: 4
 --- !u!50 &2429787945478081942
 Rigidbody2D:
