@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2898130227480003142}
   - component: {fileID: 482166420889084541}
   - component: {fileID: 3210301204007954166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 5507787055555442237}
   - component: {fileID: 2429787945478081942}
   - component: {fileID: 7417674395140301183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MushroomTroopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
-  maxHP: 100
+  health: 100
   moveSpeed: 4
 --- !u!50 &2429787945478081942
 Rigidbody2D:
