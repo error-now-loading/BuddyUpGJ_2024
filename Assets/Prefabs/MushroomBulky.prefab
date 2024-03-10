@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: mushroomType
       value: 
       objectReference: {fileID: 11400000, guid: 5b963b691f6416643a9f49664f57d091, type: 2}
+    - target: {fileID: 8781322614387124141, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
