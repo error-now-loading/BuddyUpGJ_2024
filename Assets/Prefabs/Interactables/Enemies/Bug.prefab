@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2060106380226750505}
   - component: {fileID: 8516235066713352179}
-  - component: {fileID: 4336907650830909963}
-  m_Layer: 0
+  - component: {fileID: 6675709381498705417}
+  m_Layer: 8
   m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorRange: 1
   outliner: {fileID: 8723077520474814327}
---- !u!58 &4336907650830909963
-CircleCollider2D:
+--- !u!70 &6675709381498705417
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -81,8 +81,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 0.3}
+  m_Direction: 1
 --- !u!1 &4909591646842354655
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8630232403345190401}
   - component: {fileID: 8723077520474814327}
   - component: {fileID: 1067114536020256965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
