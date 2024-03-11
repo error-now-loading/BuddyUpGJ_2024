@@ -19,7 +19,7 @@ public class MinionAnimator : MonoBehaviour
         animator.SetTrigger("onAttack");
     }
 
-    void Update()
+    void LateUpdate()
     {
         animator.SetFloat("speed", rb.velocity.magnitude);
         animator.SetBool("isCarrying", minion.isCarrying);

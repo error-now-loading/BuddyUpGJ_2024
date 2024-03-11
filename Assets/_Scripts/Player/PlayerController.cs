@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         playerInput.Disable();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!isBusy)
         {
