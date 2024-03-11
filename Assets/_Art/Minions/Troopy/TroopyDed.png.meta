@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58e43a13edc534b47852dfbe18295fba
+guid: 7dca3ee19fb93e24fa4d31fac93404d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TroopyCarry_0
+      name: TroopyDed_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed82f87631a349e4480d405507df05f1
-      internalID: -891749983
+      spriteID: e528fda4e7619a440a072b1da2aeff8e
+      internalID: -1555143502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_1
+      name: TroopyDed_1
       rect:
         serializedVersion: 2
         x: 800
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9b633999a10314f93d4df2f998faff
-      internalID: 1234145174
+      spriteID: 65b3feaed20e1af4da11c082c3656eb9
+      internalID: 1371158670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_2
+      name: TroopyDed_2
       rect:
         serializedVersion: 2
         x: 1600
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87fd4075aa22f34988933916c1cefd9
-      internalID: -1715035331
+      spriteID: bcf9b59ae3e958044b2873d62b69f589
+      internalID: -799247033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_3
+      name: TroopyDed_3
       rect:
         serializedVersion: 2
         x: 2400
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f739a957cedf2e043a460ca31dcd456d
-      internalID: 827850273
+      spriteID: f343737f207b4c14f8eb7a1b53adb695
+      internalID: 1148545919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_4
+      name: TroopyDed_4
       rect:
         serializedVersion: 2
         x: 3200
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9599907963e189a44bc243925bdab938
-      internalID: -249196174
+      spriteID: 8b61514d808776d43a4319e937cbf08f
+      internalID: 137477348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_5
+      name: TroopyDed_5
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05b487035ff3c7443bdd752808dde933
-      internalID: -932451862
+      spriteID: 375106a0231a935478028bbea3d88447
+      internalID: -950110764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_6
+      name: TroopyDed_6
       rect:
         serializedVersion: 2
         x: 800
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9daa48694ee73cd4db5749abde7d37b2
-      internalID: 1440615037
+      spriteID: fb4373b3286bb434985b29745a205913
+      internalID: 2028156353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_7
+      name: TroopyDed_7
       rect:
         serializedVersion: 2
         x: 1600
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29476617aba1ac74a847703b3993b1fa
-      internalID: -315210815
+      spriteID: 038a4c977b6ed764e9dfda402a0f2a6e
+      internalID: 1213110371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_8
+      name: TroopyDed_8
       rect:
         serializedVersion: 2
         x: 2400
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3974bf98f0c7c547bea20e1623dea28
-      internalID: 1914513937
+      spriteID: 27e693c8acd18ba49bd842c01b50c437
+      internalID: 61640020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_9
+      name: TroopyDed_9
       rect:
         serializedVersion: 2
         x: 3200
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f80a00838747c3d4292dbe2217bd0d3f
-      internalID: 1341441656
+      spriteID: ba94750045ab2384d9878512f007e0e9
+      internalID: -1533425995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_10
+      name: TroopyDed_10
       rect:
         serializedVersion: 2
         x: 0
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db0902c024709c143b46003cabf2ef7c
-      internalID: -1476391418
+      spriteID: 1d21a64e3911cf043b3883862bc07a77
+      internalID: -701012237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TroopyCarry_11
+      name: TroopyDed_11
       rect:
         serializedVersion: 2
         x: 800
@@ -342,8 +342,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a76ca1f04861a74a8c2c626a1dd1d8d
-      internalID: 392503905
+      spriteID: cb8477a1193ca814196501e6cfbf1ff0
+      internalID: -725385036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TroopyDed_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 700
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83189a8690857e142ae6fc77be58f8c1
+      internalID: -1214909224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TroopyDed_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 700
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0e1a3e6da3739429bfddb9d187dbb8
+      internalID: 271775517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TroopyDed_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 700
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02ba5addc62b6b458dea55c474436bf
+      internalID: 320113542
       vertices: []
       indices: 
       edges: []
@@ -357,20 +420,25 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 2ef3b91392fa9d343a1e6782bb7cb1ea, type: 3}
+      name: _Emission
     nameFileIdTable:
-      TroopyCarry_0: -891749983
-      TroopyCarry_1: 1234145174
-      TroopyCarry_10: -1476391418
-      TroopyCarry_11: 392503905
-      TroopyCarry_2: -1715035331
-      TroopyCarry_3: 827850273
-      TroopyCarry_4: -249196174
-      TroopyCarry_5: -932451862
-      TroopyCarry_6: 1440615037
-      TroopyCarry_7: -315210815
-      TroopyCarry_8: 1914513937
-      TroopyCarry_9: 1341441656
+      TroopyDed_0: -1555143502
+      TroopyDed_1: 1371158670
+      TroopyDed_10: -701012237
+      TroopyDed_11: -725385036
+      TroopyDed_12: -1214909224
+      TroopyDed_13: 271775517
+      TroopyDed_14: 320113542
+      TroopyDed_2: -799247033
+      TroopyDed_3: 1148545919
+      TroopyDed_4: 137477348
+      TroopyDed_5: -950110764
+      TroopyDed_6: 2028156353
+      TroopyDed_7: 1213110371
+      TroopyDed_8: 61640020
+      TroopyDed_9: -1533425995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

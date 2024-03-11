@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c0f09f547cc41f4c9e820cde2e042ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6a92f72020e3eb428d05c3db364435c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 3256429504286081263}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6ad8d50b88a216438ce71a477bfa5bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -171,6 +171,8 @@ MonoBehaviour:
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
   health: 100
   moveSpeed: 4
+  attackDuration: 1
+  getDuration: 1
 --- !u!50 &2429787945478081942
 Rigidbody2D:
   serializedVersion: 4
