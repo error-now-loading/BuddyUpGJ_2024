@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 765db0cc848b0944f89546f235b578c6
+guid: 2f8b8a1a1917adc469eed588fbb33865
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,400 +97,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GhostyDed_0
+      name: GhostyDed_Emission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b683fa51cc66bf545990bf2a637262d1
-      internalID: -1863412068
+      spriteID: 0a7c01e4c0c94274fa9cd06e4b278a05
+      internalID: 1493609283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_1
+      name: GhostyDed_Emission_1
       rect:
         serializedVersion: 2
         x: 800
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882f3d30048360f4f8713c9f6f5cf1d9
-      internalID: 761841709
+      spriteID: 261fcb6f75e4029498bca03a65bf9088
+      internalID: -1825259114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_2
+      name: GhostyDed_Emission_2
       rect:
         serializedVersion: 2
         x: 1600
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918ef2f6edc097841aaad159b43c12dc
-      internalID: -1200129235
+      spriteID: 9bd4f721ab1b7d34b9ce91eb3f6f8741
+      internalID: 607369691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_3
+      name: GhostyDed_Emission_3
       rect:
         serializedVersion: 2
         x: 2400
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3736e23c30e6ec479ac760894ccc47f
-      internalID: -701500814
+      spriteID: 5ac730346921c56468726f3b0ef2b5fe
+      internalID: 1623050697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_4
+      name: GhostyDed_Emission_4
       rect:
         serializedVersion: 2
         x: 3200
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17058dc9de97b2e4291cb960b6bee200
-      internalID: -748549263
+      spriteID: a51b1819f14b8a54ead31592a011a045
+      internalID: -1899218735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_5
+      name: GhostyDed_Emission_5
       rect:
         serializedVersion: 2
         x: 0
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 985743b3aabfd264d9c9482929f5a0a9
-      internalID: 1331535972
+      spriteID: c3581f17ddb831a4c96da66826c5256f
+      internalID: 1171141487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_6
+      name: GhostyDed_Emission_6
       rect:
         serializedVersion: 2
         x: 800
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca41fb3994b78de4982cd992a03a88be
-      internalID: 281588498
+      spriteID: df2ce211e48cf8f4bb1526d4f38a2348
+      internalID: 503002351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_7
+      name: GhostyDed_Emission_7
       rect:
         serializedVersion: 2
         x: 1600
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04c5d9be9bd1c114691cad1aecc64c19
-      internalID: 260584025
+      spriteID: c59f6691bacde4f4981f01b34683370f
+      internalID: 345805646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_8
+      name: GhostyDed_Emission_8
       rect:
         serializedVersion: 2
         x: 2400
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a40500705bc8940bc681f362d8b007
-      internalID: 1618867214
+      spriteID: c051b8fe35eb96d46b53b78142f12859
+      internalID: 162612373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_9
+      name: GhostyDed_Emission_9
       rect:
         serializedVersion: 2
         x: 3200
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c6093f409090a942b8c5f2ef03f3657
-      internalID: -1122875670
+      spriteID: 8dc72ff6f998ff048bbc77e0958e7719
+      internalID: -1188014594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_10
+      name: GhostyDed_Emission_10
       rect:
         serializedVersion: 2
         x: 0
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36107b14803b5aa429fd8254558cf8ec
-      internalID: -1633111352
+      spriteID: bf9395e6fc7ab1843a7061f1a890178b
+      internalID: -788202371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_11
+      name: GhostyDed_Emission_11
       rect:
         serializedVersion: 2
         x: 800
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db3d0bf0d4e613d42bb25c2364ed0de2
-      internalID: -1696913864
+      spriteID: cacbdfbb9a3478249a9cc774396fdbcd
+      internalID: 136337483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_12
+      name: GhostyDed_Emission_12
       rect:
         serializedVersion: 2
         x: 1600
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ffb84bfa9423664586fa49cf957939a
-      internalID: -288580852
+      spriteID: 20d7b296201d3a54a9250af32ed2ed2d
+      internalID: 1296386776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_13
+      name: GhostyDed_Emission_13
       rect:
         serializedVersion: 2
         x: 2400
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4d122500f7633d4b9c6835a77fec645
-      internalID: 1720235050
+      spriteID: 86d8e467d541bad4589efbe5a2eb0372
+      internalID: 1515445294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_14
+      name: GhostyDed_Emission_14
       rect:
         serializedVersion: 2
         x: 3200
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8049a8c9c03ac341a55835c8289a90a
-      internalID: 1532687333
+      spriteID: a4bd39abf2494dc408df69b8010fcfb5
+      internalID: -400062747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_15
+      name: GhostyDed_Emission_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0638d58776136548a08cdc117f3463f
-      internalID: 395862900
+      spriteID: 80ad5a02fdb488447b89918848b0a152
+      internalID: -1684230200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_16
+      name: GhostyDed_Emission_16
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a047c0cf67913e24989ea49fbe33dff0
-      internalID: -353823902
+      spriteID: 87edd70c79cc3524f96917f72a91e736
+      internalID: -791615474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_17
+      name: GhostyDed_Emission_17
       rect:
         serializedVersion: 2
         x: 1600
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4383f94b32c12f49b6372c4e7a0679a
-      internalID: -468923321
+      spriteID: 342d2567f8f8fc6488fc1366e22966c0
+      internalID: -301866002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostyDed_18
+      name: GhostyDed_Emission_18
       rect:
         serializedVersion: 2
         x: 2400
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19205ef837dacc34e88bea4d312feec7
-      internalID: 1790851691
+      spriteID: f44e00b3f2e1eb644942834f3dc07847
+      internalID: -1696323365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostyDed_Emission_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc8e2691de84104099ccdda0f198428
+      internalID: 933447515
       vertices: []
       indices: 
       edges: []
@@ -504,29 +525,28 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 2f8b8a1a1917adc469eed588fbb33865, type: 3}
-      name: _Emission
+    secondaryTextures: []
     nameFileIdTable:
-      GhostyDed_0: -1863412068
-      GhostyDed_1: 761841709
-      GhostyDed_10: -1633111352
-      GhostyDed_11: -1696913864
-      GhostyDed_12: -288580852
-      GhostyDed_13: 1720235050
-      GhostyDed_14: 1532687333
-      GhostyDed_15: 395862900
-      GhostyDed_16: -353823902
-      GhostyDed_17: -468923321
-      GhostyDed_18: 1790851691
-      GhostyDed_2: -1200129235
-      GhostyDed_3: -701500814
-      GhostyDed_4: -748549263
-      GhostyDed_5: 1331535972
-      GhostyDed_6: 281588498
-      GhostyDed_7: 260584025
-      GhostyDed_8: 1618867214
-      GhostyDed_9: -1122875670
+      GhostyDed_Emission_0: 1493609283
+      GhostyDed_Emission_1: -1825259114
+      GhostyDed_Emission_10: -788202371
+      GhostyDed_Emission_11: 136337483
+      GhostyDed_Emission_12: 1296386776
+      GhostyDed_Emission_13: 1515445294
+      GhostyDed_Emission_14: -400062747
+      GhostyDed_Emission_15: -1684230200
+      GhostyDed_Emission_16: -791615474
+      GhostyDed_Emission_17: -301866002
+      GhostyDed_Emission_18: -1696323365
+      GhostyDed_Emission_19: 933447515
+      GhostyDed_Emission_2: 607369691
+      GhostyDed_Emission_3: 1623050697
+      GhostyDed_Emission_4: -1899218735
+      GhostyDed_Emission_5: 1171141487
+      GhostyDed_Emission_6: 503002351
+      GhostyDed_Emission_7: 345805646
+      GhostyDed_Emission_8: 162612373
+      GhostyDed_Emission_9: -1188014594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
