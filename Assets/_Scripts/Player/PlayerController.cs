@@ -65,14 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = playerInput.PlayerOverworld.Movement.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed;
-        if (movement.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (movement.x > 0)
-        {
-            transform.localScale = Vector3.one;
-        }
+        TurnMeTowards(movement);
     }
     private void UpdateDestinationFollow()
     {
@@ -95,17 +88,9 @@ public class PlayerController : MonoBehaviour
         {
             // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
             isCasting = true;
-
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = cursorPosition - transform.position;
-            if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (direction.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
+            TurnMeTowards(direction);
             Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x,cursorPosition.y, 0), Quaternion.identity);
             BusyForSeconds(castingDuration);
         }
@@ -118,16 +103,8 @@ public class PlayerController : MonoBehaviour
             onRepeatCommand?.Invoke();
         }
         isCommanding = true;
-
         Vector3 direction = interactable.transform.position - transform.position;
-        if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (direction.x > 0)
-        {
-            transform.localScale = Vector3.one;
-        }
+        TurnMeTowards(direction);
 
         BusyForSeconds(commandDuration);
     }
@@ -153,5 +130,16 @@ public class PlayerController : MonoBehaviour
     public void MinionTroopJoin(MushroomMinion mushroomMinion)
     {
         minionTroops.Add(mushroomMinion);
+    }
+    private void TurnMeTowards(Vector2 direction)
+    {
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 }
