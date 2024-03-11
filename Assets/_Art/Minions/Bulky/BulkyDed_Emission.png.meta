@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c92e18d516e42a44aa45335c5b6de12
+guid: 81949cf2503560a419364e7de21e708e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,421 +97,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulkyDed_0
+      name: BulkyDed_Emission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61ece9743b799ee4fa129d0431b5cb6b
-      internalID: -1150770755
+      spriteID: 774284c059a188746ba6119185df82cb
+      internalID: 1392919848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_1
+      name: BulkyDed_Emission_1
       rect:
         serializedVersion: 2
         x: 800
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d96f0f56e3f6e9449a7743431ffa78a
-      internalID: -547309212
+      spriteID: d0e701ae2d104a543965fa736d7df3b7
+      internalID: -1236327574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_2
+      name: BulkyDed_Emission_2
       rect:
         serializedVersion: 2
         x: 1600
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707ae2f5a70dfc747856201ca6f6d8c1
-      internalID: 741690184
+      spriteID: 8a62dbd1f5dd5174380487dddddeeab9
+      internalID: -327353835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_3
+      name: BulkyDed_Emission_3
       rect:
         serializedVersion: 2
         x: 2400
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbd99c6f4aa81ad49bda8a95438be200
-      internalID: -287949218
+      spriteID: d7f83c488da942c448b48122ef0fa8b4
+      internalID: 552179979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_4
+      name: BulkyDed_Emission_4
       rect:
         serializedVersion: 2
         x: 3200
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df73a1544dd9d2247834e1cbeafddfc3
-      internalID: -1329208840
+      spriteID: 72f2bdfaaa816224abcf91e05020e688
+      internalID: -1297216514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_5
+      name: BulkyDed_Emission_5
       rect:
         serializedVersion: 2
         x: 0
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 019868cb5b62a86449604ca105bb6751
-      internalID: -805732255
+      spriteID: 5d9d59f7e79ef6448bb160257e1da598
+      internalID: 1738744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_6
+      name: BulkyDed_Emission_6
       rect:
         serializedVersion: 2
         x: 800
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ee661562dbb21b44ae89b2cf940d0f4
-      internalID: 1322709794
+      spriteID: c8ffd632b383f144e9404c8c2610033c
+      internalID: -147638717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_7
+      name: BulkyDed_Emission_7
       rect:
         serializedVersion: 2
         x: 1600
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75d65d0f4c942e34faaada10b5a062a9
-      internalID: -1397535865
+      spriteID: 503dd05ed71e462468ecc63645e640d6
+      internalID: 1709476310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_8
+      name: BulkyDed_Emission_8
       rect:
         serializedVersion: 2
         x: 2400
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e5207dfead95bc42b092811e17fc396
-      internalID: 343149802
+      spriteID: 6e37b4941ccc59f4f95c626e9a680c7d
+      internalID: 1620241189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_9
+      name: BulkyDed_Emission_9
       rect:
         serializedVersion: 2
         x: 3200
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfa7b2c9a8e868f41bf8596413575700
-      internalID: 137049986
+      spriteID: 8c8f2bc73e4233f438b1f9d7900c9648
+      internalID: 105091285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_10
+      name: BulkyDed_Emission_10
       rect:
         serializedVersion: 2
         x: 0
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1cca0215cc9aa4f86bea361d4826e8
-      internalID: -1551091130
+      spriteID: 9c8a74ab69539114eb992c3703274e4e
+      internalID: -507224811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_11
+      name: BulkyDed_Emission_11
       rect:
         serializedVersion: 2
         x: 800
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ce78410d295f14b925026a1844c9a8
-      internalID: -1617156983
+      spriteID: 69acb970ba56f2e49a43c0f0b0b30bed
+      internalID: -919477325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_12
+      name: BulkyDed_Emission_12
       rect:
         serializedVersion: 2
         x: 1600
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3047fc4413151a04e8ad9ce5ab69bdbd
-      internalID: -2012129942
+      spriteID: 5a84f838b51d53f4f870b28e88deb38c
+      internalID: -775249711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_13
+      name: BulkyDed_Emission_13
       rect:
         serializedVersion: 2
         x: 2400
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b381e91af068b64b95fc08c23111eca
-      internalID: -961862115
+      spriteID: bee17f64fbb6ef541858f7cdb0a203be
+      internalID: -867426730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_14
+      name: BulkyDed_Emission_14
       rect:
         serializedVersion: 2
         x: 3200
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7116d7cd5ae0e0a4688c089b689c3edd
-      internalID: 1411533046
+      spriteID: acd8ceeba88bc414598b094937511576
+      internalID: -147013526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_15
+      name: BulkyDed_Emission_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01ce6e4eff8d5ef4093c8d97910fac31
-      internalID: -1689281202
+      spriteID: 360d5e7aac36030469664cb6231ea6fa
+      internalID: 931217217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_16
+      name: BulkyDed_Emission_16
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc45a7f86e81934aae1d483978cdfd7
-      internalID: 2106967645
+      spriteID: 5c804dad9d0f93546bdc15429cb82d77
+      internalID: -637532993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_17
+      name: BulkyDed_Emission_17
       rect:
         serializedVersion: 2
         x: 1600
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4106aa9065e75d34db4999a43c7af44e
-      internalID: -2050259480
+      spriteID: 13470d2851d61c446a2dc746c7cb342e
+      internalID: 832675306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_18
+      name: BulkyDed_Emission_18
       rect:
         serializedVersion: 2
         x: 2400
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e0ed28aebbe5ca49a5dbc7c802576f4
-      internalID: 721782414
+      spriteID: dc2b81b81968a1942a2d2b68e8a721f8
+      internalID: 608046076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulkyDed_19
+      name: BulkyDed_Emission_19
       rect:
         serializedVersion: 2
         x: 3200
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1368ca6cc92221d4f93bd43c18388482
-      internalID: -743610677
+      spriteID: de7340a367845074981c1480e42026ab
+      internalID: -1255111172
       vertices: []
       indices: 
       edges: []
@@ -525,30 +525,28 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 81949cf2503560a419364e7de21e708e, type: 3}
-      name: _Emission
+    secondaryTextures: []
     nameFileIdTable:
-      BulkyDed_0: -1150770755
-      BulkyDed_1: -547309212
-      BulkyDed_10: -1551091130
-      BulkyDed_11: -1617156983
-      BulkyDed_12: -2012129942
-      BulkyDed_13: -961862115
-      BulkyDed_14: 1411533046
-      BulkyDed_15: -1689281202
-      BulkyDed_16: 2106967645
-      BulkyDed_17: -2050259480
-      BulkyDed_18: 721782414
-      BulkyDed_19: -743610677
-      BulkyDed_2: 741690184
-      BulkyDed_3: -287949218
-      BulkyDed_4: -1329208840
-      BulkyDed_5: -805732255
-      BulkyDed_6: 1322709794
-      BulkyDed_7: -1397535865
-      BulkyDed_8: 343149802
-      BulkyDed_9: 137049986
+      BulkyDed_Emission_0: 1392919848
+      BulkyDed_Emission_1: -1236327574
+      BulkyDed_Emission_10: -507224811
+      BulkyDed_Emission_11: -919477325
+      BulkyDed_Emission_12: -775249711
+      BulkyDed_Emission_13: -867426730
+      BulkyDed_Emission_14: -147013526
+      BulkyDed_Emission_15: 931217217
+      BulkyDed_Emission_16: -637532993
+      BulkyDed_Emission_17: 832675306
+      BulkyDed_Emission_18: 608046076
+      BulkyDed_Emission_19: -1255111172
+      BulkyDed_Emission_2: -327353835
+      BulkyDed_Emission_3: 552179979
+      BulkyDed_Emission_4: -1297216514
+      BulkyDed_Emission_5: 1738744
+      BulkyDed_Emission_6: -147638717
+      BulkyDed_Emission_7: 1709476310
+      BulkyDed_Emission_8: 1620241189
+      BulkyDed_Emission_9: 105091285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

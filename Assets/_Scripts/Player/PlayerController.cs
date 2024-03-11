@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
-        StopCoroutine("WaitingTimer");
         if (waitingTimerCoroutine != null)
         {
             StopCoroutine(waitingTimerCoroutine);

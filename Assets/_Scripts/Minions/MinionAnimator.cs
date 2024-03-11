@@ -23,6 +23,7 @@ public class MinionAnimator : MonoBehaviour
     {
         animator.SetFloat("speed", rb.velocity.magnitude);
         animator.SetBool("isCarrying", minion.isCarrying);
+        animator.SetBool("isGet", minion.isGet);
         animator.SetBool("isDed", minion.isDed);
     }
 }

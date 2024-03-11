@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class MushroomMinion : MonoBehaviour
@@ -7,12 +8,17 @@ public class MushroomMinion : MonoBehaviour
     [SerializeField] private float health = 100f;
     [SerializeField] private float moveSpeed = 10f;
 
+    [SerializeField] private float attackDuration = 1f;
+    [SerializeField] private float getDuration = 1f;
     private Rigidbody2D rb;
 
     private bool standingAlone = true;
     private Vector2 destination;
+    private bool isBusy;
+    private Coroutine waitingTimerCoroutine;
 
     public bool isDed { private set; get; }         //For Anims
+    public bool isGet { private set; get; }         //For Anims
     public bool isCarrying { private set; get; }    //For Anims
     public event Action onAttack;                   //For Anims TODO attack logic
 
@@ -23,7 +29,7 @@ public class MushroomMinion : MonoBehaviour
 
     void Update()
     {
-        if (!standingAlone && !isDed)
+        if (!isBusy && !standingAlone && !isDed)
         {
             GoToDestination();
         }
@@ -61,6 +67,8 @@ public class MushroomMinion : MonoBehaviour
     public void JoinPlayer()
     {
         standingAlone = false;
+        isGet = true;
+        BusyForSeconds(getDuration);
         FindObjectOfType<PlayerController>().MinionTroopJoin(this);
     }
     public void GetHit(float damage)
@@ -75,5 +83,21 @@ public class MushroomMinion : MonoBehaviour
     public void SetDestination(Vector2 destination)
     {
         this.destination = destination;
+    }
+    private void BusyForSeconds(float seconds)
+    {
+        isBusy = true;
+        if (waitingTimerCoroutine != null)
+        {
+            StopCoroutine(waitingTimerCoroutine);
+        }
+        waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
+    }
+    IEnumerator WaitingTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isBusy = false;
+        isGet = false;
+        waitingTimerCoroutine = null;
     }
 }
