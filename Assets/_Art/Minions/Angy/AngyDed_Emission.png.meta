@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4bb91d12c19535469bb61806340d2ca
+guid: 10e3cf3d130d1694f8a23844c0a2239f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,10 +45,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 550
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,358 +97,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AngyDed_0
+      name: AngyDed_Emission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ab8bc2897d167845a593b1f2070e025
-      internalID: -976441093
+      spriteID: fe7da242264320846b31f3b42c46cadf
+      internalID: -715646723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_1
+      name: AngyDed_Emission_1
       rect:
         serializedVersion: 2
         x: 800
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed80ee408231d044298384a79b337626
-      internalID: -1396262771
+      spriteID: 86630a2712ac08040abdb14ba41335e9
+      internalID: -1209873349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_2
+      name: AngyDed_Emission_2
       rect:
         serializedVersion: 2
         x: 1600
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ebe1678e76b1d408a0e0e147dd9ea6
-      internalID: -1409172679
+      spriteID: 0c1d4c851f94a6842be82634b4dc8901
+      internalID: 1881454536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_3
+      name: AngyDed_Emission_3
       rect:
         serializedVersion: 2
         x: 2400
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46d8b39cc7fe8c45bf68b0e47ac0eba
-      internalID: 1297975765
+      spriteID: 1502bb37b7a2dc0459e452058e1c53fd
+      internalID: 1192069527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_4
+      name: AngyDed_Emission_4
       rect:
         serializedVersion: 2
         x: 3200
         y: 2100
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75a2a41725cc7d8429d13fcbdf56ee00
-      internalID: 498007670
+      spriteID: 269bc4e6401d6fb4797f3c8e353ceae5
+      internalID: 713413486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_5
+      name: AngyDed_Emission_5
       rect:
         serializedVersion: 2
         x: 0
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac5d3a820f0a4fa4193d0c74f8e0584f
-      internalID: -766435376
+      spriteID: a5848be1630607f41921763ef23528d5
+      internalID: -2077720658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_6
+      name: AngyDed_Emission_6
       rect:
         serializedVersion: 2
         x: 800
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a87cf5f1745074e95760214a33fb4f
-      internalID: 226775089
+      spriteID: 48c03218487c75a44af21f4eab9c8f91
+      internalID: 1468476286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_7
+      name: AngyDed_Emission_7
       rect:
         serializedVersion: 2
         x: 1600
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6008952d47cefdf4ab4668b9371db07b
-      internalID: -1947687717
+      spriteID: e4ac27d9b80ef5e49894d9710ea75566
+      internalID: 492614896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_8
+      name: AngyDed_Emission_8
       rect:
         serializedVersion: 2
         x: 2400
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f85b402fcf5ae54da94020f1f24c8d5
-      internalID: 1519596618
+      spriteID: 4a50c4be797ae6b41bb86e804d42543a
+      internalID: -1633423350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_9
+      name: AngyDed_Emission_9
       rect:
         serializedVersion: 2
         x: 3200
         y: 1400
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0673b371cf2b714884e1b5d242a1abe
-      internalID: -1088442561
+      spriteID: 3cc8e756de70e2245a68204bb985d2ff
+      internalID: -2104049824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_10
+      name: AngyDed_Emission_10
       rect:
         serializedVersion: 2
         x: 0
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101f126098db14445afb2863870fb3ab
-      internalID: -156616027
+      spriteID: bf049db235d50a0448cf6f56d4061d56
+      internalID: 1807230933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_11
+      name: AngyDed_Emission_11
       rect:
         serializedVersion: 2
         x: 800
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d813fd36dc5be4da81f651f50bc474
-      internalID: -1170222224
+      spriteID: a617f72f17e899b46b951020a0abb6f7
+      internalID: -1809692089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_12
+      name: AngyDed_Emission_12
       rect:
         serializedVersion: 2
         x: 1600
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5a5cc544debe5242b67268ea03e4bd3
-      internalID: 323602293
+      spriteID: b0ad7d9e0edb00742a3a0d6c30a047a0
+      internalID: -1387091314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_13
+      name: AngyDed_Emission_13
       rect:
         serializedVersion: 2
         x: 2400
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3685400c7ec8660419632573fd26f7df
-      internalID: 1104563426
+      spriteID: 5c1aa1dbf3e59ae4a9b0e5fe70707d8c
+      internalID: 597532939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_14
+      name: AngyDed_Emission_14
       rect:
         serializedVersion: 2
         x: 3200
         y: 700
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d57a1dfdcf29e394884361d28ac2e78c
-      internalID: 425053021
+      spriteID: a7af9db1056c41841982b94e9a6f825f
+      internalID: -1396068538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_15
+      name: AngyDed_Emission_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea44ca9d990efe42a673a072ec73679
-      internalID: 270311604
+      spriteID: 30e18bbd55897c841936616258b2495a
+      internalID: 960775706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngyDed_16
+      name: AngyDed_Emission_16
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 800
         height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b233110811f68e74b90a2a64dd351b55
-      internalID: -310738620
+      spriteID: 230e4b10b3fdec644b7b3570a4ca1e07
+      internalID: -882799873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngyDed_Emission_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7ef413168efd347bd0c79c229af81b
+      internalID: -1209808889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngyDed_Emission_18
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4ed6dfab985b444a4d5f8333cf6b20
+      internalID: -710315720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngyDed_Emission_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eb678ddb14a71b4e9d183e27bc65173
+      internalID: -1187001601
       vertices: []
       indices: 
       edges: []
@@ -462,27 +525,28 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 10e3cf3d130d1694f8a23844c0a2239f, type: 3}
-      name: _Emission
+    secondaryTextures: []
     nameFileIdTable:
-      AngyDed_0: -976441093
-      AngyDed_1: -1396262771
-      AngyDed_10: -156616027
-      AngyDed_11: -1170222224
-      AngyDed_12: 323602293
-      AngyDed_13: 1104563426
-      AngyDed_14: 425053021
-      AngyDed_15: 270311604
-      AngyDed_16: -310738620
-      AngyDed_2: -1409172679
-      AngyDed_3: 1297975765
-      AngyDed_4: 498007670
-      AngyDed_5: -766435376
-      AngyDed_6: 226775089
-      AngyDed_7: -1947687717
-      AngyDed_8: 1519596618
-      AngyDed_9: -1088442561
+      AngyDed_Emission_0: -715646723
+      AngyDed_Emission_1: -1209873349
+      AngyDed_Emission_10: 1807230933
+      AngyDed_Emission_11: -1809692089
+      AngyDed_Emission_12: -1387091314
+      AngyDed_Emission_13: 597532939
+      AngyDed_Emission_14: -1396068538
+      AngyDed_Emission_15: 960775706
+      AngyDed_Emission_16: -882799873
+      AngyDed_Emission_17: -1209808889
+      AngyDed_Emission_18: -710315720
+      AngyDed_Emission_19: -1187001601
+      AngyDed_Emission_2: 1881454536
+      AngyDed_Emission_3: 1192069527
+      AngyDed_Emission_4: 713413486
+      AngyDed_Emission_5: -2077720658
+      AngyDed_Emission_6: 1468476286
+      AngyDed_Emission_7: 492614896
+      AngyDed_Emission_8: -1633423350
+      AngyDed_Emission_9: -2104049824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
