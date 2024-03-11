@@ -14,5 +14,6 @@ public enum MushroomTypes
 {
     Troopy,
     Bulky,
-    Angy
+    Angy,
+    Ghosty
 }

@@ -8,17 +8,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 482166420889084541, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: df67e3586af42d4449492df81a980683, type: 2}
+    - target: {fileID: 2898130227480003142, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4545455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898130227480003142, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2730824
+      objectReference: {fileID: 0}
     - target: {fileID: 2898130227480003142, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: aaa6a3af850456445b92e65c9d334a0e, type: 3}
+      objectReference: {fileID: 21300000, guid: b0c32f3e34403e149832010a39663590, type: 3}
     - target: {fileID: 3561714687845895022, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
       propertyPath: m_Name
       value: MushroomAngy
       objectReference: {fileID: 0}
     - target: {fileID: 4946416025845900581, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4946416025845900581, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
       propertyPath: m_LocalPosition.y
