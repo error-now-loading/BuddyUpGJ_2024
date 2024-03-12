@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5725384196120539354}
   - component: {fileID: 2898130227480003142}
-  m_Layer: 0
+  - component: {fileID: 482166420889084541}
+  - component: {fileID: 3210301204007954166}
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4946416025845900581}
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c0f09f547cc41f4c9e820cde2e042ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6a92f72020e3eb428d05c3db364435c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +86,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &482166420889084541
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256429504286081263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6ad8d50b88a216438ce71a477bfa5bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3210301204007954166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256429504286081263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2372e741825cb0747a232388d45dd163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minion: {fileID: 5507787055555442237}
+  rb: {fileID: 2429787945478081942}
 --- !u!1 &3561714687845895022
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,8 +132,9 @@ GameObject:
   - component: {fileID: 4946416025845900581}
   - component: {fileID: 5507787055555442237}
   - component: {fileID: 2429787945478081942}
-  m_Layer: 0
-  m_Name: MushroomTrooper
+  - component: {fileID: 7417674395140301183}
+  m_Layer: 7
+  m_Name: MushroomTroopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,8 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
-  maxHP: 100
+  health: 100
   moveSpeed: 4
+  attackDuration: 1
+  getDuration: 1
 --- !u!50 &2429787945478081942
 Rigidbody2D:
   serializedVersion: 4
@@ -160,3 +200,38 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &7417674395140301183
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561714687845895022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 0.2}
+  m_Direction: 1

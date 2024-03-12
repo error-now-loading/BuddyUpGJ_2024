@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7158330654674223037}
   - component: {fileID: 4781971692589333258}
   m_Layer: 0
-  m_Name: SummonPrefab
+  m_Name: _SummonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
