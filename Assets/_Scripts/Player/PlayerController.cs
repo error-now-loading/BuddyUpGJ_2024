@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Interactable closestInteractable;
 
-    private List<MushroomMinion> minions = new List<MushroomMinion>();
+    private List<MushroomMinion> minionTroops = new List<MushroomMinion>();
     [SerializeField] private MushroomTypeSO selectedMushroomType;   //Serialize for now testing
     [SerializeField] private SpellTypeSO selectedSpellType;         //Serialize for now testing
     private bool isBusy;
@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateDestinationFollow()
     {
-        for (int i = 0; i < minions.Count; i++)
+        for (int i = 0; i < minionTroops.Count; i++)
         {
-            minions[i].SetDestination(minionFollowPoints[i].transform.position);
+            minionTroops[i].SetDestination(minionFollowPoints[i].transform.position);
         }
     }
     private void OnInteract(InputAction.CallbackContext ctx)
@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
-        StopCoroutine("WaitingTimer");
         if (waitingTimerCoroutine != null)
         {
             StopCoroutine(waitingTimerCoroutine);
@@ -149,5 +148,10 @@ public class PlayerController : MonoBehaviour
         isCasting = false;
         isCommanding = false;
         waitingTimerCoroutine = null;
+    }
+
+    public void MinionTroopJoin(MushroomMinion mushroomMinion)
+    {
+        minionTroops.Add(mushroomMinion);
     }
 }
