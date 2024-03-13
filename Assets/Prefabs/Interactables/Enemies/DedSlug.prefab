@@ -152,7 +152,8 @@ MonoBehaviour:
     occupied: 0
   - transform: {fileID: 4183020437945256822}
     occupied: 0
-  interactableType: 2
+  interactableType: 1
+  destroyTimer: 20
   decomposableHP: 100
   nutrientValue: 1
   nutrientPrefab: {fileID: 0}

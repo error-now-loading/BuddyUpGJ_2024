@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -7,9 +8,10 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Outline outliner;
     [SerializeField] private MinionSpot[] minionSpots;
     [SerializeField] private MushroomJobs interactableType = MushroomJobs.Error;
-
-private bool interactable = false;
+    [SerializeField] float destroyTimer = 20f;
+    private bool interactable = false;
     protected PlayerController playerReference;
+    public bool isFinished { private set; get; }
 
     private void Start()
     {
@@ -78,6 +80,33 @@ private bool interactable = false;
     public virtual void InteractMinion(MushroomMinion minion)
     {
         Debug.Log("Interacted by a minion. Behaviour must be overriden in the inherited class");
+    }
+    public virtual void FinishTask()
+    {
+        isFinished = true;
+        StartCoroutine(DisableAndDestroyCoroutine());
+    }
+
+    private IEnumerator DisableAndDestroyCoroutine()
+    {
+        Component[] components = GetComponentsInChildren<Component>();
+        foreach (Component component in components)
+        {
+            if(component as Interactable == null)
+            {
+                Debug.Log(component.GetType().Name);
+                Type type = component.GetType();
+                var enabledProperty = type.GetProperty("enabled");
+
+                if (enabledProperty != null && enabledProperty.CanWrite)
+                {
+                    Debug.Log(type.Name);
+                    enabledProperty.SetValue(component, false, null);
+                }
+            }
+        }
+        yield return new WaitForSeconds(destroyTimer);
+        Destroy(gameObject);
     }
     public MushroomJobs GetInteractableType()
     {

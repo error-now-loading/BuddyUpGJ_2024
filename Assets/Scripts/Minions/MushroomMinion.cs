@@ -30,6 +30,7 @@ public class MushroomMinion : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health *= mushroomType.maxHpMultiplier;
     }
 
     void Update()
@@ -44,9 +45,10 @@ public class MushroomMinion : MonoBehaviour
         }
         if (isCarrying)
         {
-            interactableTarget.InteractMinion(this);
+            Work();
         }
     }
+
     private void GoToDestination()
     {
         Vector2 currentPos = rb.position;
@@ -115,13 +117,23 @@ public class MushroomMinion : MonoBehaviour
     {
         return mushroomType;
     }
+    public float GetAttackDamage()
+    {
+        return mushroomType.attackPerSecond * attackDuration;
+    }
+    public float GetDecomposeDamage()
+    {
+        return mushroomType.decomposePerSecond * attackDuration;
+    }
     private void BeginWork(Interactable interactableTarget)
     {
         switch (interactableTarget.GetInteractableType())
         {
             case MushroomJobs.Attack:
-                break;
             case MushroomJobs.Decompose:
+                onAttack?.Invoke();
+                transform.localScale = interactableSpot.transform.localScale;
+                BusyForSeconds(attackDuration);
                 break;
             case MushroomJobs.Carry:
                 isCarrying = true;
@@ -133,6 +145,19 @@ public class MushroomMinion : MonoBehaviour
                 Debug.LogError("No Job type assigned to Interactable");
                 break;
         };
+    }
+    private void Work()
+    {
+        if (interactableTarget.isFinished)
+        {
+            standingAlone = true;
+            interactableSpot = null;
+            interactableTarget = null;
+        }
+        else
+        {
+            interactableTarget.InteractMinion(this);
+        }
     }
     private void BusyForSeconds(float seconds)
     {
@@ -146,6 +171,10 @@ public class MushroomMinion : MonoBehaviour
     IEnumerator WaitingTimer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        if (!isGet && interactableTarget != null)
+        {
+            Work();
+        }
         isBusy = false;
         isGet = false;
         waitingTimerCoroutine = null;

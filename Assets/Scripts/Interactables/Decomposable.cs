@@ -8,11 +8,9 @@ public class Decomposable : Interactable
     public void GetHit(float damage)
     {
         decomposableHP -= damage;
-        if (decomposableHP < 0)
+        if (decomposableHP < 0 && !isFinished)
         {
-            //Instance prefab, assign values
-            Debug.Log("nooo");
-            Destroy(gameObject);
+            FinishTask();
         }
     }
     protected override void Interact()
@@ -25,6 +23,6 @@ public class Decomposable : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        //Decompose GetHit();
+        GetHit(minion.GetDecomposeDamage());
     }
 }
