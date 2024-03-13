@@ -10,10 +10,15 @@ public class MushroomMinion : MonoBehaviour
 
     [SerializeField] private float attackDuration = 1f;
     [SerializeField] private float getDuration = 1f;
+
     private Rigidbody2D rb;
+    private PlayerController assignedPlayer;
 
     private bool standingAlone = true;
     private Vector2 destination;
+    private Interactable interactableTarget;
+    private MinionSpot interactableSpot;
+
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
@@ -29,9 +34,17 @@ public class MushroomMinion : MonoBehaviour
 
     void Update()
     {
-        if (!isBusy && !standingAlone && !isDed)
+        if (interactableSpot != null)
+        {
+            SetDestination(interactableSpot.transform.position);
+        }
+        if (!isBusy && !standingAlone && !isDed && !isCarrying)
         {
             GoToDestination();
+        }
+        if (isCarrying)
+        {
+            interactableTarget.InteractMinion(this);
         }
     }
     private void GoToDestination()
@@ -54,8 +67,13 @@ public class MushroomMinion : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero;
+            if (interactableTarget != null)
+            {
+                BeginWork(interactableTarget);
+            }
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (standingAlone && collision.GetComponent<NearRangeTrigger>())
@@ -69,7 +87,8 @@ public class MushroomMinion : MonoBehaviour
         standingAlone = false;
         isGet = true;
         BusyForSeconds(getDuration);
-        FindObjectOfType<PlayerController>().MinionTroopJoin(this);
+        assignedPlayer = FindObjectOfType<PlayerController>();
+        assignedPlayer.MinionTroopJoin(this);
     }
     public void GetHit(float damage)
     {
@@ -78,11 +97,45 @@ public class MushroomMinion : MonoBehaviour
         {
             isDed = true;
             rb.velocity = Vector3.zero;
+            interactableSpot.occupied = false; 
+            interactableSpot = null;
         }
     }
     public void SetDestination(Vector2 destination)
     {
         this.destination = destination;
+    }
+    public void SetTargetAndSpot(Interactable interactable, MinionSpot spot)
+    {
+        interactableTarget = interactable;
+        interactableSpot = spot;
+        assignedPlayer.MinionTroopRemove(this);
+    }
+    public MushroomTypeSO GetMushroomTypeSO()
+    {
+        return mushroomType;
+    }
+    private void BeginWork(Interactable interactableTarget)
+    {
+        switch (interactableTarget.GetInteractableType())
+        {
+            case MushroomJobs.Attack:
+                break;
+            case MushroomJobs.Decompose:
+                break;
+            case MushroomJobs.Carry:
+                if(mushroomType.type != MushroomTypes.Ghosty)
+                {
+                    isCarrying = true;
+                    transform.position = interactableSpot.transform.position;
+                    transform.localScale = interactableSpot.transform.localScale;
+                    transform.parent = interactableSpot.transform;
+                }
+                break;
+            case MushroomJobs.Error:
+                Debug.LogError("No Job type assigned to Interactable");
+                break;
+        };
     }
     private void BusyForSeconds(float seconds)
     {

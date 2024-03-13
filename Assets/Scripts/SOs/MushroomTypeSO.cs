@@ -17,3 +17,10 @@ public enum MushroomTypes
     Angy,
     Ghosty
 }
+public enum MushroomJobs
+{
+    Attack,
+    Decompose,
+    Carry,
+    Error
+}

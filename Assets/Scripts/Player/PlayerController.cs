@@ -95,9 +95,8 @@ public class PlayerController : MonoBehaviour
             BusyForSeconds(castingDuration);
         }
     }
-    public void Command(Interactable interactable)
+    public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
-        // TODO: ADD LOGIC FOR COMMAND MUSHROOM
         if (isCommanding)
         {
             onRepeatCommand?.Invoke();
@@ -105,9 +104,19 @@ public class PlayerController : MonoBehaviour
         isCommanding = true;
         Vector3 direction = interactable.transform.position - transform.position;
         TurnMeTowards(direction);
-
         BusyForSeconds(commandDuration);
+        return PickMinion();
     }
+
+    private MushroomMinion PickMinion()
+    {
+        foreach (MushroomMinion minion in minionTroops)
+        {
+            if(minion.GetMushroomTypeSO() == selectedMushroomType) return minion;
+        }
+        return null;
+    }
+
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
@@ -130,6 +139,10 @@ public class PlayerController : MonoBehaviour
     public void MinionTroopJoin(MushroomMinion mushroomMinion)
     {
         minionTroops.Add(mushroomMinion);
+    }
+    public void MinionTroopRemove(MushroomMinion mushroomMinion)
+    {
+        minionTroops.Remove(mushroomMinion);
     }
     private void TurnMeTowards(Vector2 direction)
     {
