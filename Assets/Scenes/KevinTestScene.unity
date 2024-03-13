@@ -307,10 +307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8035f700e922341922de9c190c3e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 10
-  mapHeight: 10
-  mapScale: 5
-  mapSmoothness: 5
+  mapWidth: 30
+  mapHeight: 30
+  mapScale: 4
+  mapSmoothness: 2
+  mapGrid: {fileID: 2074091848}
   terrainTiles:
   - {fileID: 11400000, guid: 21c62f5ba3a1188408c643d4a3c62c70, type: 2}
   - {fileID: 11400000, guid: 36a48bd2476187b4a9f5394fc4303fbd, type: 2}

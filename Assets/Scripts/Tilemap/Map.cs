@@ -21,12 +21,14 @@ public class Map : SceneSingleton<Map>
     [SerializeField] private int mapHeight = 10;
     [SerializeField] private float mapScale = 5f;
     [SerializeField] private int mapSmoothness = 5;
+    [SerializeField] private Grid mapGrid = null;
 
     [Header("Terrain Tiles")]
     [Tooltip("Number of tiles in list must be equal to number of TerrainTypes, order must match order in enum")]
     [SerializeField] private List<Tile> terrainTiles = null;
 
     [SerializeField] private Tilemap terrainMap = null;
+    [SerializeField] private Tilemap decalMap = null;
 
 
 
@@ -42,6 +44,7 @@ public class Map : SceneSingleton<Map>
 
         float[,] noiseMap = PerlinNoiseGenerator.GenerateNoiseMap(mapWidth, mapHeight, mapScale, mapSmoothness, Vector2.zero);
         float[,] normalizedMap = NormalizeBiome(noiseMap);
+
         GenerateTerrainMap(normalizedMap);
     }
 
@@ -59,7 +62,7 @@ public class Map : SceneSingleton<Map>
         {
             for (int x = 0; x < width; x++)
             {
-                if (biomeMap[x, y] > 0.5f)
+                if (biomeMap[x, y] > 0.4f)
                 {
                     biomeMap[x, y] = (int)TerrainType.LongGrass;
                 }
@@ -81,7 +84,13 @@ public class Map : SceneSingleton<Map>
     /// <returns>Tilemap object representing provided map</returns>
     private void GenerateTerrainMap(float[,] normalizedBiomeMap)
     {
-        
-
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                terrainMap.SetTile(new Vector3Int(x, y, 0),
+                                   terrainTiles[(int)normalizedBiomeMap[x, y]]);
+            }
+        }
     }
 }

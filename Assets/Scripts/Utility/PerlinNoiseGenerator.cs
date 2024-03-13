@@ -29,9 +29,11 @@ public static class PerlinNoiseGenerator
                 float frequency = 0f;
                 for (int oct = 1; oct < octaves; oct *= 2)
                 {
+                    float rawPerlin = Mathf.PerlinNoise(oct * (sampleX + (position.x * scale)),
+                                                        oct * (sampleY + (position.y * scale)));
+
                     frequency += 1f / oct;
-                    noise += (1f / oct) * Mathf.PerlinNoise(oct * (sampleX + (position.x * scale)),
-                                                            oct * (sampleY + (position.y * scale)));
+                    noise += (1f / oct) * Mathf.Clamp(rawPerlin, 0f, 1f);
                 }
 
                 noise /= frequency;
