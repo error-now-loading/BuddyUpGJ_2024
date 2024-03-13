@@ -3,7 +3,6 @@ using UnityEngine;
 public class Decomposable : Interactable
 {
     [SerializeField] private float decomposableHP = 100f;
-    [SerializeField] private int nutrientValue = 1;
     [SerializeField] private NutrientBall nutrientPrefab;
     public void GetHit(float damage)
     {
@@ -11,6 +10,7 @@ public class Decomposable : Interactable
         if (decomposableHP < 0 && !isFinished)
         {
             FinishTask();
+            Instantiate(nutrientPrefab, transform.position, Quaternion.identity);
         }
     }
     protected override void Interact()
