@@ -124,13 +124,10 @@ public class MushroomMinion : MonoBehaviour
             case MushroomJobs.Decompose:
                 break;
             case MushroomJobs.Carry:
-                if(mushroomType.type != MushroomTypes.Ghosty)
-                {
-                    isCarrying = true;
-                    transform.position = interactableSpot.transform.position;
-                    transform.localScale = interactableSpot.transform.localScale;
-                    transform.parent = interactableSpot.transform;
-                }
+                isCarrying = true;
+                transform.position = interactableSpot.transform.position;
+                transform.localScale = interactableSpot.transform.localScale;
+                transform.parent = interactableSpot.transform;
                 break;
             case MushroomJobs.Error:
                 Debug.LogError("No Job type assigned to Interactable");
