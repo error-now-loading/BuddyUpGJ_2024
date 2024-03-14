@@ -20,8 +20,17 @@ public class Map : SceneSingleton<Map>
 
     private enum DecalType : int
     {
-        LongGrassDecal = 0,
-        NoDecal = 1
+        Grass = 0,
+        Moss = 1,
+        Stone = 2,
+        FallenLeaves = 3,
+        NoDecal = 4
+    }
+
+    private enum ObstacleType : int
+    {
+        Stones = 0,
+        NoObstacle = 1
     }
 
 
@@ -33,32 +42,26 @@ public class Map : SceneSingleton<Map>
     [SerializeField] private NavMeshSurface navMeshSurface = null;
 
     [Header("Terrain Tiles")]
-    [Tooltip("Number of tiles in list must be equal to number of TerrainTypes, order must match order in enum")]
+    [Tooltip("Order must match order in enum")]
     [SerializeField] private List<Tile> terrainTiles = null;
     [SerializeField] private Tilemap terrainMap = null;
 
     [Header("Decal Tiles")]
-    [Tooltip("Number of tiles in list must be one less than number of DecalTypes, order must match order in enum")]
-    [SerializeField] private List<Tile> decalTiles = null;
-    [SerializeField] private Tilemap decalMap = null;
+    [SerializeField] private TileVariantsSO grassVariants = null;
+    [SerializeField] private TileVariantsSO mossVariants = null;
+    [SerializeField] private TileVariantsSO stoneVariants = null;
+    [SerializeField] private TileVariantsSO leafVariants = null;
+    [SerializeField] private List<Tilemap> decalMaps = null;
+
+    [Header("Obstacle Tiles")]
+    [SerializeField] private Tilemap obstacleMap = null;
+    [SerializeField] private TileVariantsSO stoneObstacleVariants = null;
 
 
 
     protected override void Awake()
     {
         base.Awake();
-
-        if (terrainTiles.Count != Enum.GetNames(typeof(TerrainType)).Length)
-        {
-            Debug.LogError("[Map Generation Error]: Number of Tiles in terrainTiles not equal to number of terrain types");
-            return;
-        }
-
-        if (decalTiles.Count != Enum.GetNames(typeof(DecalType)).Length - 1)
-        {
-            Debug.LogError("[Map Generation Error]: Number of Decal Tiles in decalTiles not equal to number of decal types");
-            return;
-        }
 
         float[,] noiseMap = PerlinNoiseGenerator.GenerateNoiseMap(mapWidth, mapHeight, mapScale, mapSmoothness, Vector2.zero);
 
@@ -109,16 +112,48 @@ public class Map : SceneSingleton<Map>
                 terrainMap.SetTile(new Vector3Int(x, y, 0),
                                    terrainTiles[(int)normalizedBiomeMap[x, y]]);
 
-                // If grass placed, determine whether or not to place grass decal as well
+                // If grass placed, determine whether to place grass or moss
                 if ((int)normalizedBiomeMap[x, y] == (int)TerrainType.LongGrass)
                 {
+                    float randVal = UnityEngine.Random.Range(0f, 1f);
+
+                    if (randVal > 0.5f)
+                    {
+                        decalMaps[(int)DecalType.Grass].SetTile(new Vector3Int(x, y, 0),
+                                                                grassVariants.SelectRandom());
+                    }
+
+                    else if (randVal < 0.1f)
+                    {
+                        decalMaps[(int)DecalType.Moss].SetTile(new Vector3Int(x, y, 0),
+                                                               mossVariants.SelectRandom());
+                    }
+                }
+
+                // Determine whether to place leaf decal
+                if (UnityEngine.Random.Range(0f, 1f) > 0.4f)
+                {
+                    decalMaps[(int)DecalType.FallenLeaves].SetTile(new Vector3Int(x, y, 0),
+                                                                   leafVariants.SelectRandom());
+                }
+
+                // Determine whether to place stone decals
+                if (UnityEngine.Random.Range(0f, 1f) > 0.7f)
+                {
+                    // Collidable or non-collidable stone?
                     if (UnityEngine.Random.Range(0f, 1f) > 0.5f)
                     {
-                        decalMap.SetTile(new Vector3Int(x, y, 0),
-                                         decalTiles[(int)DecalType.LongGrassDecal]);
-    }
+                        decalMaps[(int)DecalType.Stone].SetTile(new Vector3Int(x, y, 0),
+                                                                stoneVariants.SelectRandom());
+                    }
+                    
+                    else
+                    {
+                        obstacleMap.SetTile(new Vector3Int(x, y, 1),
+                                            stoneObstacleVariants.SelectRandom());
+                    }
                 }
             }
-        }   
+        }
     }
 }
