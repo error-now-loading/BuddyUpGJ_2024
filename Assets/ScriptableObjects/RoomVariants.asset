@@ -10,9 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: febaea0b4d3130f4aaa9e550b834f44e, type: 3}
-  m_Name: StoneObstacleVariants
+  m_Name: RoomVariants
   m_EditorClassIdentifier: 
-  variants:
-  - {fileID: 11400000, guid: 892bfe1e505b3434e9f4c9cc3838f2ac, type: 2}
-  - {fileID: 11400000, guid: e59c416d95f240845b7ec890b73cbde4, type: 2}
-  - {fileID: 11400000, guid: 09c44249351695b4e92256ee4c5dbdc4, type: 2}
+  variants: []
