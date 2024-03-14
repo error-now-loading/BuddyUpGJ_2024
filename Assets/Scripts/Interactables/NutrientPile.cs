@@ -4,16 +4,16 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(NutrientHandler))]
-public class Decomposer : Interactable
+public class NutrientPile : Interactable
 {
     private NutrientHandler handler = null;
-    private List<Decomposable> decomposables = null;
+    private List<NutrientBall> decomposables = null;
     private bool isDecomposing = false;
 
     private void Awake()
     {
         handler = GetComponent<NutrientHandler>();
-        decomposables = new List<Decomposable>();
+        decomposables = new List<NutrientBall>();
     }
 
     private void FixedUpdate()
@@ -24,7 +24,7 @@ public class Decomposer : Interactable
         }
     }
 
-    public void AddDecomposable(Decomposable argValue)
+    public void AddDecomposable(NutrientBall argValue)
     {
         if (!decomposables.Contains(argValue))
         {
@@ -37,7 +37,7 @@ public class Decomposer : Interactable
         isDecomposing = true;
         Debug.Log("DECOMPOSING");
 
-        Decomposable currentDecomposable = decomposables[0];
+        NutrientBall currentDecomposable = decomposables[0];
         currentDecomposable.BeginDecomposing();
         yield return new WaitForSeconds(currentDecomposable.timeToDecompose);
 
@@ -51,7 +51,7 @@ public class Decomposer : Interactable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Decomposable decomposable;
+        NutrientBall decomposable;
         if (collision.gameObject.TryGetComponent(out decomposable))
         {
             AddDecomposable(decomposable);

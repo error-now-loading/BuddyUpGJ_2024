@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         playerInput.Disable();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!isBusy)
         {
@@ -65,14 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = playerInput.PlayerOverworld.Movement.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed;
-        if (movement.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (movement.x > 0)
-        {
-            transform.localScale = Vector3.one;
-        }
+        TurnMeTowards(movement);
     }
     private void UpdateDestinationFollow()
     {
@@ -95,42 +88,35 @@ public class PlayerController : MonoBehaviour
         {
             // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
             isCasting = true;
-
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = cursorPosition - transform.position;
-            if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (direction.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
+            TurnMeTowards(direction);
             Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x,cursorPosition.y, 0), Quaternion.identity);
             BusyForSeconds(castingDuration);
         }
     }
-    public void Command(Interactable interactable)
+    public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
-        // TODO: ADD LOGIC FOR COMMAND MUSHROOM
         if (isCommanding)
         {
             onRepeatCommand?.Invoke();
         }
         isCommanding = true;
-
         Vector3 direction = interactable.transform.position - transform.position;
-        if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (direction.x > 0)
-        {
-            transform.localScale = Vector3.one;
-        }
-
+        TurnMeTowards(direction);
         BusyForSeconds(commandDuration);
+        return PickMinion();
     }
+
+    private MushroomMinion PickMinion()
+    {
+        foreach (MushroomMinion minion in minionTroops)
+        {
+            if(minion.GetMushroomTypeSO() == selectedMushroomType) return minion;
+        }
+        return null;
+    }
+
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
@@ -153,5 +139,20 @@ public class PlayerController : MonoBehaviour
     public void MinionTroopJoin(MushroomMinion mushroomMinion)
     {
         minionTroops.Add(mushroomMinion);
+    }
+    public void MinionTroopRemove(MushroomMinion mushroomMinion)
+    {
+        minionTroops.Remove(mushroomMinion);
+    }
+    private void TurnMeTowards(Vector2 direction)
+    {
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 }

@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool cursorRange = true;
     [SerializeField] private Outline outliner;
-
+    [SerializeField] private MinionSpot[] minionSpots;
+    [SerializeField] private MushroomJobs interactableType = MushroomJobs.Error;
+    [SerializeField] float destroyTimer = 20f;
     private bool interactable = false;
     protected PlayerController playerReference;
+    public bool isFinished { private set; get; }
 
     private void Start()
     {
@@ -61,7 +64,6 @@ public class Interactable : MonoBehaviour
         if (cursorRange && interactable)
         {
             Interact();
-            playerReference.Command(this);
         }
     }
     public void NearInteraction()
@@ -75,4 +77,65 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("Interacted. Behaviour must be overriden in the inherited class");
     }
+    public virtual void InteractMinion(MushroomMinion minion)
+    {
+        Debug.Log("Interacted by a minion. Behaviour must be overriden in the inherited class");
+    }
+    public virtual void FinishTask()
+    {
+        isFinished = true;
+        StartCoroutine(DisableAndDestroyCoroutine());
+    }
+
+    private IEnumerator DisableAndDestroyCoroutine()
+    {
+        Component[] components = GetComponentsInChildren<Component>();
+        foreach (Component component in components)
+        {
+            if(component as Interactable == null)
+            {
+                Debug.Log(component.GetType().Name);
+                Type type = component.GetType();
+                var enabledProperty = type.GetProperty("enabled");
+
+                if (enabledProperty != null && enabledProperty.CanWrite)
+                {
+                    Debug.Log(type.Name);
+                    enabledProperty.SetValue(component, false, null);
+                }
+            }
+        }
+        yield return new WaitForSeconds(destroyTimer);
+        Destroy(gameObject);
+    }
+    public MushroomJobs GetInteractableType()
+    {
+        return interactableType;
+    }
+    public void TryAssignSpotTo(MushroomMinion minion)
+    {
+        MinionSpot closestSpot = null;
+        Vector3 position = minion.transform.position;
+        float closestDistance = float.MaxValue;
+        foreach (MinionSpot spot in minionSpots)
+        {
+            float distance = Vector3.Distance(position, spot.transform.position);
+            if (!spot.occupied && distance < closestDistance)
+            {
+                closestSpot = spot;
+                closestDistance = distance;
+            }
+        }
+        if (closestSpot != null)
+        {
+            closestSpot.occupied = true;
+            minion.SetTargetAndSpot(this,closestSpot);
+        }
+    }
+}
+[Serializable]
+public class MinionSpot
+{
+    public Transform transform;
+    public bool occupied;
 }
