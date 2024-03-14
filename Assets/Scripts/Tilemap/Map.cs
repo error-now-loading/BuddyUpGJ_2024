@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Unity.AI.Navigation;
 
 public class Map : SceneSingleton<Map>
 {
     private enum TileType : int
     {
         Terrain = 0,
-        Decoration = 1
+        Decal = 1
     }
 
     private enum TerrainType : int
@@ -17,17 +18,28 @@ public class Map : SceneSingleton<Map>
         Muddy = 1
     }
 
+    private enum DecalType : int
+    {
+        LongGrassDecal = 0,
+        NoDecal = 1
+    }
+
+
+
     [SerializeField] private int mapWidth = 10;
     [SerializeField] private int mapHeight = 10;
     [SerializeField] private float mapScale = 5f;
     [SerializeField] private int mapSmoothness = 5;
-    [SerializeField] private Grid mapGrid = null;
+    [SerializeField] private NavMeshSurface navMeshSurface = null;
 
     [Header("Terrain Tiles")]
     [Tooltip("Number of tiles in list must be equal to number of TerrainTypes, order must match order in enum")]
     [SerializeField] private List<Tile> terrainTiles = null;
-
     [SerializeField] private Tilemap terrainMap = null;
+
+    [Header("Decal Tiles")]
+    [Tooltip("Number of tiles in list must be one less than number of DecalTypes, order must match order in enum")]
+    [SerializeField] private List<Tile> decalTiles = null;
     [SerializeField] private Tilemap decalMap = null;
 
 
@@ -42,46 +54,52 @@ public class Map : SceneSingleton<Map>
             return;
         }
 
-        float[,] noiseMap = PerlinNoiseGenerator.GenerateNoiseMap(mapWidth, mapHeight, mapScale, mapSmoothness, Vector2.zero);
-        float[,] normalizedMap = NormalizeBiome(noiseMap);
+        if (decalTiles.Count != Enum.GetNames(typeof(DecalType)).Length - 1)
+        {
+            Debug.LogError("[Map Generation Error]: Number of Decal Tiles in decalTiles not equal to number of decal types");
+            return;
+        }
 
-        GenerateTerrainMap(normalizedMap);
+        float[,] noiseMap = PerlinNoiseGenerator.GenerateNoiseMap(mapWidth, mapHeight, mapScale, mapSmoothness, Vector2.zero);
+
+        GenerateTerrainMap(NormalizeBiome(noiseMap));
+
+        navMeshSurface.BuildNavMesh();
     }
 
     /// <summary>
     ///     Normalize noise map for biomes
     /// </summary>
-    /// <param name="biomeMap">Noise map of the biome</param>
+    /// <param name="noiseMap">Noise map used for the biome</param>
     /// <returns>Normalized biome map</returns>
-    private float[,] NormalizeBiome(float[,] biomeMap)
+    private float[,] NormalizeBiome(float[,] noiseMap)
     {
-        int width = biomeMap.GetLength(0);
-        int height = biomeMap.GetLength(1);
+        int width = noiseMap.GetLength(0);
+        int height = noiseMap.GetLength(1);
 
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
-                if (biomeMap[x, y] > 0.4f)
+                if (noiseMap[x, y] > 0.4f)
                 {
-                    biomeMap[x, y] = (int)TerrainType.LongGrass;
+                    noiseMap[x, y] = (int)TerrainType.LongGrass;
                 }
 
                 else
                 {
-                    biomeMap[x, y] = (int)TerrainType.Muddy;
+                    noiseMap[x, y] = (int)TerrainType.Muddy;
                 }
             }
         }
 
-        return biomeMap;
+        return noiseMap;
     }
 
     /// <summary>
-    ///     Generates Tilemap object containing terrain data from provided normalized noise map
+    ///     Populated Terrain Tilemap object with terrain data from provided normalized noise map
     /// </summary>
     /// /// <param name="normalizedBiomeMap">Tilemap object representing terrain factoring in biomes</param>
-    /// <returns>Tilemap object representing provided map</returns>
     private void GenerateTerrainMap(float[,] normalizedBiomeMap)
     {
         for (int x = 0; x < mapWidth; x++)
@@ -90,7 +108,17 @@ public class Map : SceneSingleton<Map>
             {
                 terrainMap.SetTile(new Vector3Int(x, y, 0),
                                    terrainTiles[(int)normalizedBiomeMap[x, y]]);
+
+                // If grass placed, determine whether or not to place grass decal as well
+                if ((int)normalizedBiomeMap[x, y] == (int)TerrainType.LongGrass)
+                {
+                    if (UnityEngine.Random.Range(0f, 1f) > 0.5f)
+                    {
+                        decalMap.SetTile(new Vector3Int(x, y, 0),
+                                         decalTiles[(int)DecalType.LongGrassDecal]);
+    }
+                }
             }
-        }
+        }   
     }
 }
