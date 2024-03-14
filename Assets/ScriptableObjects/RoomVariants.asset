@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febaea0b4d3130f4aaa9e550b834f44e, type: 3}
   m_Name: RoomVariants
   m_EditorClassIdentifier: 
-  variants: []
+  variants:
+  - {fileID: 5367835341077419155, guid: 7ac66512c9db58d47a1e5c7fef138961, type: 3}
+  - {fileID: 5367835341077419155, guid: 1c2a595a16a9390458d7ed091c312454, type: 3}
