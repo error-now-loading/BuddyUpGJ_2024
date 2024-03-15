@@ -11,6 +11,8 @@ public class Enemy : Interactable
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float visionRadius = 5f;
     [SerializeField] private float actionRadius = 1f;
+    [SerializeField] private float attackDamagePerSecond = 1f;
+    [SerializeField] private float eatDamagePerSecond = 1f;
     [SerializeField] private Decomposable corpsePrefab;
 
     [SerializeField] private float attackDuration = 1f;
@@ -39,26 +41,32 @@ public class Enemy : Interactable
     }
     private void Update()
     {
-        Vector2 moveDir = Vector2.zero;
         if (!isBusy)
         {
+            Vector2 moveDir = Vector2.zero;
             CheckSurroundings();
             if (scavenger && !aggroed)
             {
                 if (decomposablesInRange.Count > 0 || nutrientsInRange.Count > 0)
                 {
-                    if (Vector2.Distance(transform.position, transform.position) < actionRadius)
+                    Interactable closestEatable = GetClosestEatable();
+                    if (Vector2.Distance(closestEatable.transform.position, transform.position) < actionRadius)
                     {
                         // Eat food
+                        isEating = true;
+                        closestEatable.InteractEnemy(this);
+                        BusyForSeconds(eatDuration);
                     }
                     else
                     {
-                        // Go for food :^) moveDir
+                        // Go for food
+                        moveDir = (closestEatable.transform.position - transform.position).normalized;
                     }
                 }
                 else if (minionsInRange.Count > 0 || playerInRange != null)
                 {
-                    moveDir = (transform.position - FleePosition()).normalized;
+                    //Flee
+                    moveDir = (transform.position - GetClosestFearable()).normalized;
                     BusyForSeconds(fleeDuration);
                 }
             }
@@ -78,12 +86,41 @@ public class Enemy : Interactable
         }
     }
 
+    private Interactable GetClosestEatable() // these functions irk me a bit, but they work xD
+    {
+        Interactable closestInteractable = null;
+        if (decomposablesInRange.Count > 0 && nutrientsInRange.Count > 0)
+        {
+            Interactable closestDecomposable = decomposablesInRange
+                .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
+                .FirstOrDefault();
+            Interactable closestNutrient = nutrientsInRange
+                .OrderBy(nutrient => Vector3.Distance(nutrient.transform.position, transform.position))
+                .FirstOrDefault();
+            closestInteractable = Vector3.Distance(closestDecomposable.gameObject.transform.position, transform.position) < Vector3.Distance(closestNutrient.gameObject.transform.position, transform.position) ? closestDecomposable : closestNutrient;
+        }
+        else if (decomposablesInRange.Count > 0)
+        {
+            closestInteractable = decomposablesInRange
+                .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
+                .FirstOrDefault();
+        }
+        else
+        {
+            closestInteractable = nutrientsInRange
+                .OrderBy(nutrient => Vector3.Distance(nutrient.transform.position, transform.position))
+                .FirstOrDefault();
+        }
+
+        return closestInteractable;
+    }
+
     private void Move(Vector2 moveDir)
     {
         rb.velocity = moveDir * moveSpeed;
         TurnMeTowards(moveDir);
     }
-    private Vector3 FleePosition()
+    private Vector3 GetClosestFearable() // these functions irk me a bit, but they work xD
     {
         Vector3 fleeFromPosition = Vector3.zero;
         if (minionsInRange.Count > 0 && playerInRange != null)
@@ -216,6 +253,15 @@ public class Enemy : Interactable
     {
         yield return new WaitForSeconds(seconds);
         isBusy = false;
+        isEating = false;
         waitingTimerCoroutine = null;
+    }
+    public float GetAttackDamage()
+    {
+        return attackDamagePerSecond * attackDuration;
+    }
+    public float GetEatDamage()
+    {
+        return eatDamagePerSecond * eatDuration;
     }
 }

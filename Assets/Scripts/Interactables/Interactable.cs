@@ -81,6 +81,10 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("Interacted by a minion. Behaviour must be overriden in the inherited class");
     }
+    public virtual void InteractEnemy(Enemy enemy)
+    {
+        Debug.Log("Interacted by a enemy. Behaviour must be overriden in the inherited class");
+    }
     public virtual void FinishTask()
     {
         isFinished = true;
@@ -94,13 +98,10 @@ public class Interactable : MonoBehaviour
         {
             if(component as Interactable == null)
             {
-                Debug.Log(component.GetType().Name);
                 Type type = component.GetType();
                 var enabledProperty = type.GetProperty("enabled");
-
                 if (enabledProperty != null && enabledProperty.CanWrite)
                 {
-                    Debug.Log(type.Name);
                     enabledProperty.SetValue(component, false, null);
                 }
             }
