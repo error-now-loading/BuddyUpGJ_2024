@@ -43,6 +43,7 @@ public class Enemy : Interactable
     {
         if (!isBusy)
         {
+            isEating = false; //Animator bug, needs to be here instead of WaitingTimer
             Vector2 moveDir = Vector2.zero;
             CheckSurroundings();
             if (scavenger && !aggroed)
@@ -253,7 +254,6 @@ public class Enemy : Interactable
     {
         yield return new WaitForSeconds(seconds);
         isBusy = false;
-        isEating = false;
         waitingTimerCoroutine = null;
     }
     public float GetAttackDamage()

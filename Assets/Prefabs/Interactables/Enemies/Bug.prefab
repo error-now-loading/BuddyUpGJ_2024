@@ -169,7 +169,7 @@ MonoBehaviour:
   corpsePrefab: {fileID: 577605815793667285, guid: f988e3cf91882fe4d8d42987479e6bf2, type: 3}
   attackDuration: 1
   fleeDuration: 1
-  eatDuration: 1
+  eatDuration: 0.5
   deathDuration: 1.11
 --- !u!70 &6675709381498705417
 CapsuleCollider2D:
