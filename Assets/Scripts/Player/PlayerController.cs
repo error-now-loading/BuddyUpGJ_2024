@@ -9,6 +9,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float health = 100f;
     [SerializeField] private Transform[] minionFollowPoints;
     [SerializeField] private float castingDuration = 1f;
     [SerializeField] private float commandDuration = 1f;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isCommanding { private set; get; }  //For Anims
     public bool isCasting { private set; get; }     //For Anims
+    public bool isDed { private set; get; }         //For Anims
     public event Action onRepeatCommand;            //For Anim Repeat
 
     private void Awake()
@@ -153,6 +155,15 @@ public class PlayerController : MonoBehaviour
         else if (direction.x > 0)
         {
             transform.localScale = Vector3.one;
+        }
+    }
+    public void GetHit(float damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            isDed = true;
+            rb.velocity = Vector3.zero;
         }
     }
 }

@@ -147,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1, y: -0.5, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8547048634411058328}
@@ -236,12 +236,16 @@ MonoBehaviour:
   minionSpots:
   - transform: {fileID: 4379707054981394584}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 8619680175435172840}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 648925391348596215}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 7176655246941859757}
     occupied: 0
+    minion: {fileID: 0}
   interactableType: 2
   destroyTimer: 20
   _timeToDecompose: 5
@@ -341,7 +345,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8547048634411058328}

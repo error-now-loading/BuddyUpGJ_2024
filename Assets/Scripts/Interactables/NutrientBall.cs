@@ -14,6 +14,7 @@ public class NutrientBall : Interactable
     private int _nutrientValue = 10;
     public int nutrientValue => _nutrientValue;
     public float timeToDecompose => _timeToDecompose;
+    //TODO when finishing task, before that remove all minions from spot transform partents
 
     private void Awake()
     {

@@ -10,6 +10,7 @@ public class MushroomMinion : MonoBehaviour
 
     [SerializeField] private float attackDuration = 1f;
     [SerializeField] private float getDuration = 1f;
+    [SerializeField] private float deathDuration = 1f;
 
     private Rigidbody2D rb;
     private PlayerController assignedPlayer;
@@ -25,7 +26,7 @@ public class MushroomMinion : MonoBehaviour
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
     public bool isCarrying { private set; get; }    //For Anims
-    public event Action onAttack;                   //For Anims TODO attack logic
+    public event Action onAttack;                   //For Anims
 
     void Start()
     {
@@ -57,14 +58,7 @@ public class MushroomMinion : MonoBehaviour
         if (Vector2.Distance(currentPos, destination) > 0.1f)
         {
             rb.velocity = moveDir * moveSpeed;
-            if (moveDir.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (moveDir.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
+            TurnMeTowards(moveDir);
         }
         else
         {
@@ -97,10 +91,7 @@ public class MushroomMinion : MonoBehaviour
         health -= damage;
         if (health < 0)
         {
-            isDed = true;
-            rb.velocity = Vector3.zero;
-            interactableSpot.occupied = false; 
-            interactableSpot = null;
+            StartCoroutine(Die());
         }
     }
     public void SetDestination(Vector2 destination)
@@ -127,18 +118,17 @@ public class MushroomMinion : MonoBehaviour
     }
     private void BeginWork(Interactable interactableTarget)
     {
+        TurnMeTowards(interactableTarget.transform.position - transform.position);
         switch (interactableTarget.GetInteractableType())
         {
             case MushroomJobs.Attack:
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
-                transform.localScale = interactableSpot.transform.localScale;
                 BusyForSeconds(attackDuration);
                 break;
             case MushroomJobs.Carry:
                 isCarrying = true;
                 transform.position = interactableSpot.transform.position;
-                transform.localScale = interactableSpot.transform.localScale;
                 transform.parent = interactableSpot.transform;
                 break;
             case MushroomJobs.Error:
@@ -178,5 +168,34 @@ public class MushroomMinion : MonoBehaviour
         isBusy = false;
         isGet = false;
         waitingTimerCoroutine = null;
+    }
+
+    public float GetHp()
+    {
+        return health;
+    }
+    IEnumerator Die()
+    {
+        isDed = true;
+        rb.velocity = Vector3.zero;
+        if (interactableSpot != null)
+        {
+            interactableSpot.occupied = false;
+            interactableSpot.minion = null;
+            interactableSpot = null;
+        }
+        yield return new WaitForSeconds(deathDuration);
+        Destroy(gameObject);
+    }
+    private void TurnMeTowards(Vector2 direction)
+    {
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 }

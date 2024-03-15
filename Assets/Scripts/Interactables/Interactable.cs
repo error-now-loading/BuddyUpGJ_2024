@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool cursorRange = true;
     [SerializeField] private Outline outliner;
-    [SerializeField] private MinionSpot[] minionSpots;
+    [SerializeField] protected MinionSpot[] minionSpots;
     [SerializeField] private MushroomJobs interactableType = MushroomJobs.Error;
     [SerializeField] float destroyTimer = 20f;
     private bool interactable = false;
@@ -81,6 +81,10 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("Interacted by a minion. Behaviour must be overriden in the inherited class");
     }
+    public virtual void InteractEnemy(Enemy enemy)
+    {
+        Debug.Log("Interacted by a enemy. Behaviour must be overriden in the inherited class");
+    }
     public virtual void FinishTask()
     {
         isFinished = true;
@@ -94,13 +98,10 @@ public class Interactable : MonoBehaviour
         {
             if(component as Interactable == null)
             {
-                Debug.Log(component.GetType().Name);
                 Type type = component.GetType();
                 var enabledProperty = type.GetProperty("enabled");
-
                 if (enabledProperty != null && enabledProperty.CanWrite)
                 {
-                    Debug.Log(type.Name);
                     enabledProperty.SetValue(component, false, null);
                 }
             }
@@ -130,6 +131,7 @@ public class Interactable : MonoBehaviour
         {
             closestSpot.occupied = true;
             minion.SetTargetAndSpot(this,closestSpot);
+            closestSpot.minion = minion;
         }
     }
 }
@@ -138,4 +140,5 @@ public class MinionSpot
 {
     public Transform transform;
     public bool occupied;
+    public MushroomMinion minion;
 }
