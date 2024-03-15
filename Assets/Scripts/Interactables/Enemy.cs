@@ -58,6 +58,7 @@ public class Enemy : Interactable
                         // Eat food
                         isEating = true;
                         closestEatable.InteractEnemy(this);
+                        TurnMeTowards(closestEatable.transform.position - transform.position);
                         BusyForSeconds(eatDuration);
                     }
                     else
@@ -70,6 +71,7 @@ public class Enemy : Interactable
                 {
                     //Flee
                     moveDir = (transform.position - GetClosestFearable()).normalized;
+                    TurnMeTowards(moveDir);
                     BusyForSeconds(fleeDuration);
                 }
             }
@@ -95,6 +97,8 @@ public class Enemy : Interactable
                     {
                         //Atack player
                         onAttack?.Invoke();
+                        aggroedplayer = playerInRange;
+                        TurnMeTowards(aggroedplayer.transform.position - transform.position);
                         BusyForSeconds(attackDuration);
                     }
                     else
@@ -110,6 +114,7 @@ public class Enemy : Interactable
                         //Atack meanies
                         onAttack?.Invoke();
                         aggroedMinion = targetMinion;
+                        TurnMeTowards(targetMinion.transform.position - transform.position);
                         BusyForSeconds(attackDuration);
                     }
                     else
@@ -292,12 +297,18 @@ public class Enemy : Interactable
         yield return new WaitForSeconds(seconds);
         if (!isDed && aggroedMinion)
         {
-            aggroedMinion.GetHit(GetAttackDamage());
+            if(Vector3.Distance(aggroedMinion.transform.position, transform.position) < actionRadius / 2f)
+            {
+                aggroedMinion.GetHit(GetAttackDamage());
+            }
             aggroedMinion = null;
         }
         else if (!isDed && aggroedplayer)
         {
-            aggroedplayer.GetHit(GetAttackDamage());
+            if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius / 2f)
+            {
+                aggroedplayer.GetHit(GetAttackDamage());
+            }
             aggroedplayer = null;
         }
         isBusy = false;
