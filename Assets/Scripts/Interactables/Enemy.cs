@@ -14,6 +14,7 @@ public class Enemy : Interactable
     [SerializeField] private Decomposable corpsePrefab;
 
     [SerializeField] private float attackDuration = 1f;
+    [SerializeField] private float fleeDuration = 1f;
     [SerializeField] private float eatDuration = 1f;
     [SerializeField] private float deathDuration = 1f;
 
@@ -27,6 +28,7 @@ public class Enemy : Interactable
 
     private bool aggroed;
     private bool isBusy;
+    private Coroutine waitingTimerCoroutine;
 
     public bool isDed { private set; get; }         //For Anims
     public bool isEating { private set; get; }      //For Anims
@@ -56,7 +58,8 @@ public class Enemy : Interactable
                 }
                 else if (minionsInRange.Count > 0 || playerInRange != null)
                 {
-                    // Run Away moveDir
+                    moveDir = (transform.position - FleePosition()).normalized;
+                    BusyForSeconds(fleeDuration);
                 }
             }
             else
@@ -79,6 +82,28 @@ public class Enemy : Interactable
     {
         rb.velocity = moveDir * moveSpeed;
         TurnMeTowards(moveDir);
+    }
+    private Vector3 FleePosition()
+    {
+        Vector3 fleeFromPosition = Vector3.zero;
+        if (minionsInRange.Count > 0 && playerInRange != null)
+        {
+            Vector3 closestMinion = minionsInRange
+                .OrderBy(minion => Vector3.Distance(minion.transform.position, transform.position))
+                .FirstOrDefault().transform.position;
+            fleeFromPosition = Vector3.Distance(closestMinion, transform.position) < Vector3.Distance(playerInRange.transform.position, transform.position) ? closestMinion : playerInRange.transform.position;
+        }
+        else if (playerInRange)
+        {
+            fleeFromPosition = playerInRange.transform.position;
+        }
+        else
+        {
+            fleeFromPosition = minionsInRange
+                .OrderBy(minion => Vector3.Distance(minion.transform.position, transform.position))
+                .FirstOrDefault().transform.position;
+        }
+        return fleeFromPosition;
     }
 
     private void CheckSurroundings()
@@ -176,5 +201,21 @@ public class Enemy : Interactable
         {
             transform.localScale = Vector3.one;
         }
+    }
+    private void BusyForSeconds(float seconds)
+    {
+        isBusy = true;
+        if (waitingTimerCoroutine != null)
+        {
+            StopCoroutine(waitingTimerCoroutine);
+        }
+        waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
+
+    }
+    IEnumerator WaitingTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isBusy = false;
+        waitingTimerCoroutine = null;
     }
 }
