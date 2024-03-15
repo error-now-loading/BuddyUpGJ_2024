@@ -58,14 +58,7 @@ public class MushroomMinion : MonoBehaviour
         if (Vector2.Distance(currentPos, destination) > 0.1f)
         {
             rb.velocity = moveDir * moveSpeed;
-            if (moveDir.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (moveDir.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
+            TurnMeTowards(moveDir);
         }
         else
         {
@@ -125,18 +118,17 @@ public class MushroomMinion : MonoBehaviour
     }
     private void BeginWork(Interactable interactableTarget)
     {
+        TurnMeTowards(interactableTarget.transform.position - transform.position);
         switch (interactableTarget.GetInteractableType())
         {
             case MushroomJobs.Attack:
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
-                transform.localScale = interactableSpot.transform.localScale;
                 BusyForSeconds(attackDuration);
                 break;
             case MushroomJobs.Carry:
                 isCarrying = true;
                 transform.position = interactableSpot.transform.position;
-                transform.localScale = interactableSpot.transform.localScale;
                 transform.parent = interactableSpot.transform;
                 break;
             case MushroomJobs.Error:
@@ -194,5 +186,16 @@ public class MushroomMinion : MonoBehaviour
         }
         yield return new WaitForSeconds(deathDuration);
         Destroy(gameObject);
+    }
+    private void TurnMeTowards(Vector2 direction)
+    {
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 }

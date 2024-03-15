@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.35, y: 1, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3740169892494468250}
@@ -163,7 +163,7 @@ MonoBehaviour:
   scavenger: 1
   moveSpeed: 3
   visionRadius: 4
-  actionRadius: 1
+  actionRadius: 1.5
   attackDamagePerSecond: 1
   eatDamagePerSecond: 1
   corpsePrefab: {fileID: 577605815793667285, guid: f988e3cf91882fe4d8d42987479e6bf2, type: 3}
@@ -465,7 +465,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.25, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3740169892494468250}

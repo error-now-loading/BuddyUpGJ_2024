@@ -173,7 +173,7 @@ MonoBehaviour:
   moveSpeed: 4
   attackDuration: 1
   getDuration: 1
-  deathDuration: 1
+  deathDuration: 1.2
 --- !u!50 &2429787945478081942
 Rigidbody2D:
   serializedVersion: 4
