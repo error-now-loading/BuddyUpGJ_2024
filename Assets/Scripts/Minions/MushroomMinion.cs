@@ -25,7 +25,7 @@ public class MushroomMinion : MonoBehaviour
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
     public bool isCarrying { private set; get; }    //For Anims
-    public event Action onAttack;                   //For Anims TODO attack logic
+    public event Action onAttack;                   //For Anims
 
     void Start()
     {
@@ -100,6 +100,7 @@ public class MushroomMinion : MonoBehaviour
             isDed = true;
             rb.velocity = Vector3.zero;
             interactableSpot.occupied = false; 
+            interactableSpot.minion = null;
             interactableSpot = null;
         }
     }
@@ -178,5 +179,10 @@ public class MushroomMinion : MonoBehaviour
         isBusy = false;
         isGet = false;
         waitingTimerCoroutine = null;
+    }
+
+    public float GetHp()
+    {
+        return health;
     }
 }

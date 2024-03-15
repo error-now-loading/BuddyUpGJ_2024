@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool cursorRange = true;
     [SerializeField] private Outline outliner;
-    [SerializeField] private MinionSpot[] minionSpots;
+    [SerializeField] protected MinionSpot[] minionSpots;
     [SerializeField] private MushroomJobs interactableType = MushroomJobs.Error;
     [SerializeField] float destroyTimer = 20f;
     private bool interactable = false;
@@ -130,6 +130,7 @@ public class Interactable : MonoBehaviour
         {
             closestSpot.occupied = true;
             minion.SetTargetAndSpot(this,closestSpot);
+            closestSpot.minion = minion;
         }
     }
 }
@@ -138,4 +139,5 @@ public class MinionSpot
 {
     public Transform transform;
     public bool occupied;
+    public MushroomMinion minion;
 }
