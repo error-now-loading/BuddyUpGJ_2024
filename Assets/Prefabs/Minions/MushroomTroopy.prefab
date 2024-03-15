@@ -169,10 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
-  health: 100
+  health: 5
   moveSpeed: 4
   attackDuration: 1
   getDuration: 1
+  deathDuration: 1
 --- !u!50 &2429787945478081942
 Rigidbody2D:
   serializedVersion: 4

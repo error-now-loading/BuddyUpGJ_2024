@@ -159,7 +159,7 @@ MonoBehaviour:
     minion: {fileID: 0}
   interactableType: 0
   destroyTimer: 20
-  enemyHP: 100
+  enemyHP: 50
   scavenger: 1
   moveSpeed: 3
   visionRadius: 4

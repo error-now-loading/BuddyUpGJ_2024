@@ -128,11 +128,13 @@ MonoBehaviour:
     minion: {fileID: 0}
   interactableType: 0
   destroyTimer: 20
-  enemyHP: 100
+  enemyHP: 50
   scavenger: 0
   moveSpeed: 5
   visionRadius: 4
-  actionRadius: 1
+  actionRadius: 1.5
+  attackDamagePerSecond: 1
+  eatDamagePerSecond: 1
   corpsePrefab: {fileID: 577605815793667285, guid: f1b9c79936ab6c44aa8f0f40f057a2fc, type: 3}
   attackDuration: 1
   fleeDuration: 1

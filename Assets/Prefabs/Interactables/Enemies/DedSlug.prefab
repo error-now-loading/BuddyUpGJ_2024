@@ -146,16 +146,19 @@ MonoBehaviour:
   minionSpots:
   - transform: {fileID: 763621136337108974}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 8558020921445353110}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 9123463845797039988}
     occupied: 0
+    minion: {fileID: 0}
   - transform: {fileID: 4183020437945256822}
     occupied: 0
+    minion: {fileID: 0}
   interactableType: 1
   destroyTimer: 20
-  decomposableHP: 100
-  nutrientValue: 1
+  decomposableHP: 50
   nutrientPrefab: {fileID: 7262393741106229116, guid: 41f8353b13c544b459508b4a6061b6a6, type: 3}
 --- !u!70 &7750900064378529516
 CapsuleCollider2D:
