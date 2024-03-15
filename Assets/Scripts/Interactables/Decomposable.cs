@@ -1,37 +1,28 @@
-using System;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public class Decomposable : MonoBehaviour
+public class Decomposable : Interactable
 {
-    [SerializeField] private SpriteRenderer spriteRenderer = null;
-    [SerializeField] private BoxCollider2D boxCollider = null;
-    [SerializeField] private Rigidbody2D rigidBody = null;
-    
-    [SerializeField] private int _nutrientValue = 10;
-    public int nutrientValue => _nutrientValue;
-
-    [SerializeField] private float _timeToDecompose = 5f;
-    public float timeToDecompose => _timeToDecompose;
-
-
-
-    public void BeginDecomposing()
+    [SerializeField] private float decomposableHP = 100f;
+    [SerializeField] private NutrientBall nutrientPrefab;
+    public void GetHit(float damage)
     {
-        boxCollider.enabled = false;
-        rigidBody.simulated = false;
-        FadeOut();
-    }
-
-    private Coroutine FadeOut()
-    {
-        Action<float> tweenAction = lerp =>
+        decomposableHP -= damage;
+        if (decomposableHP < 0 && !isFinished)
         {
-            Color newColor = spriteRenderer.color;
-            newColor.a = Mathf.Lerp(1f, 0f, lerp);
-            spriteRenderer.color = newColor;
-        };
-
-        return this.DoTween(tweenAction, null, _timeToDecompose, 0, EaseType.linear, true);
+            FinishTask();
+            Instantiate(nutrientPrefab, transform.position, Quaternion.identity);
+        }
+    }
+    protected override void Interact()
+    {
+        MushroomMinion minion = playerReference.TryToCommandMinionTo(this);
+        if (minion != null)
+        {
+            TryAssignSpotTo(minion);
+        }
+    }
+    public override void InteractMinion(MushroomMinion minion)
+    {
+        GetHit(minion.GetDecomposeDamage());
     }
 }

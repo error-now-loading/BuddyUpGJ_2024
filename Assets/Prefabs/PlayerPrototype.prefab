@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 124561228974549959}
   - component: {fileID: 3096453865774465157}
   - component: {fileID: 7570550192328548583}
+  - component: {fileID: 6304287890149987369}
   m_Layer: 3
   m_Name: PlayerPrototype
   m_TagString: Untagged
@@ -462,6 +463,41 @@ MonoBehaviour:
   commandDuration: 1
   selectedMushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
   selectedSpellType: {fileID: 11400000, guid: 39a3086ef49eb6f4aada0057f426eb92, type: 2}
+--- !u!70 &6304287890149987369
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767782137763750052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.7, y: 0.25}
+  m_Direction: 1
 --- !u!1 &2905342490963250886
 GameObject:
   m_ObjectHideFlags: 0
