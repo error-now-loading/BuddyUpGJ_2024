@@ -29,6 +29,8 @@ public class Enemy : Interactable
     private Rigidbody2D rb;
 
     private bool aggroed;
+    private MushroomMinion aggroedMinion;
+    private PlayerController aggroedplayer;
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
@@ -73,16 +75,51 @@ public class Enemy : Interactable
             }
             else
             {
-                if (Vector2.Distance(transform.position, transform.position) < actionRadius)
+                MushroomMinion targetMinion = null;
+                bool attackPlayer = false;
+                if (attackingMinionsInRange.Count > 0)
                 {
-                    //Atack meanies
+                    targetMinion = GetPriorityMinion(attackingMinionsInRange);
                 }
-                else
+                else if (minionsInRange.Count > 0)
                 {
-                    // Go for meanies >:( moveDir
+                    targetMinion = GetPriorityMinion(minionsInRange);
+                }
+                else if (playerInRange != null)
+                {
+                    attackPlayer = true;
+                }
+                if (attackPlayer)
+                {
+                    if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
+                    {
+                        //Atack player
+                        onAttack?.Invoke();
+                        BusyForSeconds(attackDuration);
+                    }
+                    else
+                    {
+                        // Go for player >:(
+                        moveDir = (playerInRange.transform.position - transform.position).normalized;
+                    }
+                }
+                else if (targetMinion != null)
+                {
+                    if (Vector2.Distance(targetMinion.transform.position, transform.position) < actionRadius)
+                    {
+                        //Atack meanies
+                        onAttack?.Invoke();
+                        aggroedMinion = targetMinion;
+                        BusyForSeconds(attackDuration);
+                    }
+                    else
+                    {
+                        // Go for meanies >:(
+                        moveDir = (targetMinion.transform.position - transform.position).normalized;
+                    }
                 }
             }
-            //Pathing if notargets && isbusy moveDir
+            //Pathing if noTargets && !isbusy moveDir
             Move(moveDir);
         }
     }
@@ -152,7 +189,7 @@ public class Enemy : Interactable
         attackingMinionsInRange = new List<MushroomMinion>();
         nutrientsInRange = new List<NutrientBall>();
         decomposablesInRange = new List<Decomposable>();
-        foreach (Collider2D collider in colliders)
+        foreach (Collider2D collider in colliders) //this also irks me a bit. sorry :c
         {
             PlayerController player = collider.GetComponent<PlayerController>();
             MushroomMinion minion = collider.GetComponent<MushroomMinion>();
@@ -253,6 +290,16 @@ public class Enemy : Interactable
     IEnumerator WaitingTimer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        if (!isDed && aggroedMinion)
+        {
+            aggroedMinion.GetHit(GetAttackDamage());
+            aggroedMinion = null;
+        }
+        else if (!isDed && aggroedplayer)
+        {
+            aggroedplayer.GetHit(GetAttackDamage());
+            aggroedplayer = null;
+        }
         isBusy = false;
         waitingTimerCoroutine = null;
     }

@@ -10,6 +10,7 @@ public class MushroomMinion : MonoBehaviour
 
     [SerializeField] private float attackDuration = 1f;
     [SerializeField] private float getDuration = 1f;
+    [SerializeField] private float deathDuration = 1f;
 
     private Rigidbody2D rb;
     private PlayerController assignedPlayer;
@@ -97,11 +98,7 @@ public class MushroomMinion : MonoBehaviour
         health -= damage;
         if (health < 0)
         {
-            isDed = true;
-            rb.velocity = Vector3.zero;
-            interactableSpot.occupied = false; 
-            interactableSpot.minion = null;
-            interactableSpot = null;
+            StartCoroutine(Die());
         }
     }
     public void SetDestination(Vector2 destination)
@@ -184,5 +181,18 @@ public class MushroomMinion : MonoBehaviour
     public float GetHp()
     {
         return health;
+    }
+    IEnumerator Die()
+    {
+        isDed = true;
+        rb.velocity = Vector3.zero;
+        if (interactableSpot != null)
+        {
+            interactableSpot.occupied = false;
+            interactableSpot.minion = null;
+            interactableSpot = null;
+        }
+        yield return new WaitForSeconds(deathDuration);
+        Destroy(gameObject);
     }
 }
