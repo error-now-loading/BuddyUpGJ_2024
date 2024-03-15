@@ -161,8 +161,8 @@ MonoBehaviour:
   destroyTimer: 20
   enemyHP: 100
   scavenger: 1
-  moveSpeed: 5
-  visionRadius: 5
+  moveSpeed: 3
+  visionRadius: 4
   actionRadius: 1
   corpsePrefab: {fileID: 577605815793667285, guid: f988e3cf91882fe4d8d42987479e6bf2, type: 3}
   attackDuration: 1
