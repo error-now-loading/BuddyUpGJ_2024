@@ -1,15 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class RoomVariantsSO : ScriptableObject
+[CreateAssetMenu(menuName = "VariantSOs/Room Variants")]
+public class RoomVariantsSO : VariantSO<Room>
 {
-    [SerializeField] public List<Room> variants = null;
     private Room lastRoom = null;
 
 
 
-    public Room SelectRandom()
+    public override Room SelectRandom()
     {
         Room selectedRoom = variants[Random.Range(0, variants.Count)];
         if (lastRoom == null)

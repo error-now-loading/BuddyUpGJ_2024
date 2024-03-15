@@ -2623,6 +2623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3036079351687431578}
   - component: {fileID: 5367835341077419155}
+  - component: {fileID: 675422340949007159}
   - component: {fileID: 5025827839251368050}
   m_Layer: 0
   m_Name: TestRoom
@@ -2663,6 +2664,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad21e4b183f9fac43b8718fca06df999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &675422340949007159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926605471706253457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f7bd58b46999e4e8133c7d06801f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemySpawners: 2
+  numResourceSpawners: 2
+  enemyVariants: {fileID: 11400000, guid: 658571a928c4c9843b0b98d3adb8a07d, type: 2}
+  resourceVariants: {fileID: 11400000, guid: d17737f255af99c44bd68831cda669f0, type: 2}
+  obstacleMap: {fileID: 128595530339487044}
 --- !u!156049354 &5025827839251368050
 Grid:
   m_ObjectHideFlags: 0
