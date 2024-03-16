@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 22
-  ratio: -0.5
+  ratio: -0.2
 --- !u!1 &7440587959662019898
 GameObject:
   m_ObjectHideFlags: 0
