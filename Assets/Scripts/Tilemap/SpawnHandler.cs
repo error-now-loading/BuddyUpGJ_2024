@@ -6,14 +6,18 @@ public class SpawnHandler : MonoBehaviour
 {
     // TODO: Implement timed spawn
     [SerializeField] private int numEnemySpawners = 2;
+    [SerializeField] private float enemySpawnInterval = 360f;
+    [Space]
     [SerializeField] private int numResourceSpawners = 2;
+    [SerializeField] private float resourceSpawnInterval = 360f;
     [Space]
     [SerializeField] private EnemyVariantsSO enemyVariants = null;
     [SerializeField] private ResourceVariantsSO resourceVariants = null;
     [Space]
-    [SerializeField] private Tilemap obstacleMap = null; // Spawners will use obstacleMap to determine valid spawn locations
+    // Spawners use obstacleMap to determine valid spawn locations
+    [SerializeField] private Tilemap obstacleMap = null; 
 
-    private List<MushroomMinion> enemiesForSpawners = null; // TODO: Replace with Enemy class
+    private List<Enemy> enemiesForSpawners = null;
     private List<Decomposable> resourcesForSpawners = null;
 
     private List<Vector3> enemySpawnLocations = null;
@@ -24,7 +28,7 @@ public class SpawnHandler : MonoBehaviour
 
     private void Awake()
     {
-        enemiesForSpawners = new List<MushroomMinion>();
+        enemiesForSpawners = new List<Enemy>();
         resourcesForSpawners = new List<Decomposable>();
 
         for (int i = 0; i < numEnemySpawners; i++)

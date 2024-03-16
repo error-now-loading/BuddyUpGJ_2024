@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "VariantSOs/Enemy Variants")]
-public class EnemyVariantsSO : VariantSO<MushroomMinion>
+public class EnemyVariantsSO : VariantSO<Enemy>
 {
-    // TODO: IMPLEMENT USING ENEMY CLASS
+
 }
