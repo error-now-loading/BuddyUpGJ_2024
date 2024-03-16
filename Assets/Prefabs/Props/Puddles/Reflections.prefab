@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4553431532246309009}
   - component: {fileID: 6197293454033877825}
   m_Layer: 0
-  m_Name: Reflection (3)
+  m_Name: Reflection2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &6779178202543818468
 GameObject:
@@ -115,8 +115,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5349881872620836967}
-  - {fileID: 4553431532246309009}
   - {fileID: 1172901890431733172}
+  - {fileID: 4553431532246309009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8460697800737220307
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0f4016c8fad2741a16432bb75503b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 20
+  size: 22
   ratio: -0.5
 --- !u!1 &7440587959662019898
 GameObject:
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 1172901890431733172}
   - component: {fileID: 7105810266590194806}
   m_Layer: 0
-  m_Name: Reflection (2)
+  m_Name: Reflection3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8236128577372729649
 GameObject:
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 5349881872620836967}
   - component: {fileID: 6437663848895296934}
   m_Layer: 0
-  m_Name: Reflection
+  m_Name: Reflection1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,5 +299,5 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0

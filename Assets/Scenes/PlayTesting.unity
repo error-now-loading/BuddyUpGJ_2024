@@ -1411,17 +1411,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5712975623051935188, guid: 4896d1caf87fd924bb0e606583350fce, type: 3}
-      propertyPath: size
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6929569769296618979, guid: 4896d1caf87fd924bb0e606583350fce, type: 3}
       propertyPath: m_Name
       value: Puddle1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 418144536658838345, guid: 4896d1caf87fd924bb0e606583350fce, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4896d1caf87fd924bb0e606583350fce, type: 3}
