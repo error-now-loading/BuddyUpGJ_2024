@@ -14,8 +14,8 @@ public class CyclicMovement : MonoBehaviour
 
     void Update()
     {
-        float cameraX = mainCamera.transform.position.x;
-        float movement = (cameraX % size) * ratio;
+        float cameraX = mainCamera.transform.position.x * ratio + transform.parent.position.x;
+        float movement = cameraX % size;
         if (movement > size / 2)
         {
             movement -= size;
@@ -24,8 +24,7 @@ public class CyclicMovement : MonoBehaviour
         {
             movement += size;
         }
-        Vector3 newPosition = transform.position;
-        newPosition.x = movement;
-        transform.position = newPosition;
+        Vector3 newPosition = new Vector3 (movement, transform.localPosition.y, 0);
+        transform.localPosition = newPosition;
     }
 }
