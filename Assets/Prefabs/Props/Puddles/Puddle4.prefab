@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5684113342321141980}
   - component: {fileID: 3330156889821674196}
   - component: {fileID: -9178297545038860776}
+  - component: {fileID: 3991314741212861646}
   m_Layer: 0
   m_Name: Puddle4
   m_TagString: Untagged
@@ -137,6 +138,18 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!210 &3991314741212861646
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929569769296618979}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -5
+  m_SortAtRoot: 0
 --- !u!1001 &5283043494972196165
 PrefabInstance:
   m_ObjectHideFlags: 0
