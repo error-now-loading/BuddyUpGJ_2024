@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 6304287890149987369}
   m_Layer: 3
   m_Name: PlayerPrototype
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  health: 100
   minionFollowPoints:
   - {fileID: 7189245585692024491}
   - {fileID: 7384256402820746747}

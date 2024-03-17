@@ -119,6 +119,11 @@ public class PlayerController : MonoBehaviour
         return null;
     }
 
+    public void SetSelectedMushroomType(MushroomTypeSO mt)
+    {
+        selectedMushroomType = mt;
+    }
+
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
