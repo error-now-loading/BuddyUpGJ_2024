@@ -21,11 +21,20 @@ public class MushroomSelectUIScript : MonoBehaviour
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        playerController.onTroopUpdate += PlayerController_onTroopUpdate;
     }
+
+    private void PlayerController_onTroopUpdate()
+    {
+        for (int i = 0; i < mushromSOs.Count; i++)
+        {
+            UpdateTroopNumbersUI(i, playerController.GetMinionTypeCount(i));
+        }
+    }
+
     private void Update()
     {
-        //I'll uncommit this once I get rid of the test code below it
-        /*if (Input.GetKeyDown("1") && activeMushroomIcons.Count >= 1)
+        if (Input.GetKeyDown("1") && activeMushroomIcons.Count >= 1)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
         }
@@ -40,40 +49,6 @@ public class MushroomSelectUIScript : MonoBehaviour
         if (Input.GetKeyDown("4") && activeMushroomIcons.Count >= 4)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
-        }*/
-
-        // Code for testing updating input
-        if (Input.GetKeyDown("1"))
-        {
-            UpdateTroopNumbersUI(0, 1);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            UpdateTroopNumbersUI(1, 1);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            UpdateTroopNumbersUI(2, 1);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            UpdateTroopNumbersUI(3, 1);
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            UpdateTroopNumbersUI(0, 0);
-        }
-        if (Input.GetKeyDown("6"))
-        {
-            UpdateTroopNumbersUI(1, 0);
-        }
-        if (Input.GetKeyDown("7"))
-        {
-            UpdateTroopNumbersUI(2, 0);
-        }
-        if (Input.GetKeyDown("8"))
-        {
-            UpdateTroopNumbersUI(3, 0);
         }
     }
 

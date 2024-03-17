@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool isCasting { private set; get; }     //For Anims
     public bool isDed { private set; get; }         //For Anims
     public event Action onRepeatCommand;            //For Anim Repeat
+    public event Action onTroopUpdate;              //For UI Update
 
     private void Awake()
     {
@@ -119,10 +120,6 @@ public class PlayerController : MonoBehaviour
         return null;
     }
 
-    public void SetSelectedMushroomType(MushroomTypeSO mt)
-    {
-        selectedMushroomType = mt;
-    }
 
     private void BusyForSeconds(float seconds)
     {
@@ -146,10 +143,28 @@ public class PlayerController : MonoBehaviour
     public void MinionTroopJoin(MushroomMinion mushroomMinion)
     {
         minionTroops.Add(mushroomMinion);
+        onTroopUpdate?.Invoke();
     }
     public void MinionTroopRemove(MushroomMinion mushroomMinion)
     {
         minionTroops.Remove(mushroomMinion);
+        onTroopUpdate?.Invoke();
+    }
+    public void SetSelectedMushroomType(MushroomTypeSO mt)
+    {
+        selectedMushroomType = mt;
+    }
+    public int GetMinionTypeCount(int index)
+    {
+        int count = 0;
+        foreach (MushroomMinion minion in minionTroops)
+        {
+            if ((int)minion.GetMushroomTypeSO().type == index)
+            {
+                count += 1;
+            }
+        }
+        return count;
     }
     private void TurnMeTowards(Vector2 direction)
     {
