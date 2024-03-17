@@ -333,7 +333,6 @@ public class Enemy : Interactable
         {
             if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius *1.2f)
             {
-                Debug.Log("hit");
                 aggroedplayer.GetHit(GetAttackDamage());
             }
             aggroedplayer = null;

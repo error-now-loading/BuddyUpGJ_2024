@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 501d7fcaa8738c14d87300f974f984a7, type: 3}
+    - target: {fileID: 2898130227480003142, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e819699a1d77149a3db0da1fd9c3c4, type: 2}
     - target: {fileID: 3561714687845895022, guid: ebdac44b0fa1e2c4ca25e6bbb175d2b9, type: 3}
       propertyPath: m_Name
       value: MushroomGhosty
