@@ -173,6 +173,8 @@ public class PlayerController : MonoBehaviour
         if (health < 0)
         {
             isDed = true;
+            isBusy = true;
+            waitingTimerCoroutine = null;
             rb.velocity = Vector3.zero;
         }
     }

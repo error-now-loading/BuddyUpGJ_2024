@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   spellPrefab: {fileID: 3087975395080379105, guid: a1d5829a7e70ca14b855ac235aa6cedf, type: 3}
-  manaCost: 0
+  manaCost: 1
