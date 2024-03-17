@@ -17,6 +17,7 @@ public class MushroomSelectUIScript : MonoBehaviour
     private Vector2 keyBindPosition;
     private List<MushroomTypeSO> activeMushroomIcons = new List<MushroomTypeSO>();
     private PlayerController playerController;
+    private int selectedIndex;
 
     private void Start()
     {
@@ -26,9 +27,18 @@ public class MushroomSelectUIScript : MonoBehaviour
 
     private void PlayerController_onTroopUpdate()
     {
+        bool emptyTroop = false;
+        if (activeMushroomIcons.Count == 0)
+        {
+            emptyTroop = true;
+        }
         for (int i = 0; i < mushromSOs.Count; i++)
         {
             UpdateTroopNumbersUI(i, playerController.GetMinionTypeCount(i));
+        }
+        if (emptyTroop)
+        {
+            playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
         }
     }
 
@@ -37,18 +47,22 @@ public class MushroomSelectUIScript : MonoBehaviour
         if (Input.GetKeyDown("1") && activeMushroomIcons.Count >= 1)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+            selectedIndex = 0;
         }
         if (Input.GetKeyDown("2") && activeMushroomIcons.Count >= 2)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[1]);
+            selectedIndex = 1;
         }
         if (Input.GetKeyDown("3") && activeMushroomIcons.Count >= 3)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[2]);
+            selectedIndex = 2;
         }
         if (Input.GetKeyDown("4") && activeMushroomIcons.Count >= 4)
         {
             playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
+            selectedIndex = 3;
         }
     }
 
@@ -58,12 +72,24 @@ public class MushroomSelectUIScript : MonoBehaviour
         if (mushroomCount > 0)
         {
             mushroomIcons[mushroomIndex].SetActive(true);
+            RearrangeKeyBinds();
         }
         else
         {
             mushroomIcons[mushroomIndex].SetActive(false);
+            RearrangeKeyBinds();
+            if (activeMushroomIcons.Count > selectedIndex) {
+                playerController.SetSelectedMushroomType(activeMushroomIcons[selectedIndex]);
+            }
+            else if (activeMushroomIcons.Count > 0)
+            {
+                playerController.SetSelectedMushroomType(activeMushroomIcons[activeMushroomIcons.Count-1]);
+            }
+            else
+            {
+                playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
+            }
         }
-        RearrangeKeyBinds();
     }
     
     private void RearrangeKeyBinds()
