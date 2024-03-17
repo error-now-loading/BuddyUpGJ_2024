@@ -9,9 +9,9 @@ public class SpellTypeSO : ScriptableObject
 }
 public enum SpellTypes
 {
-    BuffAttackSpeed,
+    BuffAttackDamage,
     BuffCarrySpeed,
-    BuffDecomposeSpeed,
+    BuffDecomposeDamage,
     SummonDummy,
     SummonTroopy,
     SummonBulky,

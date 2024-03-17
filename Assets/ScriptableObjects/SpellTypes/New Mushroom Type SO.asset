@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f387d755f02ff4fbfc135ab507f0a6, type: 3}
-  m_Name: BuffAttack
+  m_Script: {fileID: 11500000, guid: 1ec3aee061922384f8e714e0e4fffa61, type: 3}
+  m_Name: New Mushroom Type SO
   m_EditorClassIdentifier: 
   type: 0
-  spellPrefab: {fileID: 3087975395080379105, guid: 78a3d8458d071504da3eff2cf053bd32, type: 3}
-  manaCost: 0
+  minionPrefab: {fileID: 0}
+  attackPerSecond: 1
+  carryPerSecond: 1
+  decomposePerSecond: 1
+  maxHpMultiplier: 1

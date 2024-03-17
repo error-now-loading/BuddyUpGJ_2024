@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuffDecompose
   m_EditorClassIdentifier: 
   type: 2
-  spellPrefab: {fileID: 0}
+  spellPrefab: {fileID: 3087975395080379105, guid: 7cd6ddbc632fb3f4e8888cefad427601, type: 3}
   manaCost: 0
