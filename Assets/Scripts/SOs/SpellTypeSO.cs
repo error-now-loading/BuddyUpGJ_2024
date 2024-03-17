@@ -17,5 +17,6 @@ public enum SpellTypes
     SummonBulky,
     SummonAngy,
     SummonGhosty,
-    WinGame
+    WinGame,
+    NullBuff,
 }

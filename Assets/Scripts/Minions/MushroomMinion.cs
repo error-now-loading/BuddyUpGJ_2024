@@ -22,6 +22,8 @@ public class MushroomMinion : MonoBehaviour
 
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
+    private static SpellTypes activeBuff = SpellTypes.NullBuff;
+    private float activeBuffMultiplier;
 
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
@@ -110,15 +112,15 @@ public class MushroomMinion : MonoBehaviour
     }
     public float GetAttackDamage()
     {
-        return mushroomType.attackPerSecond * attackDuration;
+        return mushroomType.attackPerSecond * attackDuration * (activeBuff == SpellTypes.BuffAttackSpeed ? activeBuffMultiplier : 1);
     }
     public float GetDecomposeDamage()
     {
-        return mushroomType.decomposePerSecond * attackDuration;
+        return mushroomType.decomposePerSecond * attackDuration * (activeBuff == SpellTypes.BuffDecomposeSpeed ? activeBuffMultiplier : 1);
     }
     public float GetCarryPower()
     {
-        return GetMushroomTypeSO().carryPerSecond * Time.deltaTime;
+        return mushroomType.decomposePerSecond * Time.deltaTime * (activeBuff == SpellTypes.BuffCarrySpeed ? activeBuffMultiplier : 1);  
     }
     private void BeginWork(Interactable interactableTarget)
     {
@@ -201,5 +203,9 @@ public class MushroomMinion : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
+    }
+    public void SetActiveBuff(SpellTypes buffType)
+    {
+        activeBuff = buffType;
     }
 }
