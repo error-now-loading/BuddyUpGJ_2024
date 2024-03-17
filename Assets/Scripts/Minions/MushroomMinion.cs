@@ -102,7 +102,7 @@ public class MushroomMinion : MonoBehaviour
     public void GetHit(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             StartCoroutine(Die());
         }

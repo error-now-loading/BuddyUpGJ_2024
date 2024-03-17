@@ -170,11 +170,15 @@ public class PlayerController : MonoBehaviour
     public void GetHit(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             isDed = true;
             isBusy = true;
-            waitingTimerCoroutine = null;
+            if (waitingTimerCoroutine != null)
+            {
+                StopCoroutine(waitingTimerCoroutine);
+                waitingTimerCoroutine = null;
+            }
             rb.velocity = Vector3.zero;
         }
     }

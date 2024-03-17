@@ -323,7 +323,7 @@ public class Enemy : Interactable
         yield return new WaitForSeconds(seconds);
         if (!isDed && aggroedMinion)
         {
-            if(Vector3.Distance(aggroedMinion.transform.position, transform.position) < actionRadius / 2f)
+            if(Vector3.Distance(aggroedMinion.transform.position, transform.position) < actionRadius *1.2f)
             {
                 aggroedMinion.GetHit(GetAttackDamage());
             }
@@ -331,8 +331,9 @@ public class Enemy : Interactable
         }
         else if (!isDed && aggroedplayer)
         {
-            if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius / 2f)
+            if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius *1.2f)
             {
+                Debug.Log("hit");
                 aggroedplayer.GetHit(GetAttackDamage());
             }
             aggroedplayer = null;
