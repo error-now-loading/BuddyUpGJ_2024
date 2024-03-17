@@ -116,6 +116,10 @@ public class MushroomMinion : MonoBehaviour
     {
         return mushroomType.decomposePerSecond * attackDuration;
     }
+    public float GetCarryPower()
+    {
+        return GetMushroomTypeSO().carryPerSecond * Time.deltaTime;
+    }
     private void BeginWork(Interactable interactableTarget)
     {
         TurnMeTowards(interactableTarget.transform.position - transform.position);
