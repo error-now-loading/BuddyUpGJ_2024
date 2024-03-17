@@ -5,7 +5,7 @@ public class SpellTypeSO : ScriptableObject
 {
     public SpellTypes type;
     public GameObject spellPrefab;
-    public float manaCost;
+    public int manaCost;
 }
 public enum SpellTypes
 {

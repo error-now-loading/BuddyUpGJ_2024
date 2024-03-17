@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+    private NutrientHandler mana;
     private Interactable closestInteractable;
 
     private List<MushroomMinion> minionTroops = new List<MushroomMinion>();
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        mana = GetComponent<NutrientHandler>();
     }
 
     private void OnEnable()
@@ -89,13 +91,19 @@ public class PlayerController : MonoBehaviour
     {
         if (!isBusy)
         {
-            // TODO: ADD LOGIC FOR SPENDING NUTRIENTS WHEN SPELL IS CAST
             isCasting = true;
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = cursorPosition - transform.position;
             TurnMeTowards(direction);
-            Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x,cursorPosition.y, 0), Quaternion.identity);
             BusyForSeconds(castingDuration);
+            if (mana.SpendNutrients(selectedSpellType.manaCost))
+            {
+                Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x, cursorPosition.y, 0), Quaternion.identity);
+            }
+            else
+            {
+                isFailingCasting = true;
+            }
         }
     }
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
@@ -135,6 +143,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         isBusy = false;
         isCasting = false;
+        isFailingCasting = false;
         isCommanding = false;
         waitingTimerCoroutine = null;
     }
