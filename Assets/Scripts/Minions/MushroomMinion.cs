@@ -25,7 +25,7 @@ public class MushroomMinion : MonoBehaviour
     private Coroutine waitingTimerCoroutine;
     private static SpellTypes activeBuff = SpellTypes.NullBuff;
     private float activeBuffMultiplier = 1.5f;
-    private float autoTaskTimer = 10f;
+    private float autoTaskTimer = 3f;
 
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
