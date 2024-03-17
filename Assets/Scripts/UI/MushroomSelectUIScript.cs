@@ -20,7 +20,7 @@ public class MushroomSelectUIScript : MonoBehaviour
 
     private void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
     }
     private void Update()
     {
