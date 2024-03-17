@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffType: 2
+  spellGlow: {fileID: 2100000, guid: d69d2a5113084294f8e59b6b8079868e, type: 2}
   spellDuration: 60
