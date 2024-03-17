@@ -208,4 +208,11 @@ public class MushroomMinion : MonoBehaviour
     {
         activeBuff = buffType;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<Interactable>())
+        {
+            other.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+        }
+    }
 }
