@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
-    public bool isCommanding { private set; get; }  //For Anims
-    public bool isCasting { private set; get; }     //For Anims
-    public bool isDed { private set; get; }         //For Anims
-    public event Action onRepeatCommand;            //For Anim Repeat
+    public bool isCommanding { private set; get; }          //For Anims
+    public bool isCasting { private set; get; }             //For Anims
+    public bool isFailingCasting { private set; get; }      //For Anims
+    public bool isDed { private set; get; }                 //For Anims
+    public event Action onRepeatCommand;                    //For Anim Repeat
 
     private void Awake()
     {
