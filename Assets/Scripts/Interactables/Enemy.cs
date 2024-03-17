@@ -21,11 +21,12 @@ public class Enemy : Interactable
     [SerializeField] private float deathDuration = 1f;
 
     private PlayerController playerInRange;
+    private Dummy dummyInRange;
     private List<MushroomMinion> minionsInRange = new List<MushroomMinion>();
     private List<MushroomMinion> attackingMinionsInRange = new List<MushroomMinion>();
     private List<NutrientBall> nutrientsInRange = new List<NutrientBall>();
     private List<Decomposable> decomposablesInRange = new List<Decomposable>();
-    
+
     private Rigidbody2D rb;
 
     private bool aggroed;
@@ -78,8 +79,13 @@ public class Enemy : Interactable
             else
             {
                 MushroomMinion targetMinion = null;
+                bool attackDummy = false;
                 bool attackPlayer = false;
-                if (attackingMinionsInRange.Count > 0)
+                if (dummyInRange != null)
+                {
+                    attackDummy = true;
+                }
+                else if (attackingMinionsInRange.Count > 0)
                 {
                     targetMinion = GetPriorityMinion(attackingMinionsInRange);
                 }
@@ -91,7 +97,22 @@ public class Enemy : Interactable
                 {
                     attackPlayer = true;
                 }
-                if (attackPlayer)
+                if (attackDummy)
+                {
+                    if (Vector2.Distance(dummyInRange.transform.position, transform.position) < actionRadius)
+                    {
+                        //Atack dummy
+                        onAttack?.Invoke();
+                        TurnMeTowards(dummyInRange.transform.position - transform.position);
+                        BusyForSeconds(attackDuration);
+                    }
+                    else
+                    {
+                        // Go for dummy >:(
+                        moveDir = (dummyInRange.transform.position - transform.position).normalized;
+                    }
+                }
+                else if (attackPlayer)
                 {
                     if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
                     {
@@ -200,9 +221,14 @@ public class Enemy : Interactable
             MushroomMinion minion = collider.GetComponent<MushroomMinion>();
             NutrientBall nutrient = collider.GetComponent<NutrientBall>();
             Decomposable decomposable = collider.GetComponent<Decomposable>();
+            Dummy dummy = collider.GetComponent<Dummy>();
             if (player != null)
             {
                 playerInRange = player;
+            }
+            if (dummy != null)
+            {
+                dummyInRange = dummy;
             }
             if (minion != null && !minionsInRange.Contains(minion))
             {

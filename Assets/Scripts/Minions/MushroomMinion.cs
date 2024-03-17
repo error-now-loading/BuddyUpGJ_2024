@@ -16,12 +16,16 @@ public class MushroomMinion : MonoBehaviour
     private PlayerController assignedPlayer;
 
     private bool standingAlone = true;
+    private bool autoTask = true;
     private Vector2 destination;
     private Interactable interactableTarget;
     private MinionSpot interactableSpot;
 
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
+    private static SpellTypes activeBuff = SpellTypes.NullBuff;
+    private float activeBuffMultiplier = 1.5f;
+    private float autoTaskTimer = 3f;
 
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
@@ -36,7 +40,7 @@ public class MushroomMinion : MonoBehaviour
 
     void Update()
     {
-        if (interactableSpot != null)
+        if (interactableSpot != null && interactableSpot.transform != null)
         {
             SetDestination(interactableSpot.transform.position);
         }
@@ -77,10 +81,19 @@ public class MushroomMinion : MonoBehaviour
             JoinPlayer();
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (autoTask && standingAlone && collision.gameObject.GetComponent<Interactable>())
+        {
+            standingAlone = false;
+            autoTask = false;
+            collision.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+        }
+    }
 
     public void JoinPlayer()
     {
-        standingAlone = false;
+        SetStandAlone(false);
         isGet = true;
         BusyForSeconds(getDuration);
         assignedPlayer = FindObjectOfType<PlayerController>();
@@ -102,7 +115,10 @@ public class MushroomMinion : MonoBehaviour
     {
         interactableTarget = interactable;
         interactableSpot = spot;
-        assignedPlayer.MinionTroopRemove(this);
+        if (assignedPlayer != null)
+        {
+            assignedPlayer.MinionTroopRemove(this);
+        }
     }
     public MushroomTypeSO GetMushroomTypeSO()
     {
@@ -110,11 +126,15 @@ public class MushroomMinion : MonoBehaviour
     }
     public float GetAttackDamage()
     {
-        return mushroomType.attackPerSecond * attackDuration;
+        return mushroomType.attackPerSecond * attackDuration * (activeBuff == SpellTypes.BuffAttackDamage ? activeBuffMultiplier : 1);
     }
     public float GetDecomposeDamage()
     {
-        return mushroomType.decomposePerSecond * attackDuration;
+        return mushroomType.decomposePerSecond * attackDuration * (activeBuff == SpellTypes.BuffDecomposeDamage ? activeBuffMultiplier : 1);
+    }
+    public float GetCarryPower()
+    {
+        return mushroomType.decomposePerSecond * Time.deltaTime * (activeBuff == SpellTypes.BuffCarrySpeed ? activeBuffMultiplier : 1);  
     }
     private void BeginWork(Interactable interactableTarget)
     {
@@ -140,7 +160,7 @@ public class MushroomMinion : MonoBehaviour
     {
         if (interactableTarget.isFinished)
         {
-            standingAlone = true;
+            SetStandAlone(true);
             interactableSpot = null;
             interactableTarget = null;
         }
@@ -197,5 +217,27 @@ public class MushroomMinion : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
+    }
+    public static void SetActiveBuff(SpellTypes buffType)
+    {
+        activeBuff = buffType;
+    }
+    public void SetStandAlone(bool boolean)
+    {
+        if (boolean)
+        {
+            standingAlone = true;
+            Invoke("AutoTask", autoTaskTimer);
+        }
+        else
+        {
+            standingAlone = false;
+            autoTask = false;
+        }
+
+    }
+    private void AutoTask()
+    {
+        autoTask = true;
     }
 }
