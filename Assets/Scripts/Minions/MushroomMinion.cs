@@ -16,6 +16,7 @@ public class MushroomMinion : MonoBehaviour
     private PlayerController assignedPlayer;
 
     private bool standingAlone = true;
+    private bool autoTask = true;
     private Vector2 destination;
     private Interactable interactableTarget;
     private MinionSpot interactableSpot;
@@ -24,6 +25,7 @@ public class MushroomMinion : MonoBehaviour
     private Coroutine waitingTimerCoroutine;
     private static SpellTypes activeBuff = SpellTypes.NullBuff;
     private float activeBuffMultiplier = 1.5f;
+    private float autoTaskTimer = 10f;
 
     public bool isDed { private set; get; }         //For Anims
     public bool isGet { private set; get; }         //For Anims
@@ -38,7 +40,7 @@ public class MushroomMinion : MonoBehaviour
 
     void Update()
     {
-        if (interactableSpot != null)
+        if (interactableSpot != null && interactableSpot.transform != null)
         {
             SetDestination(interactableSpot.transform.position);
         }
@@ -79,10 +81,19 @@ public class MushroomMinion : MonoBehaviour
             JoinPlayer();
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (autoTask && standingAlone && collision.gameObject.GetComponent<Interactable>())
+        {
+            standingAlone = false;
+            autoTask = false;
+            collision.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+        }
+    }
 
     public void JoinPlayer()
     {
-        standingAlone = false;
+        SetStandAlone(false);
         isGet = true;
         BusyForSeconds(getDuration);
         assignedPlayer = FindObjectOfType<PlayerController>();
@@ -104,7 +115,10 @@ public class MushroomMinion : MonoBehaviour
     {
         interactableTarget = interactable;
         interactableSpot = spot;
-        assignedPlayer.MinionTroopRemove(this);
+        if (assignedPlayer != null)
+        {
+            assignedPlayer.MinionTroopRemove(this);
+        }
     }
     public MushroomTypeSO GetMushroomTypeSO()
     {
@@ -146,7 +160,7 @@ public class MushroomMinion : MonoBehaviour
     {
         if (interactableTarget.isFinished)
         {
-            standingAlone = true;
+            SetStandAlone(true);
             interactableSpot = null;
             interactableTarget = null;
         }
@@ -208,11 +222,22 @@ public class MushroomMinion : MonoBehaviour
     {
         activeBuff = buffType;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public void SetStandAlone(bool boolean)
     {
-        if (other.gameObject.GetComponent<Interactable>())
+        if (boolean)
         {
-            other.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+            standingAlone = true;
+            Invoke("AutoTask", autoTaskTimer);
         }
+        else
+        {
+            standingAlone = false;
+            autoTask = false;
+        }
+
+    }
+    private void AutoTask()
+    {
+        autoTask = true;
     }
 }
