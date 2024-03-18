@@ -57,7 +57,8 @@ public class Enemy : Interactable
         {
             isEating = false; //Animator bug, needs to be here instead of WaitingTimer
             Vector2 moveDir = Vector2.zero;
-            if (CheckSurroundings()) // If there are things to interact with
+
+            if (CheckSurroundings())
             {
                 if (scavenger && !aggroed)
                 {
@@ -86,7 +87,6 @@ public class Enemy : Interactable
                         BusyForSeconds(fleeDuration);
                     }
                 }
-
                 else
                 {
                     MushroomMinion targetMinion = null;
@@ -127,47 +127,32 @@ public class Enemy : Interactable
                     {
                         if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
                         {
-                            targetMinion = GetPriorityMinion(attackingMinionsInRange);
+                            //Atack player
+                            onAttack?.Invoke();
+                            aggroedplayer = playerInRange;
+                            TurnMeTowards(aggroedplayer.transform.position - transform.position);
+                            BusyForSeconds(attackDuration);
                         }
-                        else if (minionsInRange.Count > 0)
+                        else
                         {
-                            targetMinion = GetPriorityMinion(minionsInRange);
+                            // Go for player >:(
+                            moveDir = (playerInRange.transform.position - transform.position).normalized;
                         }
-                        else if (playerInRange != null)
+                    }
+                    else if (targetMinion != null)
+                    {
+                        if (Vector2.Distance(targetMinion.transform.position, transform.position) < actionRadius)
                         {
-                            attackPlayer = true;
+                            //Atack meanies
+                            onAttack?.Invoke();
+                            aggroedMinion = targetMinion;
+                            TurnMeTowards(targetMinion.transform.position - transform.position);
+                            BusyForSeconds(attackDuration);
                         }
-                        if (attackPlayer)
+                        else
                         {
-                            if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
-                            {
-                                //Atack player
-                                onAttack?.Invoke();
-                                aggroedplayer = playerInRange;
-                                TurnMeTowards(aggroedplayer.transform.position - transform.position);
-                                BusyForSeconds(attackDuration);
-                            }
-                            else
-                            {
-                                // Go for player >:(
-                                moveDir = (playerInRange.transform.position - transform.position).normalized;
-                            }
-                        }
-                        else if (targetMinion != null)
-                        {
-                            if (Vector2.Distance(targetMinion.transform.position, transform.position) < actionRadius)
-                            {
-                                //Atack meanies
-                                onAttack?.Invoke();
-                                aggroedMinion = targetMinion;
-                                TurnMeTowards(targetMinion.transform.position - transform.position);
-                                BusyForSeconds(attackDuration);
-                            }
-                            else
-                            {
-                                // Go for meanies >:(
-                                moveDir = (targetMinion.transform.position - transform.position).normalized;
-                            }
+                            // Go for meanies >:(
+                            moveDir = (targetMinion.transform.position - transform.position).normalized;
                         }
                     }
                 }
@@ -179,7 +164,7 @@ public class Enemy : Interactable
                 moveDir = randDir;
                 BusyForSeconds(UnityEngine.Random.Range(wanderBaseDuration - 1f, wanderBaseDuration + 1f));
             }
-            
+
             //Pathing if noTargets && !isbusy moveDir
             Move(moveDir);
         }

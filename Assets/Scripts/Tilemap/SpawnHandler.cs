@@ -80,14 +80,12 @@ public class SpawnHandler : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        Debug.Log("CHECKING FOR ENEMY SPAWN");
         canSpawnEnemies = false;
         spawnedEnemies.RemoveAll(item => item == null);
         int numToSpawn = numEnemySpawners - spawnedEnemies.Count;
 
         if (numToSpawn > 0)
         {
-            Debug.Log("SPAWNING ENEMY");
             for (int i = 0; i < numToSpawn; i++)
             {
                 Enemy newEnemy = Instantiate(enemyVariants.SelectRandom(), enemySpawnLocations[Random.Range(0, enemySpawnLocations.Count)], Quaternion.identity);
