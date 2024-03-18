@@ -23,11 +23,12 @@ public class Enemy : Interactable
     [SerializeField] private float wanderBaseDuration = 2f;
 
     private PlayerController playerInRange;
+    private Dummy dummyInRange;
     private List<MushroomMinion> minionsInRange = new List<MushroomMinion>();
     private List<MushroomMinion> attackingMinionsInRange = new List<MushroomMinion>();
     private List<NutrientBall> nutrientsInRange = new List<NutrientBall>();
     private List<Decomposable> decomposablesInRange = new List<Decomposable>();
-    
+
     private Rigidbody2D rb;
 
     private bool aggroed;
@@ -56,7 +57,8 @@ public class Enemy : Interactable
         {
             isEating = false; //Animator bug, needs to be here instead of WaitingTimer
             Vector2 moveDir = Vector2.zero;
-            if (CheckSurroundings()) // If there are things to interact with
+
+            if (CheckSurroundings())
             {
                 if (scavenger && !aggroed)
                 {
@@ -88,8 +90,13 @@ public class Enemy : Interactable
                 else
                 {
                     MushroomMinion targetMinion = null;
+                    bool attackDummy = false;
                     bool attackPlayer = false;
-                    if (attackingMinionsInRange.Count > 0)
+                    if (dummyInRange != null)
+                    {
+                        attackDummy = true;
+                    }
+                    else if (attackingMinionsInRange.Count > 0)
                     {
                         targetMinion = GetPriorityMinion(attackingMinionsInRange);
                     }
@@ -101,7 +108,22 @@ public class Enemy : Interactable
                     {
                         attackPlayer = true;
                     }
-                    if (attackPlayer)
+                    if (attackDummy)
+                    {
+                        if (Vector2.Distance(dummyInRange.transform.position, transform.position) < actionRadius)
+                        {
+                            //Atack dummy
+                            onAttack?.Invoke();
+                            TurnMeTowards(dummyInRange.transform.position - transform.position);
+                            BusyForSeconds(attackDuration);
+                        }
+                        else
+                        {
+                            // Go for dummy >:(
+                            moveDir = (dummyInRange.transform.position - transform.position).normalized;
+                        }
+                    }
+                    else if (attackPlayer)
                     {
                         if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
                         {
@@ -142,7 +164,7 @@ public class Enemy : Interactable
                 moveDir = randDir;
                 BusyForSeconds(UnityEngine.Random.Range(wanderBaseDuration - 1f, wanderBaseDuration + 1f));
             }
-            
+
             //Pathing if noTargets && !isbusy moveDir
             Move(moveDir);
         }
@@ -222,10 +244,15 @@ public class Enemy : Interactable
             MushroomMinion minion = collider.GetComponent<MushroomMinion>();
             NutrientBall nutrient = collider.GetComponent<NutrientBall>();
             Decomposable decomposable = collider.GetComponent<Decomposable>();
+            Dummy dummy = collider.GetComponent<Dummy>();
             if (player != null)
             {
                 playerInRange = player;
                 foundInterest = true;
+            }
+            if (dummy != null)
+            {
+                dummyInRange = dummy;
             }
             if (minion != null && !minionsInRange.Contains(minion))
             {
@@ -331,7 +358,7 @@ public class Enemy : Interactable
         yield return new WaitForSeconds(seconds);
         if (!isDed && aggroedMinion)
         {
-            if(Vector3.Distance(aggroedMinion.transform.position, transform.position) < actionRadius / 2f)
+            if(Vector3.Distance(aggroedMinion.transform.position, transform.position) < actionRadius *1.2f)
             {
                 aggroedMinion.GetHit(GetAttackDamage());
             }
@@ -339,7 +366,7 @@ public class Enemy : Interactable
         }
         else if (!isDed && aggroedplayer)
         {
-            if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius / 2f)
+            if (Vector3.Distance(aggroedplayer.transform.position, transform.position) < actionRadius *1.2f)
             {
                 aggroedplayer.GetHit(GetAttackDamage());
             }

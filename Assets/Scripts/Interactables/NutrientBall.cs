@@ -51,6 +51,6 @@ public class NutrientBall : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        transform.Translate(minion.GetMushroomTypeSO().carryPerSecond *Time.deltaTime,0,0);
+        transform.Translate(minion.GetCarryPower(),0,0);
     }
 }
