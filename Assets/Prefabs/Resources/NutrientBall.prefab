@@ -249,6 +249,8 @@ MonoBehaviour:
   interactableType: 2
   destroyTimer: 20
   _timeToDecompose: 5
+  sprite: {fileID: 8916639853421469343}
+  bitenOrb: {fileID: -1159827842, guid: 5ea19eba1ed8c774b8d6a9616dcb57e4, type: 3}
 --- !u!70 &1008873211967155880
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

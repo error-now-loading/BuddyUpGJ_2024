@@ -7,6 +7,7 @@ public class Decomposable : Interactable
     [SerializeField] private DecomposableMask mask;
     [SerializeField] private NutrientBall nutrientPrefab;
     private int maxDivisions;
+    private int currentDivision;
     private float maxByEnemyHp;
     private void Awake()
     {
@@ -19,7 +20,11 @@ public class Decomposable : Interactable
         if (decomposableHP < 0 && !isFinished)
         {
             FinishTask();
-            Instantiate(nutrientPrefab, transform.position, Quaternion.identity);
+            NutrientBall ball = Instantiate(nutrientPrefab, transform.position, Quaternion.identity);
+            if (currentDivision > 0)
+            {
+                ball.ReduceNutrient(ball.nutrientValue / maxDivisions * currentDivision);
+            }
         }
     }
     public void GetHitByBug(float damage)
@@ -37,6 +42,7 @@ public class Decomposable : Interactable
             if (currentDivision != previousDivision)
             {
                 mask.IncreaseDivision();
+                this.currentDivision++;
             }
         }
     }
