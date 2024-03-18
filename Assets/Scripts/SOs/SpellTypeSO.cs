@@ -5,17 +5,18 @@ public class SpellTypeSO : ScriptableObject
 {
     public SpellTypes type;
     public GameObject spellPrefab;
-    public float manaCost;
+    public int manaCost;
 }
 public enum SpellTypes
 {
-    BuffAttackSpeed,
+    BuffAttackDamage,
     BuffCarrySpeed,
-    BuffDecomposeSpeed,
+    BuffDecomposeDamage,
     SummonDummy,
     SummonTroopy,
     SummonBulky,
     SummonAngy,
     SummonGhosty,
-    WinGame
+    WinGame,
+    NullBuff,
 }

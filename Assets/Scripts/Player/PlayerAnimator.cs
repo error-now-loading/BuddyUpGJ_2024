@@ -23,6 +23,8 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.SetFloat("playerSpeed",rb.velocity.magnitude);
         animator.SetBool("isCasting",player.isCasting);
+        animator.SetBool("isFailingCasting", player.isFailingCasting);
+        animator.SetBool("isDed", player.isDed);
         animator.SetBool("isCommanding",player.isCommanding);
     }
 }
