@@ -60,14 +60,4 @@ public class MainMenu : MenuBase
 
         
     }
-
-    private void ShowCreditsPanel()
-    {
-
-    }
-
-    private void CloseCreditsPanel()
-    {
-
-    }
 }
