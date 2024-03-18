@@ -171,6 +171,7 @@ MonoBehaviour:
   fleeDuration: 1
   eatDuration: 0.5
   deathDuration: 1.11
+  wanderBaseDuration: 2
 --- !u!70 &6675709381498705417
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -249,11 +250,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3997008345017425279}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

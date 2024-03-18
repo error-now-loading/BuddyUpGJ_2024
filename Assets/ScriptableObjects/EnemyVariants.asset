@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321eeabf12c6aa24d8584a4924881529, type: 3}
+  m_Name: EnemyVariants
+  m_EditorClassIdentifier: 
+  variants:
+  - {fileID: 3647330518471471582, guid: f04b36cb915d74b4ba5babdfa028325d, type: 3}
+  - {fileID: 2504182040379227785, guid: 2ad6855f5e979ce42ae51a3b96ce8abe, type: 3}

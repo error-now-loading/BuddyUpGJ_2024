@@ -3,21 +3,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Scene order should match build order in Build Settings
+public enum SceneIndices
+{
+    MainMenu,
+    SettingsMenu,
+    GameScene
+}
+
 /// <summary>
 ///     Responsible for handling async loading/unloading of scenes
 /// </summary>
 public class PersistentSceneManager : LLPersistentSingleton<PersistentSceneManager>
 {
-    // Scene order should match build order in Build Settings
-    public enum SceneIndices
-    {
-        MainMenu,
-        SettingsMenu,
-        GameScene
-    }
-
-
-
     public IEnumerator LoadSceneAsync(int sceneIndex, LoadSceneMode mode = LoadSceneMode.Single, Action action = null)
     {
         if (sceneIndex < 0 || sceneIndex > SceneManager.sceneCountInBuildSettings - 1)

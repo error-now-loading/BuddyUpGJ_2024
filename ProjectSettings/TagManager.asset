@@ -39,6 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Terrain
+    uniqueID: 914308777
+    locked: 0
+  - name: GrassDecals
+    uniqueID: 1284210047
+    locked: 0
+  - name: MossDecals
+    uniqueID: 1880290021
+    locked: 0
+  - name: StoneDecals
+    uniqueID: 3016865753
+    locked: 0
+  - name: LeafDecals
+    uniqueID: 227142159
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
