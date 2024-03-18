@@ -29,4 +29,8 @@ public class DecomposableMask : MonoBehaviour
         float xOffset = divisionWidth * currentDivision;
         transform.localPosition = new Vector3(xOffset, 0, 0) + localPosOffset;
     }
+    public int GetNumberOfDivisions()
+    {
+        return divisions;
+    }
 }

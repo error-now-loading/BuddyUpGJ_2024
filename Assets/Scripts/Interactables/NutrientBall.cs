@@ -51,6 +51,20 @@ public class NutrientBall : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        transform.Translate(minion.GetCarryPower(),0,0);
+        transform.Translate((Vector3.zero - transform.position).normalized * minion.GetCarryPower());
+    }
+    public override void InteractEnemy(Enemy enemy)
+    {
+        ReleaseMinions();
+        Destroy(gameObject);
+    }
+
+    private void ReleaseMinions()
+    {
+        foreach (MushroomMinion minion in GetComponentsInChildren<MushroomMinion>())
+        {
+            minion.Release();
+            minion.transform.parent = null;
+        };
     }
 }

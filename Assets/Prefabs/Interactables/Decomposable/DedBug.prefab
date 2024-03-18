@@ -195,6 +195,8 @@ MonoBehaviour:
   interactableType: 1
   destroyTimer: 20
   decomposableHP: 50
+  decomposableByEnemyHP: 20
+  mask: {fileID: 9034982427402371699}
   nutrientPrefab: {fileID: 7262393741106229116, guid: 41f8353b13c544b459508b4a6061b6a6, type: 3}
 --- !u!70 &7750900064378529516
 CapsuleCollider2D:
@@ -470,3 +472,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7228121470861458495, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
   m_PrefabInstance: {fileID: 4715206088306258642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9034982427402371699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4327240511228735649, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
+  m_PrefabInstance: {fileID: 4715206088306258642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407ada5eaa8b74b4f80af505ee699441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
