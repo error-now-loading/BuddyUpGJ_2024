@@ -18,9 +18,6 @@ public class SettingsMenu : MenuBase
     [SerializeField] private TextSlider sfxVol = null;
     [SerializeField] private TextSlider musicVol = null;
 
-    private bool videoSubMenuOpen = false;
-    private bool audioSubMenuOpen = false;
-
 
 
     public override void Init()
@@ -33,7 +30,7 @@ public class SettingsMenu : MenuBase
 
             FadeOut(mainCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>
             {
-                StartCoroutine(PersistentSceneManager.instance.UnloadSceneAsync( (int)PersistentSceneManager.SceneIndices.SettingsMenu) );
+                StartCoroutine(PersistentSceneManager.instance.UnloadSceneAsync( (int)SceneIndices.SettingsMenu) );
             } );
         } );
 

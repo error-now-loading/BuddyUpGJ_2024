@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &700797492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1038960440
 AudioListener:
   m_ObjectHideFlags: 0
@@ -915,6 +915,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4374724433998164739, guid: a4e3153efb210914fb1ae22477ad83c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374724433998164739, guid: a4e3153efb210914fb1ae22477ad83c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7418531914787903718, guid: a4e3153efb210914fb1ae22477ad83c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -964,7 +972,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1038960442}
   - {fileID: 1806323965}
+  - {fileID: 1038960442}
   - {fileID: 700797493}
   - {fileID: 1926864335}
