@@ -44,8 +44,8 @@ public class SettingsMenu : MenuBase
     private void LoadAudioSliderSettings()
     {
         masterVol.SetSliderValue(SaveDataUtility.LoadFloat(SaveDataUtility.MASTER_VOLUME, 0.5f));
-        sfxVol.SetSliderValue(SaveDataUtility.LoadFloat(SaveDataUtility.SFX_VOLUME, 0.5f));
-        musicVol.SetSliderValue(SaveDataUtility.LoadFloat(SaveDataUtility.MUSIC_VOLUME, 0.5f));
+        sfxVol.SetSliderValue(SaveDataUtility.LoadFloat(SaveDataUtility.SFX_VOLUME, 1f));
+        musicVol.SetSliderValue(SaveDataUtility.LoadFloat(SaveDataUtility.MUSIC_VOLUME, 1f));
     }
 
     private void OnMasterVolChanged(float argValue)

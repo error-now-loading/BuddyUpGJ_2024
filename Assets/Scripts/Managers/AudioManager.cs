@@ -14,6 +14,12 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] public AudioSource sourceMusic = null;
     [SerializeField] public AudioSource sourceSFX = null;
 
+    [Header("Music")]
+    [SerializeField] public AudioClip mainMenuMusic = null;
+    [SerializeField] public AudioClip gameplayMusic = null;
+    [SerializeField] public AudioClip defeatMusic = null;
+    [SerializeField] public AudioClip victoryMusic = null;
+
     [Header("UI SFX")]
     [SerializeField] public AudioClip uiButtonClick = null;
 

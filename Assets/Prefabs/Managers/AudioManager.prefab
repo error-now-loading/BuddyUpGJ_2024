@@ -51,6 +51,10 @@ MonoBehaviour:
   sourceMaster: {fileID: 7502709501485911175}
   sourceMusic: {fileID: 1453290888532941122}
   sourceSFX: {fileID: 6990755025121541691}
+  mainMenuMusic: {fileID: 8300000, guid: 2f9d11fcda8de294eaa7fd2e04019c4b, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 6de2da9a35785e347a5edc4dac483c9b, type: 3}
+  defeatMusic: {fileID: 8300000, guid: 1f6b8276a92500343bc6867ee064faac, type: 3}
+  victoryMusic: {fileID: 8300000, guid: dafa2f6e17012b046a169c03903a44f0, type: 3}
   uiButtonClick: {fileID: 8300000, guid: f959abdba6e080b47a42bde1ef5eb656, type: 3}
 --- !u!82 &7502709501485911175
 AudioSource:

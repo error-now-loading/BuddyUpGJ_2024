@@ -16,6 +16,13 @@ public class MainMenu : MenuBase
 
 
 
+    protected override void Start()
+    {
+        base.Start();
+
+        AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.mainMenuMusic);
+    }
+
     public override void Init()
     {
         base.Init();
@@ -57,7 +64,5 @@ public class MainMenu : MenuBase
                 creditPanelCG.blocksRaycasts = false;
             } );
         } );
-
-        
     }
 }
