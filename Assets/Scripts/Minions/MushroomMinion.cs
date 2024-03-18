@@ -160,14 +160,23 @@ public class MushroomMinion : MonoBehaviour
     {
         if (interactableTarget.isFinished)
         {
-            SetStandAlone(true);
-            interactableSpot = null;
-            interactableTarget = null;
+            Release();
         }
         else
         {
             interactableTarget.InteractMinion(this);
         }
+    }
+    public void Release()
+    {
+        if(interactableSpot != null)
+        {
+            interactableSpot.occupied = false;
+            interactableSpot.minion = null;
+        }
+        SetStandAlone(true);
+        interactableSpot = null;
+        interactableTarget = null;
     }
     private void BusyForSeconds(float seconds)
     {
