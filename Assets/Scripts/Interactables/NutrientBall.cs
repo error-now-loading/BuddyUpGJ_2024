@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -6,6 +7,7 @@ using UnityEngine;
 public class NutrientBall : Interactable
 {
     [SerializeField] private float _timeToDecompose = 5f;
+    [SerializeField] private Animator animator;
 
     private SpriteRenderer spriteRenderer = null;
     private Collider2D nutrientCollider2D = null;
@@ -51,6 +53,25 @@ public class NutrientBall : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        transform.Translate(minion.GetCarryPower(),0,0);
+        transform.Translate((Vector3.zero - transform.position).normalized * minion.GetCarryPower());
+    }
+    public override void InteractEnemy(Enemy enemy)
+    {
+        ReleaseMinions();
+        Destroy(gameObject);
+    }
+
+    private void ReleaseMinions()
+    {
+        foreach (MushroomMinion minion in GetComponentsInChildren<MushroomMinion>())
+        {
+            minion.Release();
+            minion.transform.parent = null;
+        };
+    }
+    public void ReduceNutrient(int nutrients)
+    {
+        animator.SetBool("isBit", true);
+        _nutrientValue -= nutrients;
     }
 }
