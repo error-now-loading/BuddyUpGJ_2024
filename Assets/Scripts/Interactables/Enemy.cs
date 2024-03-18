@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Interactable
@@ -19,6 +20,7 @@ public class Enemy : Interactable
     [SerializeField] private float fleeDuration = 1f;
     [SerializeField] private float eatDuration = 1f;
     [SerializeField] private float deathDuration = 1f;
+    [SerializeField] private float wanderBaseDuration = 2f;
 
     private PlayerController playerInRange;
     private List<MushroomMinion> minionsInRange = new List<MushroomMinion>();
@@ -34,96 +36,113 @@ public class Enemy : Interactable
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
+    private Vector2 spawnLocation = Vector2.zero;
+
     public bool isDed { private set; get; }         //For Anims
     public bool isEating { private set; get; }      //For Anims
     public event Action onAttack;                   //For Anims
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnLocation = gameObject.transform.position;
     }
-    private void Update()
+
+    private void FixedUpdate()
     {
         if (!isBusy)
         {
             isEating = false; //Animator bug, needs to be here instead of WaitingTimer
             Vector2 moveDir = Vector2.zero;
-            CheckSurroundings();
-            if (scavenger && !aggroed)
+            if (CheckSurroundings()) // If there are things to interact with
             {
-                if (decomposablesInRange.Count > 0 || nutrientsInRange.Count > 0)
+                if (scavenger && !aggroed)
                 {
-                    Interactable closestEatable = GetClosestEatable();
-                    if (Vector2.Distance(closestEatable.transform.position, transform.position) < actionRadius)
+                    if (decomposablesInRange.Count > 0 || nutrientsInRange.Count > 0)
                     {
-                        // Eat food
-                        isEating = true;
-                        closestEatable.InteractEnemy(this);
-                        TurnMeTowards(closestEatable.transform.position - transform.position);
-                        BusyForSeconds(eatDuration);
+                        Interactable closestEatable = GetClosestEatable();
+                        if (Vector2.Distance(closestEatable.transform.position, transform.position) < actionRadius)
+                        {
+                            // Eat food
+                            isEating = true;
+                            closestEatable.InteractEnemy(this);
+                            TurnMeTowards(closestEatable.transform.position - transform.position);
+                            BusyForSeconds(eatDuration);
+                        }
+                        else
+                        {
+                            // Go for food
+                            moveDir = (closestEatable.transform.position - transform.position).normalized;
+                        }
                     }
-                    else
+                    else if (minionsInRange.Count > 0 || playerInRange != null)
                     {
-                        // Go for food
-                        moveDir = (closestEatable.transform.position - transform.position).normalized;
+                        //Flee
+                        moveDir = (transform.position - GetClosestFearable()).normalized;
+                        TurnMeTowards(moveDir);
+                        BusyForSeconds(fleeDuration);
                     }
                 }
-                else if (minionsInRange.Count > 0 || playerInRange != null)
+                else
                 {
-                    //Flee
-                    moveDir = (transform.position - GetClosestFearable()).normalized;
-                    TurnMeTowards(moveDir);
-                    BusyForSeconds(fleeDuration);
+                    MushroomMinion targetMinion = null;
+                    bool attackPlayer = false;
+                    if (attackingMinionsInRange.Count > 0)
+                    {
+                        targetMinion = GetPriorityMinion(attackingMinionsInRange);
+                    }
+                    else if (minionsInRange.Count > 0)
+                    {
+                        targetMinion = GetPriorityMinion(minionsInRange);
+                    }
+                    else if (playerInRange != null)
+                    {
+                        attackPlayer = true;
+                    }
+                    if (attackPlayer)
+                    {
+                        if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
+                        {
+                            //Atack player
+                            onAttack?.Invoke();
+                            aggroedplayer = playerInRange;
+                            TurnMeTowards(aggroedplayer.transform.position - transform.position);
+                            BusyForSeconds(attackDuration);
+                        }
+                        else
+                        {
+                            // Go for player >:(
+                            moveDir = (playerInRange.transform.position - transform.position).normalized;
+                        }
+                    }
+                    else if (targetMinion != null)
+                    {
+                        if (Vector2.Distance(targetMinion.transform.position, transform.position) < actionRadius)
+                        {
+                            //Atack meanies
+                            onAttack?.Invoke();
+                            aggroedMinion = targetMinion;
+                            TurnMeTowards(targetMinion.transform.position - transform.position);
+                            BusyForSeconds(attackDuration);
+                        }
+                        else
+                        {
+                            // Go for meanies >:(
+                            moveDir = (targetMinion.transform.position - transform.position).normalized;
+                        }
+                    }
                 }
             }
-            else
+
+            else // If nothing to interact with, begin wander from start pos
             {
-                MushroomMinion targetMinion = null;
-                bool attackPlayer = false;
-                if (attackingMinionsInRange.Count > 0)
-                {
-                    targetMinion = GetPriorityMinion(attackingMinionsInRange);
-                }
-                else if (minionsInRange.Count > 0)
-                {
-                    targetMinion = GetPriorityMinion(minionsInRange);
-                }
-                else if (playerInRange != null)
-                {
-                    attackPlayer = true;
-                }
-                if (attackPlayer)
-                {
-                    if (Vector2.Distance(playerInRange.transform.position, transform.position) < actionRadius)
-                    {
-                        //Atack player
-                        onAttack?.Invoke();
-                        aggroedplayer = playerInRange;
-                        TurnMeTowards(aggroedplayer.transform.position - transform.position);
-                        BusyForSeconds(attackDuration);
-                    }
-                    else
-                    {
-                        // Go for player >:(
-                        moveDir = (playerInRange.transform.position - transform.position).normalized;
-                    }
-                }
-                else if (targetMinion != null)
-                {
-                    if (Vector2.Distance(targetMinion.transform.position, transform.position) < actionRadius)
-                    {
-                        //Atack meanies
-                        onAttack?.Invoke();
-                        aggroedMinion = targetMinion;
-                        TurnMeTowards(targetMinion.transform.position - transform.position);
-                        BusyForSeconds(attackDuration);
-                    }
-                    else
-                    {
-                        // Go for meanies >:(
-                        moveDir = (targetMinion.transform.position - transform.position).normalized;
-                    }
-                }
+                Vector2 randDir = UnityEngine.Random.insideUnitCircle;
+                moveDir = randDir;
+                BusyForSeconds(UnityEngine.Random.Range(wanderBaseDuration - 1f, wanderBaseDuration + 1f));
             }
+            
             //Pathing if noTargets && !isbusy moveDir
             Move(moveDir);
         }
@@ -163,6 +182,7 @@ public class Enemy : Interactable
         rb.velocity = moveDir * moveSpeed;
         TurnMeTowards(moveDir);
     }
+
     private Vector3 GetClosestFearable() // these functions irk me a bit, but they work xD
     {
         Vector3 fleeFromPosition = Vector3.zero;
@@ -186,7 +206,7 @@ public class Enemy : Interactable
         return fleeFromPosition;
     }
 
-    private void CheckSurroundings()
+    private bool CheckSurroundings()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, visionRadius);
         playerInRange = null;
@@ -194,6 +214,8 @@ public class Enemy : Interactable
         attackingMinionsInRange = new List<MushroomMinion>();
         nutrientsInRange = new List<NutrientBall>();
         decomposablesInRange = new List<Decomposable>();
+        bool foundInterest = false;
+
         foreach (Collider2D collider in colliders) //this also irks me a bit. sorry :c
         {
             PlayerController player = collider.GetComponent<PlayerController>();
@@ -203,28 +225,37 @@ public class Enemy : Interactable
             if (player != null)
             {
                 playerInRange = player;
+                foundInterest = true;
             }
             if (minion != null && !minionsInRange.Contains(minion))
             {
                 minionsInRange.Add(minion);
+                foundInterest = true;
             }
             else if (nutrient != null && !nutrientsInRange.Contains(nutrient))
             {
                 nutrientsInRange.Add(nutrient);
+                foundInterest = true;
             }
             else if (decomposable != null && !decomposablesInRange.Contains(decomposable))
             {
                 decomposablesInRange.Add(decomposable);
+                foundInterest = true;
             }
 
         }
+
         foreach (MinionSpot minionSpot in minionSpots)
         {
             if (minionSpot.occupied) {
                 attackingMinionsInRange.Add(minionSpot.minion);
+                foundInterest = true;
             }
         }
+
+        return foundInterest;
     }
+
     private MushroomMinion GetPriorityMinion(List<MushroomMinion> mushroomMinions)
     {
         List<MushroomMinion> highestPriorityMinions = new List<MushroomMinion>();
@@ -267,10 +298,12 @@ public class Enemy : Interactable
             TryAssignSpotTo(minion);
         }
     }
+
     public override void InteractMinion(MushroomMinion minion)
     {
         GetHit(minion.GetAttackDamage());
     }
+
     private void TurnMeTowards(Vector2 direction)
     {
         if (direction.x < 0)
@@ -282,6 +315,7 @@ public class Enemy : Interactable
             transform.localScale = Vector3.one;
         }
     }
+
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
@@ -290,8 +324,8 @@ public class Enemy : Interactable
             StopCoroutine(waitingTimerCoroutine);
         }
         waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
-
     }
+
     IEnumerator WaitingTimer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -314,10 +348,12 @@ public class Enemy : Interactable
         isBusy = false;
         waitingTimerCoroutine = null;
     }
+
     public float GetAttackDamage()
     {
         return attackDamagePerSecond * attackDuration;
     }
+
     public float GetEatDamage()
     {
         return eatDamagePerSecond * eatDuration;
