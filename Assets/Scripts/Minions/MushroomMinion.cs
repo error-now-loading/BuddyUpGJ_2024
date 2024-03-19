@@ -27,15 +27,19 @@ public class MushroomMinion : MonoBehaviour
     private float activeBuffMultiplier = 1.5f;
     private float autoTaskTimer = 3f;
 
-    public bool isDed { private set; get; }         //For Anims
-    public bool isGet { private set; get; }         //For Anims
-    public bool isCarrying { private set; get; }    //For Anims
-    public event Action onAttack;                   //For Anims
+    public bool isDed { private set; get; }                     //For Anims
+    public bool isGet { private set; get; }                     //For Anims
+    public bool isCarrying { private set; get; }                //For Anims
+    public event Action onAttack;                               //For Anims
+    public static event Action onMinionCountChange;             //For UI
+    public static int minionCount { private set; get; } = 0;    //For UI
 
-    void Start()
+void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health *= mushroomType.maxHpMultiplier;
+        minionCount++;
+        onMinionCountChange?.Invoke();
     }
 
     void Update()
@@ -211,6 +215,8 @@ public class MushroomMinion : MonoBehaviour
     {
         isDed = true;
         rb.velocity = Vector3.zero;
+        minionCount--;
+        onMinionCountChange?.Invoke();
         if (interactableSpot != null)
         {
             interactableSpot.occupied = false;
@@ -255,5 +261,10 @@ public class MushroomMinion : MonoBehaviour
         {
             autoTask = true;
         }
+    }
+
+    internal static void ResetMinionCount()
+    {
+        minionCount = 0;
     }
 }

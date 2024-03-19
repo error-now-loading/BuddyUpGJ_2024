@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mana = GetComponent<NutrientHandler>();
+        MushroomMinion.ResetMinionCount();
     }
 
     private void OnEnable()
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = cursorPosition - transform.position;
             TurnMeTowards(direction);
             BusyForSeconds(castingDuration);
-            if (mana.SpendNutrients(selectedSpellType.manaCost))
+            if (CheckMinionCount() && mana.SpendNutrients(selectedSpellType.manaCost))
             {
                 Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x, cursorPosition.y, 0), Quaternion.identity);
             }
@@ -107,6 +108,19 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private bool CheckMinionCount()
+    {
+        if (selectedSpellType.type == SpellTypes.SummonTroopy || selectedSpellType.type == SpellTypes.SummonBulky || selectedSpellType.type == SpellTypes.SummonAngy || selectedSpellType.type == SpellTypes.SummonGhosty)
+        {
+            if (MushroomMinion.minionCount < 20)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
         if (isCommanding)

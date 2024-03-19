@@ -11,8 +11,10 @@ public class NutrientUIBar : MonoBehaviour
     {
         slider = GetComponent<Slider>();
         nutrientPlayer = FindObjectOfType<PlayerController>().gameObject.GetComponent<NutrientHandler>();
+        nutrientPlayer.OnNutrientValueChange += NutrientPlayer_OnNutrientValueChange;
     }
-    private void Update()
+
+    private void NutrientPlayer_OnNutrientValueChange(int obj)
     {
         slider.value = nutrientPlayer.GetSliderValue();
     }
