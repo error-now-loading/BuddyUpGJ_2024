@@ -18,7 +18,7 @@ public class MushroomSelectUIScript : MonoBehaviour
     private Vector2 keyBindPosition;
     private List<MushroomTypeSO> activeMushroomIcons = new List<MushroomTypeSO>();
     private PlayerController playerController;
-    private int selectedIndex;
+    private int selectedIndex = 0;
 
     private void Start()
     {
@@ -54,15 +54,22 @@ public class MushroomSelectUIScript : MonoBehaviour
 
     private void UpdateSelection()
     {
-        for (int i = 0; i < mushroomIcons.Count; i++) 
+        int i = -1;
+        foreach(Transform children in transform)
         {
+            ImageSwitcher switcher = children.gameObject.GetComponentInChildren<ImageSwitcher>();
+            if (children.gameObject.activeSelf)
+            {
+                i++;
+            }
             if (i == selectedIndex)
             {
-                mushroomIcons[selectedIndex].GetComponent<ImageSwitcher>().enabled = true;
+
+                switcher.enabled = true;
             }
             else
             {
-                mushroomIcons[selectedIndex].GetComponent<ImageSwitcher>().enabled = false;
+                switcher.enabled = true;
             }
         }
     }
@@ -109,6 +116,7 @@ public class MushroomSelectUIScript : MonoBehaviour
             else if (activeMushroomIcons.Count > 0)
             {
                 playerController.SetSelectedMushroomType(activeMushroomIcons[activeMushroomIcons.Count-1]);
+                selectedIndex = activeMushroomIcons.Count - 1;
             }
         }
     }
