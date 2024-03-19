@@ -82,7 +82,7 @@ public class Enemy : Interactable
 
     private void FixedUpdate()
     {
-        if (!isBusy)
+        if (!isBusy && !isDed)
         {
             isEating = false; //Animator bug, needs to be here instead of WaitingTimer
             Vector2 moveDir = Vector2.zero;

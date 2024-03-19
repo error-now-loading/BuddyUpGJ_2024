@@ -17,4 +17,9 @@ public class Base : Interactable
 
         nutrientHandler.TransferNutrients(playerNutrientHandler);
     }
+
+    public void AbsorbNutrients(int nutrientValue)
+    {
+        nutrientHandler.AddNutrients(nutrientValue);
+    }
 }

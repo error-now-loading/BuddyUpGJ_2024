@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
     {
         playerReference = FindObjectOfType<PlayerController>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (cursorRange && collision.GetComponent<CursorRangeTrigger>())
         {
@@ -31,7 +31,7 @@ public class Interactable : MonoBehaviour
             playerReference.SetClosestNearInteractable(this);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (cursorRange && collision.GetComponent<CursorRangeTrigger>())
         {

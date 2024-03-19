@@ -199,6 +199,7 @@ public class MushroomMinion : MonoBehaviour
         SetStandAlone(true);
         interactableSpot = null;
         interactableTarget = null;
+        isCarrying = false;
     }
     private void BusyForSeconds(float seconds)
     {

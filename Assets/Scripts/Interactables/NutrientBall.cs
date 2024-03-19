@@ -1,7 +1,5 @@
 using System;
-using UnityEditor.Animations;
 using UnityEngine;
-
 
 [DisallowMultipleComponent]
 public class NutrientBall : Interactable
@@ -16,19 +14,22 @@ public class NutrientBall : Interactable
     private int _nutrientValue = 10;
     public int nutrientValue => _nutrientValue;
     public float timeToDecompose => _timeToDecompose;
-    //TODO when finishing task, before that remove all minions from spot transform partents
+    private Vector3 baseDestination = Vector3.zero;
+
+
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         nutrientCollider2D = GetComponent<Collider2D>();
-        rigidBody = GetComponent<Rigidbody2D>();
+        //rigidBody = GetComponent<Rigidbody2D>();
+        baseDestination = new Vector3(0, 11, 0);
     }
 
     public void BeginDecomposing()
     {
         nutrientCollider2D.enabled = false;
-        rigidBody.simulated = false;
+        //rigidBody.simulated = false;
         FadeOut();
     }
 
@@ -53,12 +54,12 @@ public class NutrientBall : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        transform.Translate((Vector3.zero - transform.position).normalized * minion.GetCarryPower());
+        transform.Translate((baseDestination - transform.position).normalized * minion.GetCarryPower());
     }
+
     public override void InteractEnemy(Enemy enemy)
     {
-        ReleaseMinions();
-        Destroy(gameObject);
+        FinishTask();
     }
 
     private void ReleaseMinions()
@@ -69,9 +70,23 @@ public class NutrientBall : Interactable
             minion.transform.parent = null;
         };
     }
+
     public void ReduceNutrient(int nutrients)
     {
         animator.SetBool("isBit", true);
         _nutrientValue -= nutrients;
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        Base other = collision.GetComponent<Base>();
+        if (other)
+        {
+            other.AbsorbNutrients(nutrientValue);
+            ReleaseMinions();
+            FinishTask();
+        }
+
+        base.OnTriggerEnter2D(collision);
     }
 }
