@@ -322,7 +322,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""dc5b2549-9c8b-438d-b450-2d4bf36dec4d"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""groups"": """",
                     ""action"": ""SpellChangeScroll"",
                     ""isComposite"": false,
