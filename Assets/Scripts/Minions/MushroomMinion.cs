@@ -107,6 +107,7 @@ public class MushroomMinion : MonoBehaviour
     {
         SetStandAlone(false);
         isGet = true;
+        AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionGet);
         BusyForSeconds(getDuration);
         assignedPlayer = FindObjectOfType<PlayerController>();
         assignedPlayer.MinionTroopJoin(this);
@@ -166,7 +167,6 @@ public class MushroomMinion : MonoBehaviour
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
                 BusyForSeconds(attackDuration);
-                AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionGet);
                 break;
             case MushroomJobs.Carry:
                 isCarrying = true;
