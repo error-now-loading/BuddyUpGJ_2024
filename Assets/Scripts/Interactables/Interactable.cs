@@ -83,7 +83,7 @@ public class Interactable : MonoBehaviour
     }
     public virtual void InteractEnemy(Enemy enemy)
     {
-        Debug.Log("Interacted by a enemy. Behaviour must be overriden in the inherited class");
+        //Debug.Log("Interacted by a enemy. Behaviour must be overriden in the inherited class");
     }
     public virtual void FinishTask()
     {
