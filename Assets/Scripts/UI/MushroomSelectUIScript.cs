@@ -66,12 +66,11 @@ public class MushroomSelectUIScript : MonoBehaviour
             }
             if (i == selectedIndex)
             {
-
                 switcher.enabled = true;
             }
             else
             {
-                switcher.enabled = true;
+                switcher.enabled = false;
             }
         }
     }
