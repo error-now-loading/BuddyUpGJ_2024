@@ -2,11 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+
+public enum EnemyType
+{
+    Bug,
+    Slug,
+    Error
+}
 
 public class Enemy : Interactable
 {
+    [SerializeField] EnemyType enemyType = EnemyType.Error;
+    [Space]
     [SerializeField] private float enemyHP = 100f;
     [SerializeField] private bool scavenger = false;
     [SerializeField] private float moveSpeed = 10f;
@@ -15,12 +23,14 @@ public class Enemy : Interactable
     [SerializeField] private float attackDamagePerSecond = 1f;
     [SerializeField] private float eatDamagePerSecond = 1f;
     [SerializeField] private Decomposable corpsePrefab;
-
+    [Space]
     [SerializeField] private float attackDuration = 1f;
     [SerializeField] private float fleeDuration = 1f;
     [SerializeField] private float eatDuration = 1f;
     [SerializeField] private float deathDuration = 1f;
     [SerializeField] private float wanderBaseDuration = 2f;
+    [Space]
+    [SerializeField] private AudioSource enemySource = null;
 
     private PlayerController playerInRange;
     private Dummy dummyInRange;
@@ -49,6 +59,24 @@ public class Enemy : Interactable
     {
         rb = GetComponent<Rigidbody2D>();
         spawnLocation = gameObject.transform.position;
+
+        onAttack += () =>
+        {
+            switch (enemyType)
+            {
+                case EnemyType.Bug:
+                    AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.bugAttack);
+                    break;
+
+                case EnemyType.Slug:
+                    AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugAttack);
+                    break;
+
+                case EnemyType.Error:
+                    Debug.LogError($"[Enemy Error]: No EnemyType assigned to {gameObject.name}");
+                    break;
+            }
+        };
     }
 
     private void FixedUpdate()
@@ -108,6 +136,8 @@ public class Enemy : Interactable
                     {
                         attackPlayer = true;
                     }
+
+                    // Attack logic
                     if (attackDummy)
                     {
                         if (Vector2.Distance(dummyInRange.transform.position, transform.position) < actionRadius)
@@ -313,6 +343,23 @@ public class Enemy : Interactable
     IEnumerator Die()
     {
         isDed = true;
+
+        switch (enemyType)
+        {
+            case EnemyType.Bug:
+                AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.bugDeath);
+                break;
+
+            case EnemyType.Slug:
+                AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugDeath);
+                break;
+
+            case EnemyType.Error:
+                Debug.LogError($"[Enemy Error]: No EnemyType assigned to {gameObject.name}");
+                break;
+        }
+        
+
         yield return new WaitForSeconds(deathDuration);
         FinishTask();
         Instantiate(corpsePrefab, transform.position, Quaternion.identity);

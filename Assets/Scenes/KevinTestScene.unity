@@ -579,6 +579,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3557954715932053065, guid: 28ee815c02718cc4d885da9464477275, type: 3}
+      propertyPath: numEnemySpawners
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557954715932053065, guid: 28ee815c02718cc4d885da9464477275, type: 3}
+      propertyPath: numResourceSpawners
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7926605471706253457, guid: 28ee815c02718cc4d885da9464477275, type: 3}
       propertyPath: m_Name
       value: ROOM_9
