@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -41,10 +42,27 @@ public class MushroomSelectUIScript : MonoBehaviour
             if (activeMushroomIcons.Count > 0)
             {
                 playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+                UpdateSelection();
             }
             else
             {
                 playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
+            }
+        }
+        UpdateSelection();
+    }
+
+    private void UpdateSelection()
+    {
+        for (int i = 0; i < mushroomIcons.Count; i++) 
+        {
+            if (i == selectedIndex)
+            {
+                mushroomIcons[selectedIndex].GetComponent<ImageSwitcher>().enabled = true;
+            }
+            else
+            {
+                mushroomIcons[selectedIndex].GetComponent<ImageSwitcher>().enabled = false;
             }
         }
     }
