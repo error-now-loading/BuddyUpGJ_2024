@@ -117,8 +117,12 @@ public class PlayerController : MonoBehaviour
             {
                 return true;
             }
+            return false;
         }
-        return false;
+        else
+        {
+            return true;
+        }
     }
 
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
