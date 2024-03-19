@@ -69,6 +69,7 @@ public class Enemy : Interactable
                     break;
 
                 case EnemyType.Slug:
+                    enemySource.Stop();
                     AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugAttack);
                     break;
 
@@ -233,6 +234,11 @@ public class Enemy : Interactable
     {
         rb.velocity = moveDir * moveSpeed;
         TurnMeTowards(moveDir);
+
+        if (!enemySource.isPlaying && rb.velocity != Vector2.zero)
+        {
+            AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugMovement);
+        }
     }
 
     private Vector3 GetClosestFearable() // these functions irk me a bit, but they work xD

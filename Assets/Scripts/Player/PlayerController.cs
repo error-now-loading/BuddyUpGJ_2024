@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             playerSource.Stop();
         }
 
-        else if (!playerSource.isPlaying && movement != Vector2.zero)
+        else if (!playerSource.isPlaying && rb.velocity != Vector2.zero)
         {
             AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerFootsteps.SelectRandom());
         }
