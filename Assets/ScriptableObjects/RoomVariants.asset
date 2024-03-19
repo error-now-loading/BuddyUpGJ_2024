@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: RoomVariants
   m_EditorClassIdentifier: 
   variants:
-  - {fileID: 5367835341077419155, guid: 7ac66512c9db58d47a1e5c7fef138961, type: 3}
-  - {fileID: 5367835341077419155, guid: 1c2a595a16a9390458d7ed091c312454, type: 3}
+  - {fileID: 5367835341077419155, guid: 9839835d47396624ab323246c39add32, type: 3}
+  - {fileID: 5367835341077419155, guid: 64d6803e0270939488a50d75df13f6b8, type: 3}
+  - {fileID: 5367835341077419155, guid: e222ebf732af226459999530db0e7105, type: 3}
+  - {fileID: 5367835341077419155, guid: 8570e10a3ecb6ee4795bdc0fe8e98615, type: 3}
+  - {fileID: 5367835341077419155, guid: f3a7c69995de96c49af3b49d60a9adee, type: 3}
+  - {fileID: 5367835341077419155, guid: 472e9f20e4e881c4285b0232f10f8411, type: 3}
+  - {fileID: 5367835341077419155, guid: 988c54d5b356e6f4aa58ed99251675db, type: 3}
+  - {fileID: 5367835341077419155, guid: 13e3d1c5f3b09d0448a0fbd49abdb911, type: 3}

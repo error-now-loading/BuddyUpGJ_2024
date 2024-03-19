@@ -62,7 +62,8 @@ public class SpawnHandler : MonoBehaviour
             for (int j = obstacleMap.cellBounds.yMin; j < obstacleMap.cellBounds.yMax - 1; j++)
             {
                 Vector3Int localPlace = new Vector3Int(i, j, 0);
-                Vector3 place = obstacleMap.CellToWorld(localPlace);
+                //Vector3 place = obstacleMap.CellToWorld(localPlace);
+                Vector3 place = obstacleMap.GetCellCenterWorld(localPlace);
 
                 if (!obstacleMap.HasTile(localPlace))
                 {
