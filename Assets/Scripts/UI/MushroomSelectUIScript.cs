@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MushroomSelectUIScript : MonoBehaviour
@@ -17,7 +19,8 @@ public class MushroomSelectUIScript : MonoBehaviour
     private Vector2 keyBindPosition;
     private List<MushroomTypeSO> activeMushroomIcons = new List<MushroomTypeSO>();
     private PlayerController playerController;
-    private int selectedIndex;
+    private int selectedIndex = 0;
+    private PlayerInput playerInput;
 
     private void Start()
     {
@@ -38,32 +41,84 @@ public class MushroomSelectUIScript : MonoBehaviour
         }
         if (emptyTroop)
         {
-            playerController.SetSelectedMushroomType(mushromSOs[0]);
+            if (activeMushroomIcons.Count > 0)
+            {
+                playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+                UpdateSelection();
+            }
+            else
+            {
+                playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
+            }
         }
+        UpdateSelection();
     }
 
-    private void Update()
+    private void UpdateSelection()
     {
-        if (Input.GetKeyDown("1") && activeMushroomIcons.Count >= 1)
+        int i = -1;
+        foreach(Transform children in transform)
         {
-            playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
-            selectedIndex = 0;
+            ImageSwitcher switcher = children.gameObject.GetComponentInChildren<ImageSwitcher>();
+            if (children.gameObject.activeSelf)
+            {
+                i++;
+            }
+            if (i == selectedIndex)
+            {
+                switcher.enabled = true;
+            }
+            else
+            {
+                switcher.enabled = false;
+            }
         }
-        if (Input.GetKeyDown("2") && activeMushroomIcons.Count >= 2)
-        {
-            playerController.SetSelectedMushroomType(activeMushroomIcons[1]);
-            selectedIndex = 1;
-        }
-        if (Input.GetKeyDown("3") && activeMushroomIcons.Count >= 3)
-        {
-            playerController.SetSelectedMushroomType(activeMushroomIcons[2]);
-            selectedIndex = 2;
-        }
-        if (Input.GetKeyDown("4") && activeMushroomIcons.Count >= 4)
-        {
-            playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
-            selectedIndex = 3;
-        }
+    }
+    private void OnEnable()
+    {
+        playerInput = new PlayerInput();
+        playerInput.PlayerOverworld.Enable();
+
+        playerInput.PlayerOverworld.MinionSelect1.performed += MinionSelect1_performed;
+        playerInput.PlayerOverworld.MinionSelect2.performed += MinionSelect2_performed;
+        playerInput.PlayerOverworld.MinionSelect3.performed += MinionSelect3_performed;
+        playerInput.PlayerOverworld.MinionSelect4.performed += MinionSelect4_performed;
+    }
+    private void OnDisable()
+    {
+        playerInput.PlayerOverworld.MinionSelect1.performed -= MinionSelect1_performed;
+        playerInput.PlayerOverworld.MinionSelect2.performed -= MinionSelect2_performed;
+        playerInput.PlayerOverworld.MinionSelect3.performed -= MinionSelect3_performed;
+        playerInput.PlayerOverworld.MinionSelect4.performed -= MinionSelect4_performed;
+        playerInput.Disable();
+    }
+
+    private void MinionSelect4_performed(InputAction.CallbackContext obj)
+    {
+        playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
+        selectedIndex = 3;
+        UpdateSelection();
+    }
+
+    private void MinionSelect3_performed(InputAction.CallbackContext obj)
+    {
+        playerController.SetSelectedMushroomType(activeMushroomIcons[2]);
+        selectedIndex = 2;
+        UpdateSelection();
+    }
+
+    private void MinionSelect2_performed(InputAction.CallbackContext obj)
+    {
+        playerController.SetSelectedMushroomType(activeMushroomIcons[1]);
+        selectedIndex = 1;
+        UpdateSelection();
+    }
+
+    private void MinionSelect1_performed(InputAction.CallbackContext obj)
+    {
+        playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+        selectedIndex = 0;
+        UpdateSelection();
     }
 
     public void UpdateTroopNumbersUI(int mushroomIndex, int mushroomCount)
@@ -84,10 +139,7 @@ public class MushroomSelectUIScript : MonoBehaviour
             else if (activeMushroomIcons.Count > 0)
             {
                 playerController.SetSelectedMushroomType(activeMushroomIcons[activeMushroomIcons.Count-1]);
-            }
-            else
-            {
-                playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
+                selectedIndex = activeMushroomIcons.Count - 1;
             }
         }
     }

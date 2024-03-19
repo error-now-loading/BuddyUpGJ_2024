@@ -54,4 +54,8 @@ public class NutrientHandler : MonoBehaviour
     {
         OnNutrientValueChange?.Invoke(nutrients);
     }
+    public float GetSliderValue()
+    {
+        return (float)nutrients/maxNutrients;
+    }
 }

@@ -253,6 +253,7 @@ public class Enemy : Interactable
             if (dummy != null)
             {
                 dummyInRange = dummy;
+                foundInterest = true;
             }
             if (minion != null && !minionsInRange.Contains(minion))
             {

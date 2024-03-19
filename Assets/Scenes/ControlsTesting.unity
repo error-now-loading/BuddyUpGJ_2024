@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slug
       objectReference: {fileID: 0}
+    - target: {fileID: 3997008345017425279, guid: 2ad6855f5e979ce42ae51a3b96ce8abe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -744,6 +748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bug
       objectReference: {fileID: 0}
+    - target: {fileID: 3997008345017425279, guid: f04b36cb915d74b4ba5babdfa028325d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1136,6 +1144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DedBug
       objectReference: {fileID: 0}
+    - target: {fileID: 5504769001665008569, guid: f988e3cf91882fe4d8d42987479e6bf2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1192,6 +1204,10 @@ PrefabInstance:
     - target: {fileID: 5504769001665008569, guid: f1b9c79936ab6c44aa8f0f40f057a2fc, type: 3}
       propertyPath: m_Name
       value: DedSlug
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504769001665008569, guid: f1b9c79936ab6c44aa8f0f40f057a2fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
