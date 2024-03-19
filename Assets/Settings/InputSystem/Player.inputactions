@@ -51,22 +51,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SpellChangePrev",
-                    "type": "Button",
+                    "name": "SpellChangeScroll",
+                    "type": "Value",
                     "id": "9b735201-e80c-4059-82db-e0c2d8db33b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SpellChangeNext",
-                    "type": "Button",
-                    "id": "62bd9c05-2805-4087-a8aa-3e1eb191a6fd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "MinionSelect1",
@@ -272,24 +263,46 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "bd17e396-4bb1-4895-b8aa-3dea959e02d7",
+                    "name": "QE",
+                    "id": "58e68dfc-eb10-4b78-acaf-83fdacd03ca2",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpellChangeScroll",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "706d19d0-627a-478c-9d05-eb8e8fac6ac9",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpellChangePrev",
+                    "action": "SpellChangeScroll",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "1fda2737-6105-45f4-98a5-eaa76c01e7f4",
+                    "name": "positive",
+                    "id": "948a0ab6-978b-4e95-9bf4-4b20f59260af",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpellChangeNext",
+                    "action": "SpellChangeScroll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "dc5b2549-9c8b-438d-b450-2d4bf36dec4d",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "SpellChangeScroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

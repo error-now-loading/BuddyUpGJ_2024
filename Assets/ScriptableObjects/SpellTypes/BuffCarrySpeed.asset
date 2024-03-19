@@ -15,3 +15,4 @@ MonoBehaviour:
   type: 1
   spellPrefab: {fileID: 3087975395080379105, guid: a1d5829a7e70ca14b855ac235aa6cedf, type: 3}
   manaCost: 1
+  icon: {fileID: 21300000, guid: d90c23065472dc5488d5118bc21396f6, type: 3}

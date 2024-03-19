@@ -73,22 +73,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SpellChangePrev"",
-                    ""type"": ""Button"",
+                    ""name"": ""SpellChangeScroll"",
+                    ""type"": ""Value"",
                     ""id"": ""9b735201-e80c-4059-82db-e0c2d8db33b0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SpellChangeNext"",
-                    ""type"": ""Button"",
-                    ""id"": ""62bd9c05-2805-4087-a8aa-3e1eb191a6fd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""MinionSelect1"",
@@ -294,24 +285,46 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""bd17e396-4bb1-4895-b8aa-3dea959e02d7"",
+                    ""name"": ""QE"",
+                    ""id"": ""58e68dfc-eb10-4b78-acaf-83fdacd03ca2"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpellChangeScroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""706d19d0-627a-478c-9d05-eb8e8fac6ac9"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpellChangePrev"",
+                    ""action"": ""SpellChangeScroll"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""1fda2737-6105-45f4-98a5-eaa76c01e7f4"",
+                    ""name"": ""positive"",
+                    ""id"": ""948a0ab6-978b-4e95-9bf4-4b20f59260af"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpellChangeNext"",
+                    ""action"": ""SpellChangeScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc5b2549-9c8b-438d-b450-2d4bf36dec4d"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""SpellChangeScroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -377,8 +390,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerOverworld_Interact = m_PlayerOverworld.FindAction("Interact", throwIfNotFound: true);
         m_PlayerOverworld_Command = m_PlayerOverworld.FindAction("Command", throwIfNotFound: true);
         m_PlayerOverworld_CastSpell = m_PlayerOverworld.FindAction("CastSpell", throwIfNotFound: true);
-        m_PlayerOverworld_SpellChangePrev = m_PlayerOverworld.FindAction("SpellChangePrev", throwIfNotFound: true);
-        m_PlayerOverworld_SpellChangeNext = m_PlayerOverworld.FindAction("SpellChangeNext", throwIfNotFound: true);
+        m_PlayerOverworld_SpellChangeScroll = m_PlayerOverworld.FindAction("SpellChangeScroll", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect1 = m_PlayerOverworld.FindAction("MinionSelect1", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect2 = m_PlayerOverworld.FindAction("MinionSelect2", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect3 = m_PlayerOverworld.FindAction("MinionSelect3", throwIfNotFound: true);
@@ -449,8 +461,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOverworld_Interact;
     private readonly InputAction m_PlayerOverworld_Command;
     private readonly InputAction m_PlayerOverworld_CastSpell;
-    private readonly InputAction m_PlayerOverworld_SpellChangePrev;
-    private readonly InputAction m_PlayerOverworld_SpellChangeNext;
+    private readonly InputAction m_PlayerOverworld_SpellChangeScroll;
     private readonly InputAction m_PlayerOverworld_MinionSelect1;
     private readonly InputAction m_PlayerOverworld_MinionSelect2;
     private readonly InputAction m_PlayerOverworld_MinionSelect3;
@@ -464,8 +475,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_PlayerOverworld_Interact;
         public InputAction @Command => m_Wrapper.m_PlayerOverworld_Command;
         public InputAction @CastSpell => m_Wrapper.m_PlayerOverworld_CastSpell;
-        public InputAction @SpellChangePrev => m_Wrapper.m_PlayerOverworld_SpellChangePrev;
-        public InputAction @SpellChangeNext => m_Wrapper.m_PlayerOverworld_SpellChangeNext;
+        public InputAction @SpellChangeScroll => m_Wrapper.m_PlayerOverworld_SpellChangeScroll;
         public InputAction @MinionSelect1 => m_Wrapper.m_PlayerOverworld_MinionSelect1;
         public InputAction @MinionSelect2 => m_Wrapper.m_PlayerOverworld_MinionSelect2;
         public InputAction @MinionSelect3 => m_Wrapper.m_PlayerOverworld_MinionSelect3;
@@ -494,12 +504,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CastSpell.started += instance.OnCastSpell;
             @CastSpell.performed += instance.OnCastSpell;
             @CastSpell.canceled += instance.OnCastSpell;
-            @SpellChangePrev.started += instance.OnSpellChangePrev;
-            @SpellChangePrev.performed += instance.OnSpellChangePrev;
-            @SpellChangePrev.canceled += instance.OnSpellChangePrev;
-            @SpellChangeNext.started += instance.OnSpellChangeNext;
-            @SpellChangeNext.performed += instance.OnSpellChangeNext;
-            @SpellChangeNext.canceled += instance.OnSpellChangeNext;
+            @SpellChangeScroll.started += instance.OnSpellChangeScroll;
+            @SpellChangeScroll.performed += instance.OnSpellChangeScroll;
+            @SpellChangeScroll.canceled += instance.OnSpellChangeScroll;
             @MinionSelect1.started += instance.OnMinionSelect1;
             @MinionSelect1.performed += instance.OnMinionSelect1;
             @MinionSelect1.canceled += instance.OnMinionSelect1;
@@ -531,12 +538,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CastSpell.started -= instance.OnCastSpell;
             @CastSpell.performed -= instance.OnCastSpell;
             @CastSpell.canceled -= instance.OnCastSpell;
-            @SpellChangePrev.started -= instance.OnSpellChangePrev;
-            @SpellChangePrev.performed -= instance.OnSpellChangePrev;
-            @SpellChangePrev.canceled -= instance.OnSpellChangePrev;
-            @SpellChangeNext.started -= instance.OnSpellChangeNext;
-            @SpellChangeNext.performed -= instance.OnSpellChangeNext;
-            @SpellChangeNext.canceled -= instance.OnSpellChangeNext;
+            @SpellChangeScroll.started -= instance.OnSpellChangeScroll;
+            @SpellChangeScroll.performed -= instance.OnSpellChangeScroll;
+            @SpellChangeScroll.canceled -= instance.OnSpellChangeScroll;
             @MinionSelect1.started -= instance.OnMinionSelect1;
             @MinionSelect1.performed -= instance.OnMinionSelect1;
             @MinionSelect1.canceled -= instance.OnMinionSelect1;
@@ -582,8 +586,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnCommand(InputAction.CallbackContext context);
         void OnCastSpell(InputAction.CallbackContext context);
-        void OnSpellChangePrev(InputAction.CallbackContext context);
-        void OnSpellChangeNext(InputAction.CallbackContext context);
+        void OnSpellChangeScroll(InputAction.CallbackContext context);
         void OnMinionSelect1(InputAction.CallbackContext context);
         void OnMinionSelect2(InputAction.CallbackContext context);
         void OnMinionSelect3(InputAction.CallbackContext context);

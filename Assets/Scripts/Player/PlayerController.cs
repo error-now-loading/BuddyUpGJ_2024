@@ -133,8 +133,12 @@ public class PlayerController : MonoBehaviour
             {
                 return true;
             }
+            return false;
         }
-        return false;
+        else
+        {
+            return true;
+        }
     }
 
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
@@ -193,9 +197,13 @@ public class PlayerController : MonoBehaviour
         minionTroops.Remove(mushroomMinion);
         onTroopUpdate?.Invoke();
     }
-    public void SetSelectedMushroomType(MushroomTypeSO mt)
+    public void SetSelectedMushroomType(MushroomTypeSO type)
     {
-        selectedMushroomType = mt;
+        selectedMushroomType = type;
+    }
+    public void SetSelectedSpellType(SpellTypeSO type)
+    {
+        selectedSpellType = type;
     }
     public int GetMinionTypeCount(int index)
     {

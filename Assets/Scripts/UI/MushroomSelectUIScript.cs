@@ -92,33 +92,41 @@ public class MushroomSelectUIScript : MonoBehaviour
         playerInput.PlayerOverworld.MinionSelect4.performed -= MinionSelect4_performed;
         playerInput.Disable();
     }
-
-    private void MinionSelect4_performed(InputAction.CallbackContext obj)
-    {
-        playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
-        selectedIndex = 3;
-        UpdateSelection();
-    }
-
-    private void MinionSelect3_performed(InputAction.CallbackContext obj)
-    {
-        playerController.SetSelectedMushroomType(activeMushroomIcons[2]);
-        selectedIndex = 2;
-        UpdateSelection();
-    }
-
-    private void MinionSelect2_performed(InputAction.CallbackContext obj)
-    {
-        playerController.SetSelectedMushroomType(activeMushroomIcons[1]);
-        selectedIndex = 1;
-        UpdateSelection();
-    }
-
     private void MinionSelect1_performed(InputAction.CallbackContext obj)
     {
-        playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
-        selectedIndex = 0;
-        UpdateSelection();
+        if (activeMushroomIcons.Count >= 1)
+        {
+            playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+            selectedIndex = 0;
+            UpdateSelection();
+        }
+    }
+    private void MinionSelect2_performed(InputAction.CallbackContext obj)
+    {
+        if (activeMushroomIcons.Count >= 2)
+        {
+            playerController.SetSelectedMushroomType(activeMushroomIcons[1]);
+            selectedIndex = 1;
+            UpdateSelection();
+        }
+    }
+    private void MinionSelect3_performed(InputAction.CallbackContext obj)
+    {
+        if (activeMushroomIcons.Count >= 3)
+        {
+            playerController.SetSelectedMushroomType(activeMushroomIcons[2]);
+            selectedIndex = 2;
+            UpdateSelection();
+        }
+    }
+    private void MinionSelect4_performed(InputAction.CallbackContext obj)
+    {
+        if (activeMushroomIcons.Count >= 4)
+        {
+            playerController.SetSelectedMushroomType(activeMushroomIcons[3]);
+            selectedIndex = 3;
+            UpdateSelection();
+        }
     }
 
     public void UpdateTroopNumbersUI(int mushroomIndex, int mushroomCount)

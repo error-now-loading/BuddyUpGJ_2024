@@ -27,6 +27,7 @@ public class NutrientHandler : MonoBehaviour
         }
 
         _nutrients -= argValue;
+        OnNutrientValueChange?.Invoke(nutrients);
         return true;
     }
 
