@@ -174,9 +174,13 @@ public class PlayerController : MonoBehaviour
         minionTroops.Remove(mushroomMinion);
         onTroopUpdate?.Invoke();
     }
-    public void SetSelectedMushroomType(MushroomTypeSO mt)
+    public void SetSelectedMushroomType(MushroomTypeSO type)
     {
-        selectedMushroomType = mt;
+        selectedMushroomType = type;
+    }
+    public void SetSelectedSpellType(SpellTypeSO type)
+    {
+        selectedSpellType = type;
     }
     public int GetMinionTypeCount(int index)
     {
