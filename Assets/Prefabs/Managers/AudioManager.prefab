@@ -56,6 +56,8 @@ MonoBehaviour:
   defeatMusic: {fileID: 8300000, guid: 1f6b8276a92500343bc6867ee064faac, type: 3}
   victoryMusic: {fileID: 8300000, guid: dafa2f6e17012b046a169c03903a44f0, type: 3}
   uiButtonClick: {fileID: 8300000, guid: f959abdba6e080b47a42bde1ef5eb656, type: 3}
+  uiButtonHover1: {fileID: 8300000, guid: 2f73990030fedf44eafb4097ef42711b, type: 3}
+  uiButtonHover2: {fileID: 8300000, guid: 75d6e57373495e740bac0953f82f3278, type: 3}
 --- !u!82 &7502709501485911175
 AudioSource:
   m_ObjectHideFlags: 0

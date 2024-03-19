@@ -22,6 +22,8 @@ public class AudioManager : PersistentSingleton<AudioManager>
 
     [Header("UI SFX")]
     [SerializeField] public AudioClip uiButtonClick = null;
+    [SerializeField] public AudioClip uiButtonHover1 = null;
+    [SerializeField] public AudioClip uiButtonHover2 = null;
 
 
 

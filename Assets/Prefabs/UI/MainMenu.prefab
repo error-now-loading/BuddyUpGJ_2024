@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 476446475044149975}
   - component: {fileID: 5460846935592128263}
   - component: {fileID: 841284100181826606}
-  - component: {fileID: 529977966525672508}
+  - component: {fileID: 8390887291212129525}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &529977966525672508
+--- !u!114 &8390887291212129525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622933501930109301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f8ad62b8f8efc6047988633b03243d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 1971479548466836232}
   - component: {fileID: 2338543895003442168}
   - component: {fileID: 3612051123710539875}
-  - component: {fileID: 778641340404283878}
+  - component: {fileID: 5897549411053870427}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &778641340404283878
+--- !u!114 &5897549411053870427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2510578050396090743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f8ad62b8f8efc6047988633b03243d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -744,12 +744,12 @@ MonoBehaviour:
   mainCG: {fileID: 562656319705245699}
   fadeStartDelay: 0
   fadeDuration: 0.4
-  startButton: {fileID: 1752638824203710480}
-  settingsButton: {fileID: 778641340404283878}
-  creditsButton: {fileID: 529977966525672508}
-  exitButton: {fileID: 4511075223433662216}
+  startButton: {fileID: 4166224656965681138}
+  settingsButton: {fileID: 5897549411053870427}
+  creditsButton: {fileID: 8390887291212129525}
+  exitButton: {fileID: 5296915407967054928}
   creditPanelCG: {fileID: 8808862660193876567}
-  creditPanelBackButton: {fileID: 4209695970022210138}
+  creditPanelBackButton: {fileID: 779110325706681188}
 --- !u!223 &2104037527865825868
 Canvas:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 7717940510788571023}
   - component: {fileID: 6658667351389220389}
   - component: {fileID: 8878299274036735224}
-  - component: {fileID: 1752638824203710480}
+  - component: {fileID: 4166224656965681138}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1752638824203710480
+--- !u!114 &4166224656965681138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4320365034887618948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f8ad62b8f8efc6047988633b03243d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 4329811925989575072}
   - component: {fileID: 5034498365814120632}
   - component: {fileID: 8400511484856945995}
-  - component: {fileID: 4511075223433662216}
+  - component: {fileID: 5296915407967054928}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4511075223433662216
+--- !u!114 &5296915407967054928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5603908061873280073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f8ad62b8f8efc6047988633b03243d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1212,7 +1212,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 8400511484856945995}
   m_OnClick:
     m_PersistentCalls:
@@ -1228,9 +1228,9 @@ GameObject:
   - component: {fileID: 8148412536186174000}
   - component: {fileID: 9021036175551087701}
   - component: {fileID: 8879347103380952200}
-  - component: {fileID: 4209695970022210138}
+  - component: {fileID: 779110325706681188}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: CreditsBackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4209695970022210138
+--- !u!114 &779110325706681188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7819355937747251665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: f8ad62b8f8efc6047988633b03243d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:

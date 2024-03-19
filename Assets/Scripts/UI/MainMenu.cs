@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MenuBase
 {
     [Header("Button References")]
-    [SerializeField] private Button startButton = null;
-    [SerializeField] private Button settingsButton = null;
+    [SerializeField] private UIButton startButton = null;
+    [SerializeField] private UIButton settingsButton = null;
     [SerializeField] private Button creditsButton = null;
     [SerializeField] private Button exitButton = null;
 
