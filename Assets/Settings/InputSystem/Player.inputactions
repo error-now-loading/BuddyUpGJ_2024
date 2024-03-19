@@ -67,6 +67,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MinionSelect1",
+                    "type": "Button",
+                    "id": "4c489fde-e30d-4efd-88ea-05d29694c538",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MinionSelect2",
+                    "type": "Button",
+                    "id": "4ee1d897-f003-42ae-bcf2-40bc9ba6ba41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MinionSelect3",
+                    "type": "Button",
+                    "id": "77bd6d5f-e512-4181-ac2f-534f847898f8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MinionSelect4",
+                    "type": "Button",
+                    "id": "f138ecec-19f4-4709-9a38-182547e1608c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -256,32 +292,48 @@
                     "action": "SpellChangeNext",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Menus",
-            "id": "c3fff2fd-85db-4c02-9eb4-2243f77dca74",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "babe33eb-c200-4d26-b646-124d79f64580",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "0a7770aa-b9f8-4ba2-9c50-4b56ac830fff",
-                    "path": "",
+                    "id": "8d86c9ef-7e59-4156-a70f-7555ab7bdbf2",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player",
-                    "action": "New action",
+                    "groups": "",
+                    "action": "MinionSelect1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a2ce8e0-95fa-41f6-8f25-0aafaf02cc29",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MinionSelect2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78c4ec68-6eed-4e19-bbc7-f0dce9c91ca3",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MinionSelect3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76fdfa70-5a1e-4a31-b566-ede4221d7a59",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MinionSelect4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

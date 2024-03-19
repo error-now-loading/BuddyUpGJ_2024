@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool isFailingCasting { private set; get; }      //For Anims
     public bool isDed { private set; get; }                 //For Anims
     public event Action onRepeatCommand;                    //For Anim Repeat
+    public event Action onTroopUpdate;                      //For UI Update
 
     [SerializeField] private AudioSource playerSource = null;
 
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mana = GetComponent<NutrientHandler>();
+        MushroomMinion.ResetMinionCount();
     }
 
     private void OnEnable()
@@ -110,7 +112,7 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = cursorPosition - transform.position;
             TurnMeTowards(direction);
             BusyForSeconds(castingDuration);
-            if (mana.SpendNutrients(selectedSpellType.manaCost))
+            if (CheckMinionCount() && mana.SpendNutrients(selectedSpellType.manaCost))
             {
                 Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x, cursorPosition.y, 0), Quaternion.identity);
                 AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerSummons.SelectRandom());
@@ -122,6 +124,19 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private bool CheckMinionCount()
+    {
+        if (selectedSpellType.type == SpellTypes.SummonTroopy || selectedSpellType.type == SpellTypes.SummonBulky || selectedSpellType.type == SpellTypes.SummonAngy || selectedSpellType.type == SpellTypes.SummonGhosty)
+        {
+            if (MushroomMinion.minionCount < 20)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
         if (isCommanding)
@@ -147,6 +162,7 @@ public class PlayerController : MonoBehaviour
         return null;
     }
 
+
     private void BusyForSeconds(float seconds)
     {
         isBusy = true;
@@ -170,10 +186,28 @@ public class PlayerController : MonoBehaviour
     public void MinionTroopJoin(MushroomMinion mushroomMinion)
     {
         minionTroops.Add(mushroomMinion);
+        onTroopUpdate?.Invoke();
     }
     public void MinionTroopRemove(MushroomMinion mushroomMinion)
     {
         minionTroops.Remove(mushroomMinion);
+        onTroopUpdate?.Invoke();
+    }
+    public void SetSelectedMushroomType(MushroomTypeSO mt)
+    {
+        selectedMushroomType = mt;
+    }
+    public int GetMinionTypeCount(int index)
+    {
+        int count = 0;
+        foreach (MushroomMinion minion in minionTroops)
+        {
+            if ((int)minion.GetMushroomTypeSO().type == index)
+            {
+                count += 1;
+            }
+        }
+        return count;
     }
     private void TurnMeTowards(Vector2 direction)
     {
