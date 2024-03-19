@@ -437,7 +437,7 @@ MonoBehaviour:
   castingDuration: 1
   commandDuration: 1
   selectedMushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
-  selectedSpellType: {fileID: 11400000, guid: 39a3086ef49eb6f4aada0057f426eb92, type: 2}
+  selectedSpellType: {fileID: 11400000, guid: 43d37f1406291db45981ea08f7fe329f, type: 2}
   playerSource: {fileID: 3686871566241151561}
 --- !u!114 &3096453865774465157
 MonoBehaviour:
