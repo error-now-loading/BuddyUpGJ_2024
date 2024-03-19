@@ -52,10 +52,24 @@ MonoBehaviour:
   sourceMusic: {fileID: 1453290888532941122}
   sourceSFX: {fileID: 6990755025121541691}
   mainMenuMusic: {fileID: 8300000, guid: 2f9d11fcda8de294eaa7fd2e04019c4b, type: 3}
-  gameplayMusic: {fileID: 8300000, guid: 6de2da9a35785e347a5edc4dac483c9b, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 8019b74e44ec84a46b00f8c6a165c600, type: 3}
   defeatMusic: {fileID: 8300000, guid: 1f6b8276a92500343bc6867ee064faac, type: 3}
   victoryMusic: {fileID: 8300000, guid: dafa2f6e17012b046a169c03903a44f0, type: 3}
+  uiButtonHoverVariants: {fileID: 11400000, guid: 0cc7ea8589ad3ff45a74c4cf0ecf5eb8, type: 2}
   uiButtonClick: {fileID: 8300000, guid: f959abdba6e080b47a42bde1ef5eb656, type: 3}
+  playerFootsteps: {fileID: 11400000, guid: bf156e4ca7670874cbd9e2d0b88e53d0, type: 2}
+  playerSummons: {fileID: 11400000, guid: 429077741efd4ea49935ddedaf7246db, type: 2}
+  playerSummonFails: {fileID: 11400000, guid: 2d0605a8966a6934194853e98fa85e29, type: 2}
+  playerCommand: {fileID: 8300000, guid: 8db2097c0bc0f0d40b4adc8a399e6ed9, type: 3}
+  playerDeath: {fileID: 8300000, guid: c8286ebcbad5a6641a5a5285f8c1f350, type: 3}
+  minionAttack: {fileID: 8300000, guid: be897a1e016e80d43a47649fb2031ef8, type: 3}
+  minionGet: {fileID: 8300000, guid: 9c0d0b92f11963c41876c73e7c91f2b9, type: 3}
+  minionDeath: {fileID: 8300000, guid: 49d656fefaaddc744bf6a270a3f7bc6c, type: 3}
+  bugAttack: {fileID: 8300000, guid: 6ea9311e28b2388499e5c59b91ce835f, type: 3}
+  bugDeath: {fileID: 8300000, guid: c33d218e7b146a14980d96c493794089, type: 3}
+  slugAttack: {fileID: 8300000, guid: 9d7a9f69e17516a448ff438f6dead377, type: 3}
+  slugDeath: {fileID: 8300000, guid: 25fefee75a8694447b057b9df38beb21, type: 3}
+  slugMovement: {fileID: 8300000, guid: 5709375acd063bd45a7ea5132035a69e, type: 3}
 --- !u!82 &7502709501485911175
 AudioSource:
   m_ObjectHideFlags: 0

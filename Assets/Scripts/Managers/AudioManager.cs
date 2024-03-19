@@ -9,7 +9,7 @@ public class AudioManager : PersistentSingleton<AudioManager>
     private const string MUSIC_VOL = "musicVol";
     private const string SFX_VOL = "sfxVol";
 
-    [Header("AudioSource")]
+    [Header("Global AudioSource References")]
     [SerializeField] public AudioSource sourceMaster = null;
     [SerializeField] public AudioSource sourceMusic = null;
     [SerializeField] public AudioSource sourceSFX = null;
@@ -21,7 +21,29 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] public AudioClip victoryMusic = null;
 
     [Header("UI SFX")]
+    [SerializeField] public SFXVariants uiButtonHoverVariants = null;
     [SerializeField] public AudioClip uiButtonClick = null;
+
+    [Header("Player SFX")]
+    [SerializeField] public SFXVariants playerFootsteps = null;
+    [SerializeField] public SFXVariants playerSummons = null;
+    [SerializeField] public SFXVariants playerSummonFails = null;
+    [SerializeField] public AudioClip playerCommand = null;
+    [SerializeField] public AudioClip playerDeath = null;
+
+    [Header("Minion SFX")]
+    [SerializeField] public AudioClip minionAttack = null;
+    [SerializeField] public AudioClip minionGet = null;
+    [SerializeField] public AudioClip minionDeath = null;
+
+    [Header("Bug SFX")]
+    [SerializeField] public AudioClip bugAttack = null;
+    [SerializeField] public AudioClip bugDeath = null;
+
+    [Header("Slug SFX")]
+    [SerializeField] public AudioClip slugAttack = null;
+    [SerializeField] public AudioClip slugDeath = null;
+    [SerializeField] public AudioClip slugMovement = null;
 
 
 

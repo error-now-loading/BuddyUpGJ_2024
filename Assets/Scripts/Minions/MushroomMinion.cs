@@ -12,6 +12,8 @@ public class MushroomMinion : MonoBehaviour
     [SerializeField] private float getDuration = 1f;
     [SerializeField] private float deathDuration = 1f;
 
+    [SerializeField] private AudioSource minionSource = null;
+
     private Rigidbody2D rb;
     private PlayerController assignedPlayer;
 
@@ -34,7 +36,9 @@ public class MushroomMinion : MonoBehaviour
     public static event Action onMinionCountChange;             //For UI
     public static int minionCount { private set; get; } = 0;    //For UI
 
-void Start()
+
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health *= mushroomType.maxHpMultiplier;
@@ -42,7 +46,7 @@ void Start()
         onMinionCountChange?.Invoke();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (interactableSpot != null && interactableSpot.transform != null)
         {
@@ -56,7 +60,7 @@ void Start()
         {
             Work();
         }
-        if(!standingAlone && !isBusy && interactableTarget == null && assignedPlayer == null)
+        if (!standingAlone && !isBusy && interactableTarget == null && assignedPlayer == null)
         {
             SetStandAlone(true);
         }
@@ -103,6 +107,7 @@ void Start()
     {
         SetStandAlone(false);
         isGet = true;
+        AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionGet);
         BusyForSeconds(getDuration);
         assignedPlayer = FindObjectOfType<PlayerController>();
         assignedPlayer.MinionTroopJoin(this);
@@ -128,28 +133,37 @@ void Start()
             assignedPlayer.MinionTroopRemove(this);
         }
     }
+
     public MushroomTypeSO GetMushroomTypeSO()
     {
         return mushroomType;
     }
+
     public float GetAttackDamage()
     {
         return mushroomType.attackPerSecond * attackDuration * (activeBuff == SpellTypes.BuffAttackDamage ? activeBuffMultiplier : 1);
     }
+
     public float GetDecomposeDamage()
     {
         return mushroomType.decomposePerSecond * attackDuration * (activeBuff == SpellTypes.BuffDecomposeDamage ? activeBuffMultiplier : 1);
     }
+
     public float GetCarryPower()
     {
         return mushroomType.decomposePerSecond * Time.deltaTime * (activeBuff == SpellTypes.BuffCarrySpeed ? activeBuffMultiplier : 1);  
     }
+
     private void BeginWork(Interactable interactableTarget)
     {
         TurnMeTowards(interactableTarget.transform.position - transform.position);
         switch (interactableTarget.GetInteractableType())
         {
             case MushroomJobs.Attack:
+                onAttack?.Invoke();
+                BusyForSeconds(attackDuration);
+                AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionAttack);
+                break;
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
                 BusyForSeconds(attackDuration);
@@ -214,6 +228,9 @@ void Start()
     IEnumerator Die()
     {
         isDed = true;
+
+        AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionDeath);
+
         rb.velocity = Vector3.zero;
         minionCount--;
         onMinionCountChange?.Invoke();
@@ -226,6 +243,7 @@ void Start()
         yield return new WaitForSeconds(deathDuration);
         Destroy(gameObject);
     }
+
     private void TurnMeTowards(Vector2 direction)
     {
         if (direction.x < 0)
@@ -237,10 +255,12 @@ void Start()
             transform.localScale = Vector3.one;
         }
     }
+
     public static void SetActiveBuff(SpellTypes buffType)
     {
         activeBuff = buffType;
     }
+
     public void SetStandAlone(bool boolean)
     {
         if (boolean)
@@ -253,8 +273,8 @@ void Start()
             standingAlone = false;
             autoTask = false;
         }
-
     }
+
     private void AutoTask()
     {
         if (standingAlone)

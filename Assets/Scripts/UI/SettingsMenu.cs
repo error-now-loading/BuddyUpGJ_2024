@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class SettingsMenu : MenuBase
 {
     [Header("Button References")]
-    [SerializeField] private Button returnButton = null;
+    [SerializeField] private UIButton returnButton = null;
 
     [Header("TextSlider References")]
     [SerializeField] private TextSlider masterVol = null;

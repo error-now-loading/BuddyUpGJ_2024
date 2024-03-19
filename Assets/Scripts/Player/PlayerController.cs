@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
     public event Action onRepeatCommand;                    //For Anim Repeat
     public event Action onTroopUpdate;                      //For UI Update
 
+    [SerializeField] private AudioSource playerSource = null;
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
         playerInput.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isBusy)
         {
@@ -73,6 +77,16 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = playerInput.PlayerOverworld.Movement.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed;
         TurnMeTowards(movement);
+
+        if (movement == Vector2.zero)
+        {
+            playerSource.Stop();
+        }
+
+        else if (!playerSource.isPlaying && rb.velocity != Vector2.zero)
+        {
+            AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerFootsteps.SelectRandom());
+        }
     }
     private void UpdateDestinationFollow()
     {
@@ -101,10 +115,12 @@ public class PlayerController : MonoBehaviour
             if (CheckMinionCount() && mana.SpendNutrients(selectedSpellType.manaCost))
             {
                 Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x, cursorPosition.y, 0), Quaternion.identity);
+                AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerSummons.SelectRandom());
             }
             else
             {
                 isFailingCasting = true;
+                AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerSummonFails.SelectRandom());
             }
         }
     }
@@ -135,6 +151,9 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = interactable.transform.position - transform.position;
         TurnMeTowards(direction);
         BusyForSeconds(commandDuration);
+
+        AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);
+
         return PickMinion();
     }
 
@@ -216,6 +235,9 @@ public class PlayerController : MonoBehaviour
         {
             isDed = true;
             isBusy = true;
+
+            AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerDeath);
+
             if (waitingTimerCoroutine != null)
             {
                 StopCoroutine(waitingTimerCoroutine);
