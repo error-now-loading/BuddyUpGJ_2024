@@ -21,9 +21,15 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] public AudioClip victoryMusic = null;
 
     [Header("UI SFX")]
+    [SerializeField] public SFXVariants uiButtonHoverVariants = null;
     [SerializeField] public AudioClip uiButtonClick = null;
-    [SerializeField] public AudioClip uiButtonHover1 = null;
-    [SerializeField] public AudioClip uiButtonHover2 = null;
+
+    [Header("Player SFX")]
+    [SerializeField] public SFXVariants playerFootsteps = null;
+    [SerializeField] public SFXVariants playerSummons = null;
+    [SerializeField] public SFXVariants playerSummonFails = null;
+    [SerializeField] public AudioClip playerCommand = null;
+    [SerializeField] public AudioClip playerDeath = null;
 
 
 
