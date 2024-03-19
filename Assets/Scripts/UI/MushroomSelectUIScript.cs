@@ -38,7 +38,14 @@ public class MushroomSelectUIScript : MonoBehaviour
         }
         if (emptyTroop)
         {
-            playerController.SetSelectedMushroomType(mushromSOs[0]);
+            if (activeMushroomIcons.Count > 0)
+            {
+                playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+            }
+            else
+            {
+                playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
+            }
         }
     }
 
@@ -84,10 +91,6 @@ public class MushroomSelectUIScript : MonoBehaviour
             else if (activeMushroomIcons.Count > 0)
             {
                 playerController.SetSelectedMushroomType(activeMushroomIcons[activeMushroomIcons.Count-1]);
-            }
-            else
-            {
-                playerController.SetSelectedMushroomType(mushromSOs[0]); //"Select" Troopy when no one is in the troop, doesnt really matter.
             }
         }
     }

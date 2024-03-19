@@ -52,6 +52,10 @@ public class MushroomMinion : MonoBehaviour
         {
             Work();
         }
+        if(!standingAlone && !isBusy && interactableTarget == null && assignedPlayer == null)
+        {
+            SetStandAlone(true);
+        }
     }
 
     private void GoToDestination()
@@ -247,6 +251,9 @@ public class MushroomMinion : MonoBehaviour
     }
     private void AutoTask()
     {
-        autoTask = true;
+        if (standingAlone)
+        {
+            autoTask = true;
+        }
     }
 }
