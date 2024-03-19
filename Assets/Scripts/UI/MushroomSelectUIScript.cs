@@ -38,7 +38,7 @@ public class MushroomSelectUIScript : MonoBehaviour
         }
         if (emptyTroop)
         {
-            playerController.SetSelectedMushroomType(activeMushroomIcons[0]);
+            playerController.SetSelectedMushroomType(mushromSOs[0]);
         }
     }
 
