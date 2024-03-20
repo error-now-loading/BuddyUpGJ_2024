@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NutrientUIBar : MonoBehaviour
 {
+    [SerializeField] private Slider slider = null;
+    [SerializeField] private TMP_Text nutrientText = null;
     private NutrientHandler nutrientPlayer;
-    private Slider slider;
+
+
+
     private void Start()
     {
-        slider = GetComponent<Slider>();
         nutrientPlayer = FindObjectOfType<PlayerController>().gameObject.GetComponent<NutrientHandler>();
         nutrientPlayer.OnNutrientValueChange += NutrientPlayer_OnNutrientValueChange;
+        nutrientText.text = $"{nutrientPlayer.nutrients} / {nutrientPlayer.maxNutrients}";
     }
 
     private void NutrientPlayer_OnNutrientValueChange(int obj)
     {
         slider.value = nutrientPlayer.GetSliderValue();
+        nutrientText.text = $"{nutrientPlayer.nutrients} / {nutrientPlayer.maxNutrients}";
     }
 }

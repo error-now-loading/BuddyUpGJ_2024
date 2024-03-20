@@ -4,19 +4,24 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class NutrientHandler : MonoBehaviour
 {
-    [SerializeField] private int maxNutrients = 3500;
+    [SerializeField] private int _maxNutrients = 3500;
+    public int maxNutrients => _maxNutrients;
     [SerializeField] private int _nutrients = 100;
     public int nutrients => _nutrients;
     public event Action<int> OnNutrientValueChange;
+
+
 
     public void AddNutrients(int argValue)
     {
         _nutrients += argValue;
 
-        if (_nutrients >= maxNutrients)
+        if (_nutrients >= _maxNutrients)
         {
-            _nutrients = maxNutrients;
+            _nutrients = _maxNutrients;
         }
+
+        OnNutrientValueChange?.Invoke(nutrients);
     }
 
     public bool SpendNutrients(int argValue)
@@ -33,7 +38,7 @@ public class NutrientHandler : MonoBehaviour
 
     public int GetAvailableSpace()
     {
-        return maxNutrients - _nutrients;
+        return _maxNutrients - _nutrients;
     }
 
     public void TransferNutrients(NutrientHandler other)
@@ -50,6 +55,8 @@ public class NutrientHandler : MonoBehaviour
             other.AddNutrients(availableSpace);
             SpendNutrients(availableSpace);
         }
+
+        OnNutrientValueChange?.Invoke(nutrients);
     }
     public void PlayerNutrientRefillEvent()
     {
