@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public enum EventTypes
 {
-    PlayerDeath
+    PlayerDeath,
+    Victory
 }
 
 // Meant to be used for globally-notified events that don't require data to be passed

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform[] minionFollowPoints;
     [SerializeField] private float castingDuration = 1f;
     [SerializeField] private float commandDuration = 1f;
+    [SerializeField] private float winSpellDuration = 999f;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
@@ -111,14 +112,23 @@ public class PlayerController : MonoBehaviour
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = cursorPosition - transform.position;
             TurnMeTowards(direction);
-            BusyForSeconds(castingDuration);
-            if (CheckMinionCount() && mana.SpendNutrients(selectedSpellType.manaCost))
+
+            if (selectedSpellType.type == SpellTypes.WinGame && mana.SpendNutrients(selectedSpellType.manaCost))
             {
+                BusyForSeconds(winSpellDuration);
+                AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.victoryMusic);
+                EventManager.instance.Notify(EventTypes.Victory);
+            }
+
+            else if (CheckMinionCount() && mana.SpendNutrients(selectedSpellType.manaCost))
+            {
+                BusyForSeconds(castingDuration);
                 Instantiate(selectedSpellType.spellPrefab, new Vector3(cursorPosition.x, cursorPosition.y, 0), Quaternion.identity);
                 AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerSummons.SelectRandom());
             }
             else
             {
+                BusyForSeconds(castingDuration);
                 isFailingCasting = true;
                 AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerSummonFails.SelectRandom());
             }
@@ -175,7 +185,6 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(waitingTimerCoroutine);
         }
         waitingTimerCoroutine = StartCoroutine(WaitingTimer(seconds));
-
     }
     IEnumerator WaitingTimer(float seconds)
     {
