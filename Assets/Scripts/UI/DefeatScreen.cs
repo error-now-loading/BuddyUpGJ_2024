@@ -50,6 +50,9 @@ public class DefeatScreen : MenuBase
     {
         restartButton.onClick.RemoveAllListeners();
         mainMenuButton.onClick.RemoveAllListeners();
-        EventManager.instance.Unsubscribe(EventTypes.PlayerDeath, Init);
+        if(EventManager.instance != null)
+        {
+            EventManager.instance.Unsubscribe(EventTypes.PlayerDeath, Init);
+        }
     }
 }
