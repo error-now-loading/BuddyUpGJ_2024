@@ -299,8 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb84c75b760a840bad11b2678d9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNutrients: 3500
-  _nutrients: 100
+  _maxNutrients: 3500
+  player: 0
+  nutrientsRegenSpeed: 1
+  _nutrients: 0
 --- !u!114 &2855970037867989172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +403,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 3
 --- !u!50 &910476381436385582
 Rigidbody2D:
   serializedVersion: 4
