@@ -97,9 +97,12 @@ public class MushroomMinion : MonoBehaviour
     {
         if (autoTask && standingAlone && collision.gameObject.GetComponent<Interactable>())
         {
-            standingAlone = false;
-            autoTask = false;
-            collision.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+            if(!(mushroomType.type == MushroomTypes.Ghosty && collision.gameObject.GetComponent<Interactable>().GetInteractableType() == MushroomJobs.Carry))
+            {
+                standingAlone = false;
+                autoTask = false;
+                collision.gameObject.GetComponent<Interactable>().TryAssignSpotTo(this);
+            }
         }
     }
 
