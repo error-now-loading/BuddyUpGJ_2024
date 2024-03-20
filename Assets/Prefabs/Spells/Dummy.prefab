@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4537f602d28fa84e81c335ba97bf003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellDuration: 30
+  spellDuration: 20
