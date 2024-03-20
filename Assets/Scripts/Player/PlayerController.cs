@@ -255,6 +255,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
 
             EventManager.instance.Notify(EventTypes.PlayerDeath);
+            Destroy(gameObject);
         }
     }
 }
