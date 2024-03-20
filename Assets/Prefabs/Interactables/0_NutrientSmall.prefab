@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 7202654258793277230}
   - component: {fileID: -5123469384314073167}
   m_Layer: 8
-  m_Name: NutrientBall
+  m_Name: 0_NutrientSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,7 +284,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 0.3}
+  m_Size: {x: 1, y: 0.3}
   m_Direction: 1
 --- !u!58 &7202654258793277230
 CircleCollider2D:
@@ -318,7 +318,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
 --- !u!50 &-5123469384314073167
