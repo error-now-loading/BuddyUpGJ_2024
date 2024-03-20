@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
-  health: 5
+  health: 8
   moveSpeed: 4
   attackDuration: 1
   getDuration: 1
