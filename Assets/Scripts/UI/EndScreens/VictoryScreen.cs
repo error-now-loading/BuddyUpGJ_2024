@@ -16,12 +16,16 @@ public class VictoryScreen : MenuBase
 
         mainMenuButton.onClick.AddListener( () =>
         {
-            PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.GameScene,
-                                                             LoadSceneMode.Single,
-                                                             () =>
-                                                             {
-                                                                 AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
-                                                             } );
+            PersistentSceneManager.instance.UnloadSceneAsync( (int)SceneIndices.GameScene, () =>
+            {
+                PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu,
+                                                                LoadSceneMode.Single,
+                                                                () =>
+                                                                {
+                                                                    Time.timeScale = 1f;
+                                                                    AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
+                                                                } );
+            } );
         } );
     }
 
@@ -40,17 +44,21 @@ public class VictoryScreen : MenuBase
         FadeIn(mainCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>
         {
             victoryAnim.gameObject.SetActive(true);
+            StartCoroutine(FadeInButton());
         } );
     }
 
     private IEnumerator FadeInButton()
     {
-        yield return new WaitForSeconds(victoryAnim.GetCurrentAnimatorClipInfo(0).Length);
+        // Gross hardcoded value in the interest of time, represents animation length in seconds * speed modifier
+        yield return new WaitForSeconds(2.566f + fadeDuration + fadeStartDelay);
 
-        FadeIn(buttonCG, 0.4f, fadeStartDelay, EaseType.linear, () =>
+        FadeIn(buttonCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>
         {
             buttonCG.interactable = true;
             buttonCG.blocksRaycasts = true;
+
+            Time.timeScale = 0f;
         } );
     }
 
