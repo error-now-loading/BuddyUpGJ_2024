@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2993821907603307341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.75, z: 0}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,38 +56,7 @@ Transform:
   m_GameObject: {fileID: 3028031412901612462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8679984669372687800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4886946165265469633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9123463845797039988}
-  m_Layer: 8
-  m_Name: Spot3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9123463845797039988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4886946165265469633}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,7 +75,7 @@ GameObject:
   - component: {fileID: 7750900064378529516}
   - component: {fileID: 8997626466481167019}
   m_Layer: 8
-  m_Name: DedSlug 4
+  m_Name: Branch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,12 +120,6 @@ MonoBehaviour:
   - transform: {fileID: 8558020921445353110}
     occupied: 0
     minion: {fileID: 0}
-  - transform: {fileID: 9123463845797039988}
-    occupied: 0
-    minion: {fileID: 0}
-  - transform: {fileID: 4183020437945256822}
-    occupied: 0
-    minion: {fileID: 0}
   interactableType: 1
   destroyTimer: 20
   decomposableHP: 50
@@ -195,8 +158,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 0.3}
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 1, y: 0.1}
   m_Direction: 1
 --- !u!58 &8997626466481167019
 CircleCollider2D:
@@ -230,7 +193,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
 --- !u!1 &6733406505668238356
@@ -264,40 +227,7 @@ Transform:
   m_Children:
   - {fileID: 763621136337108974}
   - {fileID: 8558020921445353110}
-  - {fileID: 9123463845797039988}
-  - {fileID: 4183020437945256822}
   m_Father: {fileID: 260835675608614233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6744793730889735235
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4183020437945256822}
-  m_Layer: 8
-  m_Name: Spot4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4183020437945256822
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6744793730889735235}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8679984669372687800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7091451167112486180
 GameObject:
@@ -373,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1056831591, guid: c2119411c97874e48b6c0858fdce84ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 283eada4ac5c82343874586e48f707dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -410,17 +340,21 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 398837842382300303}
+    - target: {fileID: 4327240511228735649, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
+      propertyPath: divisions
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4814191286912817881, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
       propertyPath: m_Name
       value: _DecomposableMask
       objectReference: {fileID: 0}
     - target: {fileID: 7228121470861458495, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7228121470861458495, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7228121470861458495, guid: 26cc47b30ac740b4fa5ee547fd15b2d5, type: 3}
       propertyPath: m_LocalPosition.x
