@@ -40117,10 +40117,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -60, y: 40}
+    - - {x: -60, y: 60}
       - {x: -60, y: -20}
       - {x: 60, y: -20}
-      - {x: 60, y: 40}
+      - {x: 60, y: 60}
   m_UseDelaunayMesh: 0
 --- !u!1 &1081049816
 GameObject:
