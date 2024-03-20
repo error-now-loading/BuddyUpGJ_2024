@@ -436,6 +436,7 @@ MonoBehaviour:
   - {fileID: 5115166767107290131}
   castingDuration: 1
   commandDuration: 1
+  winSpellDuration: 999
   selectedMushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
   selectedSpellType: {fileID: 11400000, guid: 43d37f1406291db45981ea08f7fe329f, type: 2}
   playerSource: {fileID: 3686871566241151561}
@@ -451,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb84c75b760a840bad11b2678d9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNutrients: 500
+  _maxNutrients: 500
   _nutrients: 50
 --- !u!50 &124561228974549959
 Rigidbody2D:
