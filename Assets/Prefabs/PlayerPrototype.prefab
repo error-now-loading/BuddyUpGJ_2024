@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  health: 100
+  health: 8
   minionFollowPoints:
   - {fileID: 7189245585692024491}
   - {fileID: 7384256402820746747}
@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fb84c75b760a840bad11b2678d9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNutrients: 3500
-  _nutrients: 100
+  maxNutrients: 500
+  _nutrients: 50
 --- !u!50 &124561228974549959
 Rigidbody2D:
   serializedVersion: 4
