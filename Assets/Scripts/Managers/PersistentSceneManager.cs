@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public enum SceneIndices
 {
     MainMenu,
-    SettingsMenu,
-    GameScene
+    GameScene,
+    SettingsMenu
 }
 
 /// <summary>

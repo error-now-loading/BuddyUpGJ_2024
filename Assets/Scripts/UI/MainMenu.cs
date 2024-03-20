@@ -32,7 +32,11 @@ public class MainMenu : MenuBase
             AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
 
             StartCoroutine(PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.GameScene,
-                                                                           LoadSceneMode.Single));
+                                                                           LoadSceneMode.Single,
+                                                                           () =>
+                                                                           {
+                                                                               AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
+                                                                           } ));
         } );
 
         settingsButton.onClick.AddListener( () =>
