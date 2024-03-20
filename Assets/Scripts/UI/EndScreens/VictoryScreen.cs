@@ -16,6 +16,8 @@ public class VictoryScreen : MenuBase
 
         mainMenuButton.onClick.AddListener( () =>
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
+
             PersistentSceneManager.instance.UnloadSceneAsync( (int)SceneIndices.GameScene, () =>
             {
                 PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu,
