@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 1_Bulky
   m_EditorClassIdentifier: 
   type: 1
-  attackEfficiency: 1
-  transportEfficiency: 1
-  decomposeEfficiency: 1
+  minionPrefab: {fileID: 0}
+  attackPerSecond: 0.5
+  carryPerSecond: 2
+  decomposePerSecond: 1
+  maxHpMultiplier: 2

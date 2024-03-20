@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 2_Angy
   m_EditorClassIdentifier: 
   type: 2
-  attackEfficiency: 1
-  transportEfficiency: 1
-  decomposeEfficiency: 1
+  attackPerSecond: 2
+  carryPerSecond: 1
+  decomposePerSecond: 0.5
+  maxHpMultiplier: 1
