@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: ResourceVariants
   m_EditorClassIdentifier: 
   variants:
+  - {fileID: 577605815793667285, guid: ca8f592b750d3c140b9a753492cbf50c, type: 3}
+  - {fileID: 577605815793667285, guid: 86942182c25964242abcb76ce92963e3, type: 3}
+  - {fileID: 577605815793667285, guid: f39352c4af54949488ec2f04ba6c51c2, type: 3}
   - {fileID: 577605815793667285, guid: f988e3cf91882fe4d8d42987479e6bf2, type: 3}
+  - {fileID: 577605815793667285, guid: 2e18dad1e5455344082eb4a9b0b4004f, type: 3}
   - {fileID: 577605815793667285, guid: f1b9c79936ab6c44aa8f0f40f057a2fc, type: 3}
+  - {fileID: 577605815793667285, guid: 9f5065be52516d14bbc57280fadb9ba6, type: 3}
+  - {fileID: 577605815793667285, guid: 4471e89bc0561c943aa9a17f915322de, type: 3}
+  - {fileID: 577605815793667285, guid: 988496a322fab6243a95485a6f5a6ce9, type: 3}
+  - {fileID: 577605815793667285, guid: 91ef26f0c9b2f834bb00cd5b09edbe7f, type: 3}
