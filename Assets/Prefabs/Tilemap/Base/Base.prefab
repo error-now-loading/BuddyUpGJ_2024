@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42bab0d4ee926e45a09ef2778739877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorRange: 0
+  cursorRange: 1
   outliner: {fileID: 2855970037867989172}
   minionSpots: []
   interactableType: 3
