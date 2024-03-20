@@ -12,7 +12,7 @@ public class NutrientBall : Interactable
     private Collider2D nutrientCollider2D = null;
     private Rigidbody2D rigidBody = null;
 
-    private int _nutrientValue = 10;
+    [SerializeField]private int _nutrientValue = 10;
     public int nutrientValue => _nutrientValue;
     public float timeToDecompose => _timeToDecompose;
     private Vector3 baseDestination = Vector3.zero;

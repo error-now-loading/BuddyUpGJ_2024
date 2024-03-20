@@ -217,7 +217,8 @@ MonoBehaviour:
   destroyTimer: 20
   _timeToDecompose: 5
   animator: {fileID: 5788739724779333652}
-  slownesMultiplier: 1
+  slownesMultiplier: 0.8
+  _nutrientValue: 20
 --- !u!70 &1008873211967155880
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
