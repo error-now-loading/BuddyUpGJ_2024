@@ -128,7 +128,7 @@ MonoBehaviour:
     occupied: 0
     minion: {fileID: 0}
   interactableType: 0
-  destroyTimer: 20
+  destroyTimer: 100
   enemyType: 1
   enemyHP: 50
   scavenger: 0

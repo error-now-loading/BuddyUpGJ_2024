@@ -161,7 +161,7 @@ MonoBehaviour:
   interactableType: 0
   destroyTimer: 20
   enemyType: 0
-  enemyHP: 50
+  enemyHP: 70
   scavenger: 1
   moveSpeed: 3
   visionRadius: 4
