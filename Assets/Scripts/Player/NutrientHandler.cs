@@ -5,13 +5,31 @@ using UnityEngine;
 public class NutrientHandler : MonoBehaviour
 {
     [SerializeField] private int _maxNutrients = 3500;
+    [SerializeField] private bool player = false;
+    [SerializeField] private float nutrientsRegenSpeed = 1;
     public int maxNutrients => _maxNutrients;
     [SerializeField] private int _nutrients = 100;
     public int nutrients => _nutrients;
     public event Action<int> OnNutrientValueChange;
+    private float nutrientFloat;
 
 
-
+    private void Update()
+    {
+        if (player && nutrients < 50)
+        {
+            if(nutrientFloat > 1)
+            {
+                nutrientFloat = 0;
+                _nutrients++;
+                OnNutrientValueChange?.Invoke(nutrients);
+            }
+            else
+            {
+                nutrientFloat += Time.deltaTime * nutrientsRegenSpeed;
+            }
+        }
+    }
     public void AddNutrients(int argValue)
     {
         _nutrients += argValue;

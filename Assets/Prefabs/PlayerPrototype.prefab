@@ -453,6 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxNutrients: 500
+  player: 1
+  nutrientsRegenSpeed: 0.5
   _nutrients: 50
 --- !u!50 &124561228974549959
 Rigidbody2D:
