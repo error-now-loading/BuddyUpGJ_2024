@@ -196,10 +196,10 @@ MonoBehaviour:
     minion: {fileID: 0}
   interactableType: 1
   destroyTimer: 20
-  decomposableHP: 50
+  decomposableHP: 135
   decomposableByEnemyHP: 20
   mask: {fileID: 2561506568477403740}
-  nutrientPrefab: {fileID: 7262393741106229116, guid: 41f8353b13c544b459508b4a6061b6a6, type: 3}
+  nutrientPrefab: {fileID: 7262393741106229116, guid: 1dcd3134fc0d7f643b8ed507e5be5f10, type: 3}
 --- !u!70 &7750900064378529516
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

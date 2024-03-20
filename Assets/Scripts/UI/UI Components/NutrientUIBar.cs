@@ -14,6 +14,7 @@ public class NutrientUIBar : MonoBehaviour
     {
         nutrientPlayer = FindObjectOfType<PlayerController>().gameObject.GetComponent<NutrientHandler>();
         nutrientPlayer.OnNutrientValueChange += NutrientPlayer_OnNutrientValueChange;
+        slider.value = nutrientPlayer.GetSliderValue();
         nutrientText.text = $"{nutrientPlayer.nutrients} / {nutrientPlayer.maxNutrients}";
     }
 

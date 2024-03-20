@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: 3_Ghosty
   m_EditorClassIdentifier: 
   type: 3
-  minionPrefab: {fileID: 5536305203217522253, guid: bcc6bec31a5322c4d89bf12435294fd7, type: 3}
-  attackEfficiency: 1
-  transportEfficiency: 1
-  decomposeEfficiency: 1
-  MaxHpMultiplier: 1
+  attackPerSecond: 2
+  carryPerSecond: 0
+  decomposePerSecond: 3
+  maxHpMultiplier: 0.5

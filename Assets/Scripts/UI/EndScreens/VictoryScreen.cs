@@ -50,7 +50,7 @@ public class VictoryScreen : MenuBase
     private IEnumerator FadeInButton()
     {
         // Gross hardcoded value in the interest of time, represents animation length in seconds * speed modifier
-        yield return new WaitForSeconds(2.566f + fadeDuration + fadeStartDelay);
+        yield return new WaitForSeconds(8f + fadeDuration + fadeStartDelay);
 
         FadeIn(buttonCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>
         {

@@ -6,12 +6,13 @@ public class NutrientBall : Interactable
 {
     [SerializeField] private float _timeToDecompose = 5f;
     [SerializeField] private Animator animator;
+    [SerializeField] [Range(0,1)] private float slownesMultiplier = 1;
 
     private SpriteRenderer spriteRenderer = null;
     private Collider2D nutrientCollider2D = null;
     private Rigidbody2D rigidBody = null;
 
-    private int _nutrientValue = 10;
+    [SerializeField]private int _nutrientValue = 10;
     public int nutrientValue => _nutrientValue;
     public float timeToDecompose => _timeToDecompose;
     private Vector3 baseDestination = Vector3.zero;
@@ -54,7 +55,7 @@ public class NutrientBall : Interactable
     }
     public override void InteractMinion(MushroomMinion minion)
     {
-        transform.Translate((baseDestination - transform.position).normalized * minion.GetCarryPower());
+        transform.Translate((baseDestination - transform.position).normalized * minion.GetCarryPower() * slownesMultiplier);
     }
 
     public override void InteractEnemy(Enemy enemy)
