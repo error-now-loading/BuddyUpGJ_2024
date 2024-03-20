@@ -16,23 +16,26 @@ public class DefeatScreen : MenuBase
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
 
-            PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu, LoadSceneMode.Single, () =>
-            {
-                Time.timeScale = 1f;
-            } );
+            StartCoroutine(PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.GameScene,
+                                                                           LoadSceneMode.Single,
+                                                                           () =>
+                                                                           {
+                                                                               Time.timeScale = 1f;
+                                                                               AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
+                                                                           } ));
         } );
 
         mainMenuButton.onClick.AddListener( () =>
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
 
-            PersistentSceneManager.instance.LoadSceneAsync ( (int)SceneIndices.GameScene,
-                                                             LoadSceneMode.Single,
-                                                             () =>
-                                                             {
-                                                                 Time.timeScale = 1f;
-                                                                 AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
-                                                             } );
+            StartCoroutine(PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu,
+                                                                           LoadSceneMode.Single,
+                                                                           () =>
+                                                                           {
+                                                                               Time.timeScale = 1f;
+                                                                               AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.mainMenuMusic);
+                                                                           } ));
         } );
     }
 
@@ -47,6 +50,7 @@ public class DefeatScreen : MenuBase
 
         mainCG.interactable = true;
         mainCG.blocksRaycasts = true;
+
         AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.defeatMusic);
 
         FadeIn(mainCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>

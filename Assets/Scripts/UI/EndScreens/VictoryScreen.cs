@@ -18,16 +18,13 @@ public class VictoryScreen : MenuBase
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
 
-            PersistentSceneManager.instance.UnloadSceneAsync( (int)SceneIndices.GameScene, () =>
-            {
-                PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu,
-                                                                LoadSceneMode.Single,
-                                                                () =>
-                                                                {
-                                                                    Time.timeScale = 1f;
-                                                                    AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
-                                                                } );
-            } );
+            StartCoroutine(PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.MainMenu,
+                                                                           LoadSceneMode.Single,
+                                                                           () =>
+                                                                           {
+                                                                               Time.timeScale = 1f;
+                                                                               AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
+                                                                           } ));
         } );
     }
 
