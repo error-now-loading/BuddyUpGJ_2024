@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 
+public enum EventTypes
+{
+    PlayerDeath
+}
+
 // Meant to be used for globally-notified events that don't require data to be passed
 public class EventManager : LLPersistentSingleton<EventManager>
 {
-    public enum EventTypes
-    {
-
-    }
-
     private static Dictionary<EventTypes, Action> subscriberDict = new Dictionary<EventTypes, Action>();
 
 

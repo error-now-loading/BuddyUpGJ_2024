@@ -244,6 +244,8 @@ public class PlayerController : MonoBehaviour
                 waitingTimerCoroutine = null;
             }
             rb.velocity = Vector3.zero;
+
+            EventManager.instance.Notify(EventTypes.PlayerDeath);
         }
     }
 }

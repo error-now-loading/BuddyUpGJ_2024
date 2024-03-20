@@ -24,7 +24,7 @@ public class SettingsMenu : MenuBase
     {
         base.Init();
 
-        returnButton.onClick.AddListener(() =>
+        returnButton.onClick.AddListener( () =>
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
 
