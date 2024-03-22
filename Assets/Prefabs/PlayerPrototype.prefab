@@ -413,6 +413,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   health: 8
+  callBackRadius: 8
+  minionLayer:
+    serializedVersion: 2
+    m_Bits: 128
   minionFollowPoints:
   - {fileID: 7189245585692024491}
   - {fileID: 7384256402820746747}

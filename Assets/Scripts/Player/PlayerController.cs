@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float health = 100f;
+    [SerializeField] private float callBackRadius = 5f;
+    [SerializeField] private LayerMask minionLayer;
     [SerializeField] private Transform[] minionFollowPoints;
     [SerializeField] private float castingDuration = 1f;
     [SerializeField] private float commandDuration = 1f;
@@ -51,12 +53,14 @@ public class PlayerController : MonoBehaviour
 
         playerInput.PlayerOverworld.Interact.performed += OnInteract;
         playerInput.PlayerOverworld.CastSpell.performed += OnSpellCast;
+        playerInput.PlayerOverworld.CallBack.performed += OnCallBack;
     }
 
     private void OnDisable()
     {
         playerInput.PlayerOverworld.Interact.performed -= OnInteract;
         playerInput.PlayerOverworld.CastSpell.performed -= OnSpellCast;
+        playerInput.PlayerOverworld.CallBack.performed -= OnCallBack;
         playerInput.Disable();
     }
 
@@ -150,7 +154,26 @@ public class PlayerController : MonoBehaviour
             return true;
         }
     }
+    private void OnCallBack(InputAction.CallbackContext obj)
+    {
+        if (isCommanding)
+        {
+            onRepeatCommand?.Invoke();
+        }
+        isCommanding = true;
 
+        foreach(Collider2D col in Physics2D.OverlapCircleAll(transform.position, callBackRadius, minionLayer))    //7 is minion
+        {
+            MushroomMinion minion = col.gameObject.GetComponent<MushroomMinion>();
+            if (!minionTroops.Contains(minion))
+            {
+                minion.CallBack();
+            }
+        }
+        BusyForSeconds(commandDuration);
+
+        AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);
+    }
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
         if (isCommanding)

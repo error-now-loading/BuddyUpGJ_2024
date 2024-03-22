@@ -267,7 +267,7 @@ public class MushroomMinion : MonoBehaviour
 
     public void SetStandAlone(bool boolean)
     {
-        if (boolean)
+        if (boolean && !standingAlone)
         {
             standingAlone = true;
             Invoke("AutoTask", autoTaskTimer);
@@ -287,8 +287,32 @@ public class MushroomMinion : MonoBehaviour
         }
     }
 
-    internal static void ResetMinionCount()
+    public static void ResetMinionCount()
     {
         minionCount = 0;
+    }
+
+    public void CallBack()
+    {
+        if (!isDed)
+        {
+            if (waitingTimerCoroutine != null)
+            {
+                StopCoroutine(waitingTimerCoroutine);
+                waitingTimerCoroutine = null;
+            }
+            if (interactableSpot != null)
+            {
+                interactableSpot.occupied = false;
+                interactableSpot.minion = null;
+                interactableSpot = null;
+            }
+            if (interactableTarget != null)
+            {
+                interactableTarget = null;
+            }
+            transform.parent = null;
+            JoinPlayer();
+        }
     }
 }

@@ -116,6 +116,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CallBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""cddb2563-3029-4e35-8be2-0eea63ebad81"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -371,6 +380,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MinionSelect4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02303600-786c-4e89-ad1b-eeed6546fd9f"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CallBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -395,6 +415,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerOverworld_MinionSelect2 = m_PlayerOverworld.FindAction("MinionSelect2", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect3 = m_PlayerOverworld.FindAction("MinionSelect3", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect4 = m_PlayerOverworld.FindAction("MinionSelect4", throwIfNotFound: true);
+        m_PlayerOverworld_CallBack = m_PlayerOverworld.FindAction("CallBack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -466,6 +487,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOverworld_MinionSelect2;
     private readonly InputAction m_PlayerOverworld_MinionSelect3;
     private readonly InputAction m_PlayerOverworld_MinionSelect4;
+    private readonly InputAction m_PlayerOverworld_CallBack;
     public struct PlayerOverworldActions
     {
         private @PlayerInput m_Wrapper;
@@ -480,6 +502,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @MinionSelect2 => m_Wrapper.m_PlayerOverworld_MinionSelect2;
         public InputAction @MinionSelect3 => m_Wrapper.m_PlayerOverworld_MinionSelect3;
         public InputAction @MinionSelect4 => m_Wrapper.m_PlayerOverworld_MinionSelect4;
+        public InputAction @CallBack => m_Wrapper.m_PlayerOverworld_CallBack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOverworld; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -519,6 +542,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @MinionSelect4.started += instance.OnMinionSelect4;
             @MinionSelect4.performed += instance.OnMinionSelect4;
             @MinionSelect4.canceled += instance.OnMinionSelect4;
+            @CallBack.started += instance.OnCallBack;
+            @CallBack.performed += instance.OnCallBack;
+            @CallBack.canceled += instance.OnCallBack;
         }
 
         private void UnregisterCallbacks(IPlayerOverworldActions instance)
@@ -553,6 +579,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @MinionSelect4.started -= instance.OnMinionSelect4;
             @MinionSelect4.performed -= instance.OnMinionSelect4;
             @MinionSelect4.canceled -= instance.OnMinionSelect4;
+            @CallBack.started -= instance.OnCallBack;
+            @CallBack.performed -= instance.OnCallBack;
+            @CallBack.canceled -= instance.OnCallBack;
         }
 
         public void RemoveCallbacks(IPlayerOverworldActions instance)
@@ -591,5 +620,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMinionSelect2(InputAction.CallbackContext context);
         void OnMinionSelect3(InputAction.CallbackContext context);
         void OnMinionSelect4(InputAction.CallbackContext context);
+        void OnCallBack(InputAction.CallbackContext context);
     }
 }
