@@ -170,6 +170,7 @@ public class PlayerController : MonoBehaviour
                 minion.CallBack();
             }
         }
+        MushroomMinion.RefreshMinionCount();
         BusyForSeconds(commandDuration);
 
         AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);

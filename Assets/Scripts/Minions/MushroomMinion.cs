@@ -291,6 +291,11 @@ public class MushroomMinion : MonoBehaviour
     {
         minionCount = 0;
     }
+    public static void RefreshMinionCount()
+    {
+        minionCount = FindObjectsOfType<MushroomMinion>().Length;
+        onMinionCountChange?.Invoke();
+    }
 
     public void CallBack()
     {
