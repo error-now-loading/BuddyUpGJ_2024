@@ -36,7 +36,6 @@ public class Enemy : Interactable
     private Dummy dummyInRange;
     private List<MushroomMinion> minionsInRange = new List<MushroomMinion>();
     private List<MushroomMinion> attackingMinionsInRange = new List<MushroomMinion>();
-    private List<NutrientBall> nutrientsInRange = new List<NutrientBall>();
     private List<Decomposable> decomposablesInRange = new List<Decomposable>();
 
     private Rigidbody2D rb;
@@ -91,7 +90,7 @@ public class Enemy : Interactable
             {
                 if (scavenger && !aggroed)
                 {
-                    if (decomposablesInRange.Count > 0 || nutrientsInRange.Count > 0)
+                    if (decomposablesInRange.Count > 0)
                     {
                         Interactable closestEatable = GetClosestEatable();
                         if (Vector2.Distance(closestEatable.transform.position, transform.position) < actionRadius)
@@ -203,30 +202,9 @@ public class Enemy : Interactable
 
     private Interactable GetClosestEatable() // these functions irk me a bit, but they work xD
     {
-        Interactable closestInteractable = null;
-        if (decomposablesInRange.Count > 0 && nutrientsInRange.Count > 0)
-        {
-            Interactable closestDecomposable = decomposablesInRange
-                .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
-                .FirstOrDefault();
-            Interactable closestNutrient = nutrientsInRange
-                .OrderBy(nutrient => Vector3.Distance(nutrient.transform.position, transform.position))
-                .FirstOrDefault();
-            closestInteractable = Vector3.Distance(closestDecomposable.gameObject.transform.position, transform.position) < Vector3.Distance(closestNutrient.gameObject.transform.position, transform.position) ? closestDecomposable : closestNutrient;
-        }
-        else if (decomposablesInRange.Count > 0)
-        {
-            closestInteractable = decomposablesInRange
-                .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
-                .FirstOrDefault();
-        }
-        else
-        {
-            closestInteractable = nutrientsInRange
-                .OrderBy(nutrient => Vector3.Distance(nutrient.transform.position, transform.position))
-                .FirstOrDefault();
-        }
-
+        Interactable closestInteractable = decomposablesInRange
+        .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
+        .FirstOrDefault();
         return closestInteractable;
     }
 
@@ -270,7 +248,6 @@ public class Enemy : Interactable
         playerInRange = null;
         minionsInRange = new List<MushroomMinion>();
         attackingMinionsInRange = new List<MushroomMinion>();
-        nutrientsInRange = new List<NutrientBall>();
         decomposablesInRange = new List<Decomposable>();
         bool foundInterest = false;
 
@@ -278,7 +255,6 @@ public class Enemy : Interactable
         {
             PlayerController player = collider.GetComponent<PlayerController>();
             MushroomMinion minion = collider.GetComponent<MushroomMinion>();
-            NutrientBall nutrient = collider.GetComponent<NutrientBall>();
             Decomposable decomposable = collider.GetComponent<Decomposable>();
             Dummy dummy = collider.GetComponent<Dummy>();
             if (player != null)
@@ -294,11 +270,6 @@ public class Enemy : Interactable
             if (minion != null && !minionsInRange.Contains(minion))
             {
                 minionsInRange.Add(minion);
-                foundInterest = true;
-            }
-            else if (nutrient != null && !nutrientsInRange.Contains(nutrient))
-            {
-                nutrientsInRange.Add(nutrient);
                 foundInterest = true;
             }
             else if (decomposable != null && !decomposablesInRange.Contains(decomposable))
