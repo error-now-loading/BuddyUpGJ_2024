@@ -161,7 +161,6 @@ public class PlayerController : MonoBehaviour
             onRepeatCommand?.Invoke();
         }
         isCommanding = true;
-
         foreach(Collider2D col in Physics2D.OverlapCircleAll(transform.position, callBackRadius, minionLayer))    //7 is minion
         {
             MushroomMinion minion = col.gameObject.GetComponent<MushroomMinion>();
@@ -170,7 +169,15 @@ public class PlayerController : MonoBehaviour
                 minion.CallBack();
             }
         }
+        for (int i = minionTroops.Count - 1; i >= 0; i--)
+        {
+            if (minionTroops[i] == null)
+            {
+                minionTroops.RemoveAt(i);
+            }
+        }
         MushroomMinion.RefreshMinionCount();
+        onTroopUpdate?.Invoke();
         BusyForSeconds(commandDuration);
 
         AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);
