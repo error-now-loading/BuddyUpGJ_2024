@@ -301,6 +301,7 @@ public class MushroomMinion : MonoBehaviour
     {
         if (!isDed)
         {
+            isCarrying = false;
             if (waitingTimerCoroutine != null)
             {
                 StopCoroutine(waitingTimerCoroutine);
