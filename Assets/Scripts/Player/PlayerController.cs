@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
         foreach(Collider2D col in Physics2D.OverlapCircleAll(transform.position, callBackRadius, minionLayer))    //7 is minion
         {
             MushroomMinion minion = col.gameObject.GetComponent<MushroomMinion>();
-            if (!minionTroops.Contains(minion))
+            if (minion != null && !minionTroops.Contains(minion))
             {
                 minion.CallBack();
             }
