@@ -170,6 +170,12 @@ public class MushroomMinion : MonoBehaviour
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
                 BusyForSeconds(attackDuration);
+
+                if (mushroomType.type == MushroomTypes.Ghosty)
+                {
+                    AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionAttack);
+                }
+
                 break;
             case MushroomJobs.Carry:
                 isCarrying = true;
