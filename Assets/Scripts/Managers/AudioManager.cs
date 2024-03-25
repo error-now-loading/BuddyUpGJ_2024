@@ -97,7 +97,7 @@ public class AudioManager : PersistentSingleton<AudioManager>
         _source.Play();
     }
 
-    private void LoadAudioSettings()
+    public void LoadAudioSettings()
     {
         LoadMasterVolume();
         LoadMusicVolume();
