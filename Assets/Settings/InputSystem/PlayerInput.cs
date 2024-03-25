@@ -125,6 +125,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""c26057f4-a8a7-425a-ac58-225d8f303073"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -391,6 +400,45 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""CallBack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53d413be-8ecd-41a1-b0c2-54e264968e9a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""6114c7ae-6973-4390-b9e5-454b8fbdfe4d"",
+            ""actions"": [
+                {
+                    ""name"": ""Unpause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f70c3b8-d147-4618-9668-bfb68e5154b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""64bf5ea5-de40-4695-93fc-e89e7dcaff29"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -416,6 +464,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerOverworld_MinionSelect3 = m_PlayerOverworld.FindAction("MinionSelect3", throwIfNotFound: true);
         m_PlayerOverworld_MinionSelect4 = m_PlayerOverworld.FindAction("MinionSelect4", throwIfNotFound: true);
         m_PlayerOverworld_CallBack = m_PlayerOverworld.FindAction("CallBack", throwIfNotFound: true);
+        m_PlayerOverworld_Pause = m_PlayerOverworld.FindAction("Pause", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Unpause = m_UI.FindAction("Unpause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -488,6 +540,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOverworld_MinionSelect3;
     private readonly InputAction m_PlayerOverworld_MinionSelect4;
     private readonly InputAction m_PlayerOverworld_CallBack;
+    private readonly InputAction m_PlayerOverworld_Pause;
     public struct PlayerOverworldActions
     {
         private @PlayerInput m_Wrapper;
@@ -503,6 +556,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @MinionSelect3 => m_Wrapper.m_PlayerOverworld_MinionSelect3;
         public InputAction @MinionSelect4 => m_Wrapper.m_PlayerOverworld_MinionSelect4;
         public InputAction @CallBack => m_Wrapper.m_PlayerOverworld_CallBack;
+        public InputAction @Pause => m_Wrapper.m_PlayerOverworld_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOverworld; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -545,6 +599,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CallBack.started += instance.OnCallBack;
             @CallBack.performed += instance.OnCallBack;
             @CallBack.canceled += instance.OnCallBack;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerOverworldActions instance)
@@ -582,6 +639,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CallBack.started -= instance.OnCallBack;
             @CallBack.performed -= instance.OnCallBack;
             @CallBack.canceled -= instance.OnCallBack;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerOverworldActions instance)
@@ -599,6 +659,52 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public PlayerOverworldActions @PlayerOverworld => new PlayerOverworldActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Unpause;
+    public struct UIActions
+    {
+        private @PlayerInput m_Wrapper;
+        public UIActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Unpause => m_Wrapper.m_UI_Unpause;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Unpause.started += instance.OnUnpause;
+            @Unpause.performed += instance.OnUnpause;
+            @Unpause.canceled += instance.OnUnpause;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Unpause.started -= instance.OnUnpause;
+            @Unpause.performed -= instance.OnUnpause;
+            @Unpause.canceled -= instance.OnUnpause;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -621,5 +727,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMinionSelect3(InputAction.CallbackContext context);
         void OnMinionSelect4(InputAction.CallbackContext context);
         void OnCallBack(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnUnpause(InputAction.CallbackContext context);
     }
 }

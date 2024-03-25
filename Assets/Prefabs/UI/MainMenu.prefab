@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 6633137978488257605}
   - component: {fileID: 3100057386391757767}
   m_Layer: 5
-  m_Name: CreditsBackButton
+  m_Name: TutorialBackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

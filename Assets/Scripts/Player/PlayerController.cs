@@ -54,6 +54,11 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerOverworld.Interact.performed += OnInteract;
         playerInput.PlayerOverworld.CastSpell.performed += OnSpellCast;
         playerInput.PlayerOverworld.CallBack.performed += OnCallBack;
+
+        playerInput.PlayerOverworld.Pause.performed += OnPauseButtonHit;
+        playerInput.UI.Unpause.performed += OnPauseButtonHit;
+
+        EventManager.instance.Subscribe(EventTypes.PauseMenuClosedExternally, OnExternalUnpause);
     }
 
     private void OnDisable()
@@ -61,7 +66,13 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerOverworld.Interact.performed -= OnInteract;
         playerInput.PlayerOverworld.CastSpell.performed -= OnSpellCast;
         playerInput.PlayerOverworld.CallBack.performed -= OnCallBack;
+
+        playerInput.PlayerOverworld.Pause.performed -= OnPauseButtonHit;
+        playerInput.UI.Unpause.performed -= OnPauseButtonHit;
+
         playerInput.Disable();
+
+        EventManager.instance.Unsubscribe(EventTypes.PauseMenuClosedExternally, OnExternalUnpause);
     }
 
     private void FixedUpdate()
@@ -286,6 +297,30 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
 
             EventManager.instance.Notify(EventTypes.PlayerDeath);
+        }
+    }
+
+    private void OnPauseButtonHit(InputAction.CallbackContext obj)
+    {
+        OnExternalUnpause();
+    }
+
+    private void OnExternalUnpause()
+    {
+        // Pause
+        if (!PauseMenu.instance.isPaused)
+        {
+            playerInput.PlayerOverworld.Disable();
+            playerInput.UI.Enable();
+            PauseMenu.instance.PauseGame();
+        }
+
+        // Unpause
+        else
+        {
+            PauseMenu.instance.UnpauseGame();
+            playerInput.UI.Disable();
+            playerInput.PlayerOverworld.Enable();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public enum EventTypes
 {
+    PauseMenuClosedExternally,
     PlayerDeath,
     Victory
 }
