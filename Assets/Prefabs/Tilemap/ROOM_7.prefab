@@ -4282,7 +4282,7 @@ MonoBehaviour:
   numEnemySpawners: 2
   enemySpawnInterval: 30
   numResourceSpawners: 2
-  resourceSpawnInterval: 30
+  resourceSpawnInterval: 45
   enemyVariants: {fileID: 11400000, guid: 658571a928c4c9843b0b98d3adb8a07d, type: 2}
   resourceVariants: {fileID: 11400000, guid: d17737f255af99c44bd68831cda669f0, type: 2}
   obstacleMap: {fileID: 128595530339487044}

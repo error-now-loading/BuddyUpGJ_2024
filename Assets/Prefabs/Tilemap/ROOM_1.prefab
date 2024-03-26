@@ -4455,9 +4455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f7bd58b46999e4e8133c7d06801f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemySpawners: 2
-  enemySpawnInterval: 30
-  numResourceSpawners: 2
+  numEnemySpawners: 1
+  enemySpawnInterval: 45
+  numResourceSpawners: 5
   resourceSpawnInterval: 30
   enemyVariants: {fileID: 11400000, guid: 658571a928c4c9843b0b98d3adb8a07d, type: 2}
   resourceVariants: {fileID: 11400000, guid: d17737f255af99c44bd68831cda669f0, type: 2}
