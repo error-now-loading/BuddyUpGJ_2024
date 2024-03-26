@@ -1,4 +1,4 @@
-using System;
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +14,7 @@ public class SpellSelector : MonoBehaviour
     [SerializeField] private Image next2Spell;
     [SerializeField] private Image prev1Spell;
     [SerializeField] private Image prev2Spell;
+    [SerializeField] private TMP_Text costDisplay = null;
     private int selectedIndex = 0;
     private Animator animator;
     private PlayerInput playerInput;
@@ -29,8 +30,11 @@ public class SpellSelector : MonoBehaviour
         playerInput = new PlayerInput();
         animator = selectedSpell.GetComponent<Animator>();
         playerController = FindObjectOfType<PlayerController>();
+
         playerInput.PlayerOverworld.Enable();
         playerInput.PlayerOverworld.SpellChangeScroll.performed += SpellChangeScroll_performed;
+
+        costDisplay.text = $"{spellTypes[selectedIndex].manaCost}";
     }
 
     private void SpellChangeScroll_performed(InputAction.CallbackContext obj)
@@ -60,6 +64,7 @@ public class SpellSelector : MonoBehaviour
                 animator.SetFloat("Speed", -1);
             }
             playerController.SetSelectedSpellType(spellTypes[selectedIndex]);
+            costDisplay.text = $"{spellTypes[selectedIndex].manaCost}";
         }
     }
 
