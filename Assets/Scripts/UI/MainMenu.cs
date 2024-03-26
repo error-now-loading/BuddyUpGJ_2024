@@ -102,7 +102,6 @@ public class MainMenu : MenuBase
         } );
 #endif
 
-        AudioManager.instance.LoadAudioSettings();
         AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.mainMenuMusic);
     }
 }
