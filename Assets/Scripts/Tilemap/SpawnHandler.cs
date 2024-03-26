@@ -89,7 +89,7 @@ public class SpawnHandler : MonoBehaviour
         {
             for (int i = 0; i < numToSpawn; i++)
             {
-                Enemy newEnemy = Instantiate(enemyVariants.SelectRandom(), enemySpawnLocations[Random.Range(0, enemySpawnLocations.Count)], Quaternion.identity);
+                Enemy newEnemy = Instantiate(enemyVariants.SelectRandom(), enemySpawnLocations[i], Quaternion.identity);
                 spawnedEnemies.Add(newEnemy);
             }
 
