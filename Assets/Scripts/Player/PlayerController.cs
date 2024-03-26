@@ -195,18 +195,26 @@ public class PlayerController : MonoBehaviour
     }
     public MushroomMinion TryToCommandMinionTo(Interactable interactable)
     {
-        if (isCommanding)
+        if (!PauseMenu.instance.isPaused)
         {
-            onRepeatCommand?.Invoke();
+            if (isCommanding)
+            {
+                onRepeatCommand?.Invoke();
+            }
+            isCommanding = true;
+            Vector3 direction = interactable.transform.position - transform.position;
+            TurnMeTowards(direction);
+            BusyForSeconds(commandDuration);
+
+            AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);
+
+            return PickMinion();
         }
-        isCommanding = true;
-        Vector3 direction = interactable.transform.position - transform.position;
-        TurnMeTowards(direction);
-        BusyForSeconds(commandDuration);
-
-        AudioManager.instance.PlaySFX(playerSource, AudioManager.instance.playerCommand);
-
-        return PickMinion();
+        
+        else
+        {
+            return null;
+        }
     }
 
     private MushroomMinion PickMinion()
