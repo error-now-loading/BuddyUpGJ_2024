@@ -6,6 +6,7 @@ public class PauseMenu : MenuBase
     public static PauseMenu instance {  get; private set; }
 
     [SerializeField] private UIButton continueButton = null;
+    [SerializeField] private UIButton restartButton = null;
     [SerializeField] private UIButton settingsButton = null;
     [SerializeField] private UIButton tutorialButton = null;
     [SerializeField] private UIButton returnToMainMenuButton = null;
@@ -30,6 +31,20 @@ public class PauseMenu : MenuBase
 
             EventManager.instance.Notify(EventTypes.PauseMenuClosedExternally);
         } );
+
+        // Restart
+        restartButton.onClick.AddListener(() =>
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.sourceSFX, AudioManager.instance.uiButtonClick);
+
+            StartCoroutine(PersistentSceneManager.instance.LoadSceneAsync( (int)SceneIndices.GameScene,
+                                                                           LoadSceneMode.Single,
+                                                                           () =>
+                                                                           {
+                                                                               Time.timeScale = 1f;
+                                                                               AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.gameplayMusic);
+                                                                           } ));
+        });
 
         // Settings
         settingsButton.onClick.AddListener( () =>
@@ -119,6 +134,7 @@ public class PauseMenu : MenuBase
     private void OnDestroy()
     {
         continueButton.onClick.RemoveAllListeners();
+        restartButton.onClick.RemoveAllListeners();
         settingsButton.onClick.RemoveAllListeners();
         tutorialButton.onClick.RemoveAllListeners();
         returnToMainMenuButton.onClick.RemoveAllListeners();
