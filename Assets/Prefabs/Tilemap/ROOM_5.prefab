@@ -4257,7 +4257,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4277,7 +4277,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4366,14 +4366,14 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 114ca29d70ae66941bdbd2090d7cedac, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 71927009d764cd54ea328157eb5ee531, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 741b79621980968409e5176e0841fb97, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 23af59df3de49674c885c666d5a15c3c, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: d787664b9e5d23c48975c268dae62ba0, type: 3}
+    m_Data: {fileID: 21300000, guid: 71927009d764cd54ea328157eb5ee531, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e339f3671bf2ab447ab6703a50eaef88, type: 3}
   - m_RefCount: 1
@@ -4382,8 +4382,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 5bcb4492e9dbef74b98429f072fc55ce, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: cfdc87b1d035bc847aceef74ff823867, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: d787664b9e5d23c48975c268dae62ba0, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: acfe582b232c4a847b32baa17c4c7bf9, type: 3}
   m_TileMatrixArray:
@@ -4587,7 +4587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f7bd58b46999e4e8133c7d06801f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemySpawners: 2
+  numEnemySpawners: 3
   enemySpawnInterval: 30
   numResourceSpawners: 2
   resourceSpawnInterval: 30
