@@ -131,6 +131,13 @@ public class PauseMenu : MenuBase
         }
     }
 
+    // Called externally to pause the game on win/loss and prevent interaction with enemies, hacky fix
+    public void SetGameEnd()
+    {
+        Time.timeScale = 0f;
+        _isPaused = true;
+    }
+
     private void OnDestroy()
     {
         continueButton.onClick.RemoveAllListeners();

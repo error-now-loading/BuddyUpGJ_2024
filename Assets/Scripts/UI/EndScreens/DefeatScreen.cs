@@ -55,7 +55,7 @@ public class DefeatScreen : MenuBase
 
         FadeIn(mainCG, fadeDuration, fadeStartDelay, EaseType.linear, () =>
         {
-            Time.timeScale = 0f;
+            PauseMenu.instance.SetGameEnd();
         } );
     }
 
