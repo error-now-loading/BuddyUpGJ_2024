@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a3d381ab54c17144a954e56c1d8c0730
+guid: f99cb06501b426242ba873a9d0f099d4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,278 +93,228 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerDed_0
+      name: PlayerSpellFail_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1400
-        width: 800
-        height: 700
+        y: 1000
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c897a44c20bba9242846edaeda52655a
-      internalID: 1699737753
+      spriteID: 12610ac417f6bdd4fa8f13eb061cbb66
+      internalID: 1732387271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_1
+      name: PlayerSpellFail_1
       rect:
         serializedVersion: 2
-        x: 800
-        y: 1400
-        width: 800
-        height: 700
+        x: 725
+        y: 1000
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e50c4caeafad17541855f65dd69fc472
-      internalID: -1669577020
+      spriteID: f2bca8ad1b656d5479787f22db455f27
+      internalID: -881352540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_2
+      name: PlayerSpellFail_2
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 1400
-        width: 800
-        height: 700
+        x: 1450
+        y: 1000
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eeda808d41ec57419103ccf6442d4a0
-      internalID: 1143947727
+      spriteID: dfe57b61a4a94a1418180a9068d8c941
+      internalID: 1521799416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_3
+      name: PlayerSpellFail_3
       rect:
         serializedVersion: 2
-        x: 2400
-        y: 1400
-        width: 800
-        height: 700
+        x: 2175
+        y: 1000
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04b26fa6a0155f049acd7d0b0a6cc468
-      internalID: 505487439
+      spriteID: bd1335bbcf4d486489051d54bc5d9e0c
+      internalID: -2098135848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_4
+      name: PlayerSpellFail_4
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 1400
-        width: 800
-        height: 700
+        x: 4000
+        y: 1000
+        width: 1000
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff51e51877eb51146b4c83663db745c0
-      internalID: -1776482743
+      spriteID: 4a6f182268f78494982f6ff9e5b75e6e
+      internalID: 1961215769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_5
+      name: PlayerSpellFail_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 700
-        width: 800
-        height: 700
+        x: 2900
+        y: 1000
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1edfdc4a279131c49a39cacccde32b57
-      internalID: -1018841042
+      spriteID: 202f6c324b26f4a42897a7f9c17eba47
+      internalID: -12971944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_6
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 700
-        width: 800
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffead926f937c9846884a4624b41ddf9
-      internalID: 1254278278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_7
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 700
-        width: 800
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 947a03d8b0d450343b050c95a9bc4abf
-      internalID: -307205237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_8
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 700
-        width: 800
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a6249d67eb7ced4e96540f89f49dad7
-      internalID: -243766423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_9
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 700
-        width: 800
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 120a73974a86963418f1eadc23078681
-      internalID: -1620105642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_10
+      name: AltPlayerSpellFail_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 800
-        height: 700
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b49a8b35044eca4fb3761e5261128b0
-      internalID: -727579853
+      spriteID: 2d20feae35c348b43b68564e8a667d43
+      internalID: 804179254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_11
+      name: AltPlayerSpellFail_1
       rect:
         serializedVersion: 2
-        x: 800
+        x: 0
         y: 0
-        width: 800
-        height: 700
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03addb6fe5f539a41ae95881d0f23073
-      internalID: 1786183686
+      spriteID: 53b6e93cdccc5104c847610f7267ae34
+      internalID: 1326642279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_12
+      name: AltPlayerSpellFail_2
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 725
         y: 0
-        width: 800
-        height: 700
+        width: 725
+        height: 1000
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de76a82a849b14f4c8fab4a7913f1d4f
-      internalID: -1290918060
+      spriteID: 0d5d374f86010494c90b367831ee24a0
+      internalID: 2043043623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AltPlayerSpellFail_3
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 0
+        width: 725
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7e0077a4f8ae64fb322d5bde1696df
+      internalID: 1113475583
       vertices: []
       indices: 
       edges: []
@@ -373,28 +323,25 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures:
-    - texture: {fileID: 2800000, guid: 541f7d626dc6a6c488244d85c09f559b, type: 3}
+    - texture: {fileID: 2800000, guid: d3112d347dec6f04aa31ca92ff2682f6, type: 3}
       name: _Emission
     nameFileIdTable:
-      PlayerDed_0: 1699737753
-      PlayerDed_1: -1669577020
-      PlayerDed_10: -727579853
-      PlayerDed_11: 1786183686
-      PlayerDed_12: -1290918060
-      PlayerDed_2: 1143947727
-      PlayerDed_3: 505487439
-      PlayerDed_4: -1776482743
-      PlayerDed_5: -1018841042
-      PlayerDed_6: 1254278278
-      PlayerDed_7: -307205237
-      PlayerDed_8: -243766423
-      PlayerDed_9: -1620105642
+      AltPlayerSpellFail_0: -2125820073
+      AltPlayerSpellFail_1: 804179254
+      AltPlayerSpellFail_2: 1326642279
+      AltPlayerSpellFail_3: 2043043623
+      PlayerSpellFail_0: 1732387271
+      PlayerSpellFail_1: -881352540
+      PlayerSpellFail_2: 1521799416
+      PlayerSpellFail_3: -2098135848
+      PlayerSpellFail_4: 1961215769
+      PlayerSpellFail_5: -12971944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

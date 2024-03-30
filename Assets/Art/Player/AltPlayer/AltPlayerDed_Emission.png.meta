@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcbc9b47b93931547bd0fe47df557e35
+guid: 541f7d626dc6a6c488244d85c09f559b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,215 +93,333 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSpell_Emission_0
+      name: PlayerDed_Emission_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
-        width: 725
-        height: 1000
+        y: 1400
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe44668613aaf3488e40d9ee9c40d16
-      internalID: -316778574
+      spriteID: 5b658aa33a66c6d4fa06de268e0401fc
+      internalID: 458930921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_1
+      name: PlayerDed_Emission_1
       rect:
         serializedVersion: 2
-        x: 725
-        y: 1000
-        width: 725
-        height: 1000
+        x: 800
+        y: 1400
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459936bdb2455b24ab4689af74abb397
-      internalID: 493957634
+      spriteID: 5c6d7a9e2e4b3f6429e18b8f1f59a329
+      internalID: -164725920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_2
+      name: PlayerDed_Emission_2
       rect:
         serializedVersion: 2
-        x: 1450
-        y: 1000
-        width: 725
-        height: 1000
+        x: 1600
+        y: 1400
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d78a24944c5e63489ff247c1d270df3
-      internalID: -79186157
+      spriteID: e3162511ec125ea4dbe5509a7407ec9b
+      internalID: 1048460854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_3
+      name: PlayerDed_Emission_3
       rect:
         serializedVersion: 2
-        x: 2175
-        y: 1000
-        width: 725
-        height: 1000
+        x: 2400
+        y: 1400
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 464d9069d11c60f44b49dbec34f8fff2
-      internalID: -293719922
+      spriteID: 9a70ffd5d749dc742a2f85c092da063b
+      internalID: -1383241781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_4
+      name: PlayerDed_Emission_4
       rect:
         serializedVersion: 2
-        x: 2900
-        y: 1000
-        width: 725
-        height: 1000
+        x: 3200
+        y: 1400
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 059dcf7820783d4499ebccf687774044
-      internalID: 1559816751
+      spriteID: c0324c8a8fa308e4aae58f7f7ac994e8
+      internalID: -469963263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_5
+      name: PlayerDed_Emission_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2635659c361d6e44ac6fa4727a5085f
+      internalID: 2100960294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDed_Emission_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 700
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d780fa0359da7428270241c8acf998
+      internalID: -370581176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDed_Emission_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 700
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b505cac5aca9e42b562cb8eac96965
+      internalID: -1688163657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDed_Emission_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 700
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7c435bdc1e7b643ac7fb1443c670f6
+      internalID: -2074608719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDed_Emission_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 700
+        width: 800
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ddcc8599945fe84ebe193e2ce5f4e6d
+      internalID: 2084737606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDed_Emission_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 725
-        height: 1000
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc70206f018e854cb8b08d0fa31d698
-      internalID: 301632280
+      spriteID: e8b9d9f487195454bb52784345413f49
+      internalID: 1982676541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_6
+      name: PlayerDed_Emission_11
       rect:
         serializedVersion: 2
-        x: 725
+        x: 800
         y: 0
-        width: 725
-        height: 1000
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b004981c6831fd248a45c734df0b3e33
-      internalID: 1309096004
+      spriteID: a854214fab7323d4e9dd378efeed9cc8
+      internalID: 449088993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_7
+      name: PlayerDed_Emission_12
       rect:
         serializedVersion: 2
-        x: 1450
+        x: 1600
         y: 0
-        width: 725
-        height: 1000
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c097a82af31b43f47940f7f8e17f338c
-      internalID: 1078625550
+      spriteID: 60aae10f4c4daa7439722cb41a563642
+      internalID: -714566788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_8
+      name: PlayerDed_Emission_13
       rect:
         serializedVersion: 2
-        x: 2175
+        x: 2400
         y: 0
-        width: 725
-        height: 1000
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c3ea3c7ce8b95478d453dae876fd95
-      internalID: -471197155
+      spriteID: acb41fe3f3bd753408762ca03dc11d46
+      internalID: -381582890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpell_Emission_9
+      name: PlayerDed_Emission_14
       rect:
         serializedVersion: 2
-        x: 2900
+        x: 3200
         y: 0
-        width: 725
-        height: 1000
+        width: 800
+        height: 700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd8673d5e147ee540b3087442282518c
-      internalID: 1256032109
+      spriteID: b9f1c292cd3a5b844aa97cd2797575f6
+      internalID: -1918083152
       vertices: []
       indices: 
       edges: []
@@ -317,16 +435,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerSpell_Emission_0: -316778574
-      PlayerSpell_Emission_1: 493957634
-      PlayerSpell_Emission_2: -79186157
-      PlayerSpell_Emission_3: -293719922
-      PlayerSpell_Emission_4: 1559816751
-      PlayerSpell_Emission_5: 301632280
-      PlayerSpell_Emission_6: 1309096004
-      PlayerSpell_Emission_7: 1078625550
-      PlayerSpell_Emission_8: -471197155
-      PlayerSpell_Emission_9: 1256032109
+      PlayerDed_Emission_0: 458930921
+      PlayerDed_Emission_1: -164725920
+      PlayerDed_Emission_10: 1982676541
+      PlayerDed_Emission_11: 449088993
+      PlayerDed_Emission_12: -714566788
+      PlayerDed_Emission_13: -381582890
+      PlayerDed_Emission_14: -1918083152
+      PlayerDed_Emission_2: 1048460854
+      PlayerDed_Emission_3: -1383241781
+      PlayerDed_Emission_4: -469963263
+      PlayerDed_Emission_5: 2100960294
+      PlayerDed_Emission_6: -370581176
+      PlayerDed_Emission_7: -1688163657
+      PlayerDed_Emission_8: -2074608719
+      PlayerDed_Emission_9: 2084737606
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

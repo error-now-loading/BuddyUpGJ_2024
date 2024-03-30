@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 541f7d626dc6a6c488244d85c09f559b
+guid: a3d381ab54c17144a954e56c1d8c0730
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,320 +93,270 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerDed_Emission_0
+      name: PlayerDed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 1400
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b658aa33a66c6d4fa06de268e0401fc
-      internalID: 458930921
+      spriteID: c897a44c20bba9242846edaeda52655a
+      internalID: 1699737753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_1
+      name: PlayerDed_1
       rect:
         serializedVersion: 2
         x: 800
         y: 1400
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c6d7a9e2e4b3f6429e18b8f1f59a329
-      internalID: -164725920
+      spriteID: e50c4caeafad17541855f65dd69fc472
+      internalID: -1669577020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_2
+      name: PlayerDed_2
       rect:
         serializedVersion: 2
         x: 1600
         y: 1400
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3162511ec125ea4dbe5509a7407ec9b
-      internalID: 1048460854
+      spriteID: 5eeda808d41ec57419103ccf6442d4a0
+      internalID: 1143947727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_3
+      name: PlayerDed_3
       rect:
         serializedVersion: 2
         x: 2400
         y: 1400
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a70ffd5d749dc742a2f85c092da063b
-      internalID: -1383241781
+      spriteID: 04b26fa6a0155f049acd7d0b0a6cc468
+      internalID: 505487439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_4
+      name: PlayerDed_4
       rect:
         serializedVersion: 2
         x: 3200
         y: 1400
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0324c8a8fa308e4aae58f7f7ac994e8
-      internalID: -469963263
+      spriteID: ff51e51877eb51146b4c83663db745c0
+      internalID: -1776482743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_5
+      name: PlayerDed_5
       rect:
         serializedVersion: 2
         x: 0
         y: 700
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2635659c361d6e44ac6fa4727a5085f
-      internalID: 2100960294
+      spriteID: 1edfdc4a279131c49a39cacccde32b57
+      internalID: -1018841042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_6
+      name: PlayerDed_6
       rect:
         serializedVersion: 2
         x: 800
         y: 700
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61d780fa0359da7428270241c8acf998
-      internalID: -370581176
+      spriteID: ffead926f937c9846884a4624b41ddf9
+      internalID: 1254278278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_7
+      name: PlayerDed_7
       rect:
         serializedVersion: 2
         x: 1600
         y: 700
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37b505cac5aca9e42b562cb8eac96965
-      internalID: -1688163657
+      spriteID: 947a03d8b0d450343b050c95a9bc4abf
+      internalID: -307205237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_8
+      name: PlayerDed_8
       rect:
         serializedVersion: 2
         x: 2400
         y: 700
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba7c435bdc1e7b643ac7fb1443c670f6
-      internalID: -2074608719
+      spriteID: 5a6249d67eb7ced4e96540f89f49dad7
+      internalID: -243766423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_9
+      name: PlayerDed_9
       rect:
         serializedVersion: 2
         x: 3200
         y: 700
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ddcc8599945fe84ebe193e2ce5f4e6d
-      internalID: 2084737606
+      spriteID: 120a73974a86963418f1eadc23078681
+      internalID: -1620105642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_10
+      name: PlayerDed_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8b9d9f487195454bb52784345413f49
-      internalID: 1982676541
+      spriteID: 3b49a8b35044eca4fb3761e5261128b0
+      internalID: -727579853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDed_Emission_11
+      name: PlayerDed_11
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 800
         height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a854214fab7323d4e9dd378efeed9cc8
-      internalID: 449088993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_Emission_12
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 800
-        height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60aae10f4c4daa7439722cb41a563642
-      internalID: -714566788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_Emission_13
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 800
-        height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acb41fe3f3bd753408762ca03dc11d46
-      internalID: -381582890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDed_Emission_14
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 800
-        height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9f1c292cd3a5b844aa97cd2797575f6
-      internalID: -1918083152
+      spriteID: 03addb6fe5f539a41ae95881d0f23073
+      internalID: 1786183686
       vertices: []
       indices: 
       edges: []
@@ -415,28 +365,28 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 541f7d626dc6a6c488244d85c09f559b, type: 3}
+      name: _Emission
     nameFileIdTable:
-      PlayerDed_Emission_0: 458930921
-      PlayerDed_Emission_1: -164725920
-      PlayerDed_Emission_10: 1982676541
-      PlayerDed_Emission_11: 449088993
-      PlayerDed_Emission_12: -714566788
-      PlayerDed_Emission_13: -381582890
-      PlayerDed_Emission_14: -1918083152
-      PlayerDed_Emission_2: 1048460854
-      PlayerDed_Emission_3: -1383241781
-      PlayerDed_Emission_4: -469963263
-      PlayerDed_Emission_5: 2100960294
-      PlayerDed_Emission_6: -370581176
-      PlayerDed_Emission_7: -1688163657
-      PlayerDed_Emission_8: -2074608719
-      PlayerDed_Emission_9: 2084737606
+      PlayerDed_0: 1699737753
+      PlayerDed_1: -1669577020
+      PlayerDed_10: -727579853
+      PlayerDed_11: 1786183686
+      PlayerDed_12: -1290918060
+      PlayerDed_2: 1143947727
+      PlayerDed_3: 505487439
+      PlayerDed_4: -1776482743
+      PlayerDed_5: -1018841042
+      PlayerDed_6: 1254278278
+      PlayerDed_7: -307205237
+      PlayerDed_8: -243766423
+      PlayerDed_9: -1620105642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
