@@ -103,5 +103,6 @@ public class MainMenu : MenuBase
 #endif
 
         AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.mainMenuMusic);
+        SaveDataUtility.SaveBool(SaveDataUtility.SHROOLOO_MODE_KEY, false);
     }
 }

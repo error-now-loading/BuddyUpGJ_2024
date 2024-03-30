@@ -7,10 +7,11 @@ public static class SaveDataUtility
     public const string MUSIC_VOLUME = "MUSIC_VOLUME";
     public const string SFX_VOLUME = "SFX_VOLUME";
     public const string CURSOR_LOCK_MODE = "CURSOR_LOCK_MODE";
+    public const string SHROOLOO_MODE_KEY = "SHROOLOO";
 
 
 
-#region Data Saving Functions
+    #region Data Saving Functions
     public static void SaveInt(string key, int value)
     {
         PlayerPrefs.SetInt(key, value);
