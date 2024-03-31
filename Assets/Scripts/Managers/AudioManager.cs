@@ -45,6 +45,9 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] public AudioClip slugDeath = null;
     [SerializeField] public AudioClip slugMovement = null;
 
+    [Header("Secret")]
+    [SerializeField] public AudioClip SHROOLOO = null;
+
 
 
     private void Start()

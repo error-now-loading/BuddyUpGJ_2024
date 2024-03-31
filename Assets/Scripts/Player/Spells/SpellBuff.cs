@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpellBuff : MonoBehaviour
@@ -10,12 +8,15 @@ public class SpellBuff : MonoBehaviour
 
     private static SpellBuff activeInstance;
 
+
+
     void Start()
     {
         if (activeInstance != null)
         {
             Destroy(activeInstance.gameObject);
         }
+
         activeInstance = this;
         transform.position = Vector3.zero;
         MushroomMinion.SetActiveBuff(buffType);
@@ -31,7 +32,6 @@ public class SpellBuff : MonoBehaviour
             activeInstance = null;
             FindObjectOfType<PlayerGlow>().ResetMat();
             Destroy(gameObject);
-
         }
     }
 }

@@ -238,7 +238,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bc1573da1481524eaafc4ee1737e0c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c0c6910bc57e344baed3c2faa5b20d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -259,7 +259,7 @@ Animator:
   m_GameObject: {fileID: 1156029937880705687}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bed5608f52457cb4e865a1a5839f77dc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1efcda3c22308cb42ad7d79b28089ade, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -443,6 +443,10 @@ MonoBehaviour:
   winSpellDuration: 999
   selectedMushroomType: {fileID: 11400000, guid: 28ae6713ab8839b4eb7de4cb156821fc, type: 2}
   selectedSpellType: {fileID: 11400000, guid: 43d37f1406291db45981ea08f7fe329f, type: 2}
+  playerSpriteRenderer: {fileID: 487171454309144966}
+  altSpriteIdle: {fileID: 21300000, guid: 8bc1573da1481524eaafc4ee1737e0c7, type: 3}
+  playerAnimator: {fileID: 5352112159980894785}
+  altAnimatorController: {fileID: 9100000, guid: bed5608f52457cb4e865a1a5839f77dc, type: 2}
   playerSource: {fileID: 3686871566241151561}
 --- !u!114 &3096453865774465157
 MonoBehaviour:

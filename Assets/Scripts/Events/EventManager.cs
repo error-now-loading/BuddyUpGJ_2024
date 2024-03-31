@@ -5,7 +5,8 @@ public enum EventTypes
 {
     PauseMenuClosedExternally,
     PlayerDeath,
-    Victory
+    Victory,
+    SHROOLOO
 }
 
 // Meant to be used for globally-notified events that don't require data to be passed

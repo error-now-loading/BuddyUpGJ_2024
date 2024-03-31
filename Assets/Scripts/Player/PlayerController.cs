@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 using System;
+using UnityEditor.Animations;
 
 [RequireComponent(typeof(NutrientHandler))]
 
@@ -35,6 +36,13 @@ public class PlayerController : MonoBehaviour
     public event Action onRepeatCommand;                    //For Anim Repeat
     public event Action onTroopUpdate;                      //For UI Update
 
+    [Space]
+    [SerializeField] private SpriteRenderer playerSpriteRenderer = null;
+    [SerializeField] private Sprite altSpriteIdle = null;
+    [Space]
+    [SerializeField] private Animator playerAnimator = null;
+    [SerializeField] private AnimatorController altAnimatorController = null;
+    [Space]
     [SerializeField] private AudioSource playerSource = null;
 
 
@@ -44,6 +52,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mana = GetComponent<NutrientHandler>();
         MushroomMinion.ResetMinionCount();
+
+        if (SaveDataUtility.LoadBool(SaveDataUtility.SHROOLOO_MODE_KEY))
+        {
+            playerSpriteRenderer.sprite = altSpriteIdle;
+            playerAnimator.runtimeAnimatorController = altAnimatorController;
+        }
     }
 
     private void OnEnable()

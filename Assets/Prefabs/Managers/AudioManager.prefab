@@ -70,6 +70,7 @@ MonoBehaviour:
   slugAttack: {fileID: 8300000, guid: 9d7a9f69e17516a448ff438f6dead377, type: 3}
   slugDeath: {fileID: 8300000, guid: 25fefee75a8694447b057b9df38beb21, type: 3}
   slugMovement: {fileID: 8300000, guid: 5709375acd063bd45a7ea5132035a69e, type: 3}
+  SHROOLOO: {fileID: 8300000, guid: eb349a9d9d4749c498f1be6cfe2634ab, type: 3}
 --- !u!82 &7502709501485911175
 AudioSource:
   m_ObjectHideFlags: 0

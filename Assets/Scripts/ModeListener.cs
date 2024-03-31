@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.Controls;
 
 public class ModeListener : SceneSingleton<ModeListener>
 {
-    private List<Key> codeStorage = new List<Key>() { Key.S, Key.H, Key.R, Key.O, Key.O, Key.L, Key.O, Key.O, Key.Digit5, Key.E, Key.V, Key.E, Key.R };
+    private List<Key> codeStorage = null;
     private readonly List<Key> passcode = new List<Key>() { Key.S, Key.H, Key.R, Key.O, Key.O, Key.L, Key.O, Key.O, Key.Digit5, Key.E, Key.V, Key.E, Key.R };
     private bool codeEntered = false;
 
@@ -39,8 +39,9 @@ public class ModeListener : SceneSingleton<ModeListener>
         {
             // Activate Shrooloo mode flag
             SaveDataUtility.SaveBool(SaveDataUtility.SHROOLOO_MODE_KEY, true);
-
             codeEntered = true;
+
+            EventManager.instance.Notify(EventTypes.SHROOLOO);
         }
     }
 

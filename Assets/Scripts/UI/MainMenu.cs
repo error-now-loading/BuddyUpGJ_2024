@@ -19,6 +19,11 @@ public class MainMenu : MenuBase
     [SerializeField] private CanvasGroup tutorialPanelCG = null;
     [SerializeField] private Button tutorialPanelBackButton = null;
 
+    [Header("Secret")]
+    [SerializeField] private Image backgroundImage = null;
+    [SerializeField] private Sprite altBackground = null;
+    [SerializeField] private AudioSource secretSource = null;
+
 
 
     public override void Init()
@@ -104,5 +109,18 @@ public class MainMenu : MenuBase
 
         AudioManager.instance.PlayMusic(AudioManager.instance.sourceMusic, AudioManager.instance.mainMenuMusic);
         SaveDataUtility.SaveBool(SaveDataUtility.SHROOLOO_MODE_KEY, false);
+
+        EventManager.instance.Subscribe(EventTypes.SHROOLOO, ActivateShrooloo);
+    }
+
+    private void ActivateShrooloo()
+    {
+        backgroundImage.sprite = altBackground;
+        AudioManager.instance.PlaySFX(secretSource, AudioManager.instance.SHROOLOO);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.instance.Unsubscribe(EventTypes.SHROOLOO, ActivateShrooloo);
     }
 }
