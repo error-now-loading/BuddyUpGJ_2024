@@ -30,6 +30,7 @@ public class Enemy : Interactable
     [SerializeField] private float deathDuration = 1f;
     [SerializeField] private float wanderBaseDuration = 2f;
     [Space]
+    [SerializeField] private AudioSource attackSource = null;
     [SerializeField] private AudioSource enemySource = null;
 
     private PlayerController playerInRange;
@@ -46,8 +47,6 @@ public class Enemy : Interactable
     private bool isBusy;
     private Coroutine waitingTimerCoroutine;
 
-    private Vector2 spawnLocation = Vector2.zero;
-
     public bool isDed { private set; get; }         //For Anims
     public bool isEating { private set; get; }      //For Anims
     public event Action onAttack;                   //For Anims
@@ -57,19 +56,17 @@ public class Enemy : Interactable
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spawnLocation = gameObject.transform.position;
 
         onAttack += () =>
         {
             switch (enemyType)
             {
                 case EnemyType.Bug:
-                    AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.bugAttack);
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.bugAttack);
                     break;
 
                 case EnemyType.Slug:
-                    enemySource.Stop();
-                    AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugAttack);
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.slugAttack);
                     break;
 
                 case EnemyType.Error:
@@ -98,6 +95,12 @@ public class Enemy : Interactable
                             // Eat food
                             isEating = true;
                             closestEatable.InteractEnemy(this);
+
+                            if (enemyType == EnemyType.Bug && !attackSource.isPlaying)
+                            {
+                                AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.bugEating);
+                            }
+
                             TurnMeTowards(closestEatable.transform.position - transform.position);
                             BusyForSeconds(eatDuration);
                         }
@@ -200,14 +203,6 @@ public class Enemy : Interactable
         }
     }
 
-    private Interactable GetClosestEatable() // these functions irk me a bit, but they work xD
-    {
-        Interactable closestInteractable = decomposablesInRange
-        .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
-        .FirstOrDefault();
-        return closestInteractable;
-    }
-
     private void Move(Vector2 moveDir)
     {
         rb.velocity = moveDir * moveSpeed;
@@ -217,6 +212,14 @@ public class Enemy : Interactable
         {
             AudioManager.instance.PlaySFX(enemySource, AudioManager.instance.slugMovement);
         }
+    }
+
+    private Interactable GetClosestEatable() // these functions irk me a bit, but they work xD
+    {
+        Interactable closestInteractable = decomposablesInRange
+        .OrderBy(decomposable => Vector3.Distance(decomposable.transform.position, transform.position))
+        .FirstOrDefault();
+        return closestInteractable;
     }
 
     private Vector3 GetClosestFearable() // these functions irk me a bit, but they work xD

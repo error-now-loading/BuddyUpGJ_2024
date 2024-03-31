@@ -12,6 +12,8 @@ public class MushroomMinion : MonoBehaviour
     [SerializeField] private float getDuration = 1f;
     [SerializeField] private float deathDuration = 1f;
 
+    [SerializeField] private AudioSource attackSource = null;
+    [SerializeField] private AudioSource hurtSource = null;
     [SerializeField] private AudioSource minionSource = null;
 
     private Rigidbody2D rb;
@@ -118,6 +120,17 @@ public class MushroomMinion : MonoBehaviour
     public void GetHit(float damage)
     {
         health -= damage;
+
+        if (mushroomType.type == MushroomTypes.Bulky)
+        {
+            AudioManager.instance.PlaySFX(hurtSource, AudioManager.instance.bulkyHurt);
+        }
+
+        else
+        {
+            AudioManager.instance.PlaySFX(hurtSource, AudioManager.instance.minionHurt);
+        }
+
         if (health <= 0 && !isDed)
         {
             StartCoroutine(Die());
@@ -165,23 +178,56 @@ public class MushroomMinion : MonoBehaviour
             case MushroomJobs.Attack:
                 onAttack?.Invoke();
                 BusyForSeconds(attackDuration);
-                AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionAttack);
+
+                if (mushroomType.type == MushroomTypes.Bulky)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.bulkyAttack);
+                }
+
+                else if (mushroomType.type == MushroomTypes.Troopy)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.troopyAttack);
+                }
+
+                else if (mushroomType.type == MushroomTypes.Angy)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.angyAttack);
+                }
+                
                 break;
+
             case MushroomJobs.Decompose:
                 onAttack?.Invoke();
                 BusyForSeconds(attackDuration);
 
-                if (mushroomType.type == MushroomTypes.Ghosty)
+                if (mushroomType.type == MushroomTypes.Bulky)
                 {
-                    AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionAttack);
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.bulkyAttack);
+                }
+
+                else if (mushroomType.type == MushroomTypes.Troopy)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.troopyAttack);
+                }
+
+                else if (mushroomType.type == MushroomTypes.Angy)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.angyAttack);
+                }
+
+                else if (mushroomType.type == MushroomTypes.Ghosty)
+                {
+                    AudioManager.instance.PlaySFX(attackSource, AudioManager.instance.minionAttack);
                 }
 
                 break;
+
             case MushroomJobs.Carry:
                 isCarrying = true;
                 transform.position = interactableSpot.transform.position;
                 transform.parent = interactableSpot.transform;
                 break;
+
             case MushroomJobs.Error:
                 Debug.LogError("No Job type assigned to Interactable");
                 break;
@@ -239,7 +285,15 @@ public class MushroomMinion : MonoBehaviour
     {
         isDed = true;
 
-        AudioManager.instance.PlaySFX(minionSource, AudioManager.instance.minionDeath);
+        if (mushroomType.type == MushroomTypes.Bulky)
+        {
+            AudioManager.instance.PlaySFX(hurtSource, AudioManager.instance.bulkyDeath);
+        }
+
+        else
+        {
+            AudioManager.instance.PlaySFX(hurtSource, AudioManager.instance.minionDeath);
+        }
 
         rb.velocity = Vector3.zero;
         minionCount--;
