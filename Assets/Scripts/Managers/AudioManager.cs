@@ -32,13 +32,20 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] public AudioClip playerDeath = null;
 
     [Header("Minion SFX")]
+    [SerializeField] public AudioClip bulkyAttack = null;
+    [SerializeField] public AudioClip troopyAttack = null;
+    [SerializeField] public AudioClip angyAttack = null;
     [SerializeField] public AudioClip minionAttack = null;
     [SerializeField] public AudioClip minionGet = null;
+    [SerializeField] public AudioClip bulkyHurt = null;
+    [SerializeField] public AudioClip minionHurt = null;
+    [SerializeField] public AudioClip bulkyDeath = null;
     [SerializeField] public AudioClip minionDeath = null;
 
     [Header("Bug SFX")]
     [SerializeField] public AudioClip bugAttack = null;
     [SerializeField] public AudioClip bugDeath = null;
+    [SerializeField] public AudioClip bugEating = null;
 
     [Header("Slug SFX")]
     [SerializeField] public AudioClip slugAttack = null;
