@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 using System;
-using UnityEditor.Animations;
 
 [RequireComponent(typeof(NutrientHandler))]
 
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite altSpriteIdle = null;
     [Space]
     [SerializeField] private Animator playerAnimator = null;
-    [SerializeField] private AnimatorController altAnimatorController = null;
+    [SerializeField] private RuntimeAnimatorController altAnimatorController = null;
     [Space]
     [SerializeField] private AudioSource playerSource = null;
 

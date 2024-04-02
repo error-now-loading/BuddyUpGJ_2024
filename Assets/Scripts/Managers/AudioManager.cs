@@ -116,7 +116,7 @@ public class AudioManager : PersistentSingleton<AudioManager>
 
     public void LoadMasterVolume()
     {
-        master.SetFloat(MASTER_VOL, Mathf.Log(SaveDataUtility.LoadFloat(SaveDataUtility.MASTER_VOLUME)) * 20);
+        master.SetFloat(MASTER_VOL, Mathf.Log(SaveDataUtility.LoadFloat(SaveDataUtility.MASTER_VOLUME, 0.5f)) * 20);
     }
 
     public void LoadMusicVolume()
